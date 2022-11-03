@@ -1,12 +1,7 @@
-@font-face {
-  font-family: 'bahaa_elden';
-  src: url('janna_regular.woff') format('embedded-opentype'),
-    url('janna_regular.ttf') format('truetype');
-
-}
+ 
 
 * {
-  font-family: 'bahaa_elden';
+  font-family: 'Noto Kufi Arabic', sans-serif;
   --main-color: #be1e2d;
 
 }
@@ -1502,10 +1497,12 @@ textarea.addinstament {
 .bread_dasha {
   position: relative;
   top: -30px;
+ 
 }
 
 .bread .breadcrumb {
   background-color: #fff;
+  margin-top: 20px;
 }
 
 .bread a {
@@ -2143,4 +2140,42 @@ table tbody button {
   left: 0;
   color: var(--main-color);
   cursor: pointer;
+}
+
+/* START CLIENT SERVE */
+.client_serv{ 
+}
+.client_serv .data{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.client_serv .data h2{
+  font-size: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.client_serv .data .serv_link{
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.client_serv .data .serv_link a{
+  margin-top: 10px;
+}
+@media (max-width:991px) {
+  .client_serv .data .serv_link{
+    flex-direction: column;
+  }
+}
+/* END CLIENT SERVE */
+
+.data .myform .form-data{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
 }

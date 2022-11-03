@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$pagetitle = ' الرئيسية  '; 
+$pagetitle = ' الرئيسية  ';
 ?>
 <div class="container dashboard">
     <div class="bread bread_dasha">
@@ -12,15 +12,16 @@ $pagetitle = ' الرئيسية  ';
         </nav>
     </div>
 </div>
-
 <div class="client_serv">
     <div class="container">
         <div class="data">
             <h2> الخدمات </h2>
-            <a href="" class="btn btn-primary"> خدمة مراجعه قوائم مالية </a>
-            <a href="" class="btn btn-warning"> خدمة اعداد تقرير محاسبي </a>
-            <a href="" class="btn btn-secondary"> خدمة زكاة وضرائب</a>
-            <a href="" class="btn btn-dark">الدخول لشاشات السجلات</a>
+            <div class="serv_link">
+                <a href="" class="btn btn-primary"> خدمة مراجعه قوائم مالية </a>
+                <a href="main.php?dir=clients/accounting_report&page=add" class="btn btn-warning"> خدمة اعداد تقرير محاسبي </a>
+                <a href="" class="btn btn-secondary"> خدمة زكاة وضرائب</a>
+                <a href="" class="btn btn-dark">الدخول لشاشات السجلات</a>
+            </div>
         </div>
     </div>
 </div>

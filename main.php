@@ -4,9 +4,9 @@ $pagetitle = 'الرئيسية';
 session_start();
 include 'init.php';
 include $tem . 'top_navbar.php';
-if(isset($_SESSION['client_id'])){
+if (isset($_SESSION['client_id'])) {
     include $tem . 'left_sidebar_client.php';
-}else{
+} else {
     include $tem . 'left_sidebar.php';
 }
 
@@ -31,7 +31,7 @@ if(isset($_SESSION['client_id'])){
         } elseif ($dir == 'company' && $page == 'report') {
             include 'company/report.php';
         }
- 
+
         // START admin_users
         if ($dir == 'admin_users' && $page == 'add') {
             // include 'whatsapp/add.php';
@@ -43,121 +43,19 @@ if(isset($_SESSION['client_id'])){
             include 'admin_users/report.php';
         }
         // END admin_users
-
-
-        // START COUNTRY
-        if ($dir == 'country' && $page == 'add') {
-            include 'country/add.php';
-        } elseif ($dir == 'country' && $page == 'edit') {
-            include 'country/edit.php';
-        } elseif ($dir == 'country' && $page == 'delete') {
-            include 'country/delete.php';
-        } elseif ($dir == 'country' && $page == 'report') {
-            include 'country/report.php';
+        /***************** START CLIENTS FOLDER**************** */
+        // START Accounting Report ( عقد إعداد تقرير محاسبي )
+        if ($dir == 'clients/accounting_report' && $page == 'add') {
+            include 'clients/accounting_report/add.php';
+        } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
+            include 'clients/accounting_report/edit.php';
+        } elseif ($dir == 'clients/accounting_report' && $page == 'delete') {
+            include 'clients/accounting_report/delete.php';
+        } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
+            include 'clients/accounting_report/report.php';
         }
-        // END COUNTRY
-
-
-        // START COURSES
-        if ($dir == 'courses' && $page == 'add') {
-            include 'courses/add.php';
-        } elseif ($dir == 'courses' && $page == 'edit') {
-            include 'courses/edit.php';
-        } elseif ($dir == 'courses' && $page == 'delete') {
-            include 'courses/delete.php';
-        } elseif ($dir == 'courses' && $page == 'report') {
-            include 'courses/report.php';
-        }
-        // END COURSES
-
-
-        // START CUSTOMER
-        if ($dir == 'customer' && $page == 'add') {
-            include 'customer/add.php';
-        } elseif ($dir == 'customer' && $page == 'edit') {
-            include 'customer/edit.php';
-        } elseif ($dir == 'customer' && $page == 'delete') {
-            include 'customer/delete.php';
-        } elseif ($dir == 'customer' && $page == 'report') {
-            include 'customer/report.php';
-        }
-        // END CUSTOMER
-
-
-        // START DEGREE
-        if ($dir == 'degree' && $page == 'add') {
-            include 'degree/add.php';
-        } elseif ($dir == 'degree' && $page == 'edit') {
-            include 'degree/edit.php';
-        } elseif ($dir == 'degree' && $page == 'delete') {
-            include 'degree/delete.php';
-        } elseif ($dir == 'degree' && $page == 'report') {
-            include 'degree/report.php';
-        }
-        // END DEGREE
-
-
-        // START NEWS
-        if ($dir == 'news' && $page == 'add') {
-            include 'news/add.php';
-        } elseif ($dir == 'news' && $page == 'edit') {
-            include 'news/edit.php';
-        } elseif ($dir == 'news' && $page == 'delete') {
-            include 'news/delete.php';
-        } elseif ($dir == 'news' && $page == 'report') {
-            include 'news/report.php';
-        }
-        // END NEWS
-
-
-        // START specialist
-        if ($dir == 'specialist' && $page == 'add') {
-            include 'specialist/add.php';
-        } elseif ($dir == 'specialist' && $page == 'edit') {
-            include 'specialist/edit.php';
-        } elseif ($dir == 'specialist' && $page == 'delete') {
-            include 'specialist/delete.php';
-        } elseif ($dir == 'specialist' && $page == 'report') {
-            include 'specialist/report.php';
-        }
-        // END specialist
-
-
-
-        // START university
-        if ($dir == 'university' && $page == 'add') {
-            include 'university/add.php';
-        } elseif ($dir == 'university' && $page == 'edit') {
-            include 'university/edit.php';
-        } elseif ($dir == 'university' && $page == 'delete') {
-            include 'university/delete.php';
-        } elseif ($dir == 'university' && $page == 'report') {
-            include 'university/report.php';
-        }
-        // END university
-
-
-        // START users
-        if ($dir == 'users' && $page == 'add') {
-            include 'users/add.php';
-        } elseif ($dir == 'users' && $page == 'edit') {
-            include 'users/edit.php';
-        } elseif ($dir == 'users' && $page == 'delete') {
-            include 'users/delete.php';
-        } elseif ($dir == 'users' && $page == 'report') {
-            include 'users/report.php';
-        }
-        // END users
-         // START CONTACT
-         if ($dir == 'contact' && $page == 'add') {
-            include 'contact/add.php';
-        } elseif ($dir == 'contact' && $page == 'edit') {
-            include 'contact/edit.php';
-        } elseif ($dir == 'contact' && $page == 'delete') {
-            include 'contact/delete.php';
-        } elseif ($dir == 'contact' && $page == 'report') {
-            include 'contact/report.php';
-        }
+        // END Accounting Report
+        /***************** END CLIENTS FOLDER**************** */
         // END CONTACT
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

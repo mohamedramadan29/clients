@@ -1,0 +1,165 @@
+<div class="container">
+    <div class="data">
+        <div class="bread">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=client_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item active" aria-current="page">نموذج طلب عقد إعداد تقرير محاسبي</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="myform">
+            <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
+                <div class="row">
+
+                    <div class="col-lg-8">
+                        <div class="form-data">
+                            <div class="box2">
+                                <label id="name"> الاسم <span> * </span> </label>
+                                <input required class="form-control" type="text" name="name">
+                            </div>
+                            <div class="box2">
+                                <label id="name_en"> رقم الهاتف <span> * </span></label>
+                                <input class="form-control" type="tel" name="com_mobile">
+                            </div>
+                            <div class="box2">
+                                <label id="car_model"> البريد الالكتروني <span> * </span></label>
+                                <input class="form-control" type="email" name="com_email">
+                            </div>
+                            <div class="box2">
+                                <label id="car_model"> العنوان <span> * </span></label>
+                                <input class="form-control" type="text" name="address">
+                            </div>
+                            <div class="box">
+                                <label id="car_model"> بداية الصيانه </label>
+                                <input class="form-control" type="date" name="start" data-date="" data-date-format="DD/MM/YYYY" value="">
+                            </div>
+                            <div class="box2">
+                                <label id="car_pricepay"> عدد الزيارات <span> * </span> </label>
+                                <input class="form-control" type="number" name="num_visit" required>
+                            </div>
+                            <div class="box2">
+                                <label id="name_en"> حالة الصيانه </label>
+                                <select name="active" id="cat_active" class="form-control">
+                                    <option value=""> حالة الصيانه </option>
+                                    <option value="فعال"> <?php echo $lang['active']; ?></option>
+                                    <option value="غير فعال"> <?php echo $lang['no_active']; ?></option>
+                                </select>
+                            </div>
+                            <div class="box">
+                                <label id="car_pricerent"> <?php echo $lang['notes']; ?> </label>
+                                <textarea name="note" class="form-control"></textarea>
+                            </div>
+                            <div class="box submit_box">
+                                <input class="btn btn-primary text-center" name="add_car" type="submit" value="اضافة صيانة جديدة">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['add_car'])) {
+            $name = $_POST['name'];
+            $start = $_POST['start'];
+            $end = $end = date('Y-m-d', strtotime($start . ' + 364 days'));
+            $num_visit = $_POST['num_visit'];
+            $active = $_POST['active'];
+            $note = $_POST['note'];
+            $com_email = $_POST['com_email'];
+            $com_mobile = $_POST['com_mobile'];
+            $address = $_POST['address'];
+            /// More Validation To Show Error
+            $formerror = [];
+            if (empty($name)) {
+                $formerror[] = 'Please Insert Your Name';
+            }
+            foreach ($formerror as $errors) {
+                echo "<div class='alert alert-danger danger_message'>" .
+                    $errors .
+                    '</div>';
+            }
+            if (empty($formerror)) {
+                $stmt = $connect->prepare("INSERT INTO fire (name,com_email,com_mobile,start,
+                end,address,num_visit,active,note)
+                VALUES (:zname,:zemail,:zmobile,:zstart,:zend,:zaddress,:zperoid,:zactive,:znote)");
+                $stmt->execute([
+                    'zname' => $name,
+                    'zemail' => $com_email,
+                    'zmobile' => $com_mobile,
+                    'zstart' => $start,
+                    'zend' => $end,
+                    'zaddress' => $address,
+                    'zperoid' => $num_visit,
+                    'zactive' => $active,
+                    'znote' => $note,
+                ]);
+                if ($stmt) { ?>
+                    <!--  <div class="alert-success">
+
+                    </div> -->
+</div>
+<?php
+
+                    $stmt = $connect->prepare('SELECT * FROM fire ORDER BY fire_id DESC LIMIT 1');
+                    $stmt->execute();
+                    $allcom = $stmt->fetchAll();
+                    foreach ($allcom as $com) {
+                        $start_date = $com['start'];
+                        $date1 = strtotime($start_date);
+                        $end_date = $com['end'];
+                        $date2 = strtotime($end_date);
+                        $visit_num = $com['num_visit'];
+                        $correct_date  = $date2 - $date1;
+                        $correct_date  = abs(round($correct_date / 86400));
+                        $time_to_visit = round($correct_date / $visit_num);
+                        //$new_correct_date = $correct_date - $time_to_visit;
+                        $new_correct_date = $correct_date;
+                        $new_time_visit = round($new_correct_date / $visit_num);
+                        //  $month_num = round($new_time_visit / 30);
+                        if ($visit_num == 12) {
+                            $month_num = 1;
+                        }
+                        if ($visit_num == 6) {
+                            $month_num = 2;
+                        }
+                        if ($visit_num == 4) {
+                            $month_num = 3;
+                        }
+                        if ($visit_num == 2) {
+                            $month_num = 6;
+                        }
+                        $sales_due_date =  $start_date;
+                        $time = $start_date;
+                        $stmt  = $connect->prepare('INSERT INTO fire_appointment (fire_id,visit_date)
+                        VALUES(:zfire_id,:zvisit_date)');
+                        $stmt->execute(array(
+                            'zfire_id' => $com['fire_id'],
+                            'zvisit_date' => $time
+                        ));
+                        for ($i = 1; $i < $visit_num; $i++) {
+                            $due_dates[] = $sales_due_date;
+                            $time = date('Y-m-d', strtotime('+' . $month_num . 'month', strtotime($sales_due_date)));
+                            $sales_due_date = $time;
+                            $stmt  = $connect->prepare('INSERT INTO fire_appointment (fire_id,visit_date)
+                            VALUES(:zfire_id,:zvisit_date)');
+                            $stmt->execute(array(
+                                'zfire_id' => $com['fire_id'],
+                                'zvisit_date' => $time
+                            ));
+                        }
+                    }
+?>
+<div class='container'>
+    <div class='alert alert-success' role='alert'> تم اضافة شركة جديدة بنجاح </div>
+</div>
+
+
+<?php header('refresh:3;url=main.php?dir=fire&page=report'); ?>
+<?php
+                }
+            }
+        }
+    }
