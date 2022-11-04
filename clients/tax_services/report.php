@@ -17,7 +17,7 @@
     <div class="table-responsive">
         <div class="add_new_record">
             <button type="button" class="btn btn-primary btn-sm">
-                <a href="main.php?dir=clients/accounting_report&page=add"> طلب عقد إعداد تقرير محاسبي جديد </a> <i class="fa fa-plus"></i>
+                <a href="main.php?dir=clients/tax_services&page=add">عقد ارتباط لخدمة زكاة وضرائب جديد</a> <i class="fa fa-plus"></i>
             </button>
         </div>
         <table id="tableone" class="table table-light table-striped table-hover table-bordered">
@@ -26,27 +26,27 @@
                     <th>اسم العميـــــــــل</th>
                     <th> الكيان الـقـانـونـي </th>
                     <th> رقم السجل التجاري </th>
-                    <th> اسم مدير المنشأة </th>
+                    <th> اسم المالك/المدير </th>
                     <th> </th>
                 </tr>
             </thead>
             <tbody> <?php
-                    $stmt = $connect->prepare('SELECT * FROM accounting_report');
+                    $stmt = $connect->prepare('SELECT * FROM tax_report');
                     $stmt->execute();
                     $alltype = $stmt->fetchAll();
                     foreach ($alltype as $ar_data) { ?> <tr>
-                        <td><?php echo $ar_data['ar_client_name']; ?> </td>
-                        <td><?php echo $ar_data['ar_legal']; ?> </td>
-                        <td> <?php echo $ar_data['ar_account_num']; ?> </td>
-                        <td> <?php echo $ar_data['ar_manager_name']; ?> </td>
+                        <td><?php echo $ar_data['tax_client_name']; ?> </td>
+                        <td><?php echo $ar_data['tax_legal']; ?> </td>
+                        <td> <?php echo $ar_data['tax_account_num']; ?> </td>
+                        <td> <?php echo $ar_data['tax_manager_name']; ?> </td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $ar_data['ar_id']; ?>">
+                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $ar_data['tax_id']; ?>">
                                 مشاهدة <i class="fa fa-eye"></i>
                             </button>
-                            <a class="btn btn-primary btn-sm" href="main.php?dir=clients/accounting_report&page=edit&ar_id=<?php echo $ar_data['ar_id']; ?> ">
+                            <a class="btn btn-primary btn-sm" href="main.php?dir=clients/tax_services&page=edit&tax_id=<?php echo $ar_data['tax_id']; ?> ">
                                 تعديل <i class="fa fa-edit"></i>
                             </a>
-                            <a class="confirm btn btn-danger btn-sm" href="main.php?dir=clients/accounting_report&page=delete&ar_id=<?php echo $ar_data['ar_id']; ?> ">
+                            <a class="confirm btn btn-danger btn-sm" href="main.php?dir=clients/tax_services&page=delete&tax_id=<?php echo $ar_data['tax_id']; ?> ">
                                 حذف <i class="fa fa-trash"></i>
                             </a>
                         </td>
@@ -54,7 +54,7 @@
                             ?>
                     <!-- START MODEL TO Edit RECORD  -->
                     <!-- START MODEL VIEW  -->
-                    <div class="modal fade" id="viewrecord<?php echo $ar_data['ar_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="viewrecord<?php echo $ar_data['tax_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

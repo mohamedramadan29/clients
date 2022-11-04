@@ -19,8 +19,9 @@ $ar_data = $stmt->fetch();
         <div class="myform">
 
             <!-- ********************** END CODE ********************** -->
-            <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_edit" method="POST" autocomplete="on" enctype="multipart/form-data">
+            <form id="edit_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_edit" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
+                <input required class="form-control" type="hidden" name="ar_id" value="<?php echo $ar_id ?>">
 
                     <div class="col-lg-8">
                         <div class="form-data">

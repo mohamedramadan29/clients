@@ -20,12 +20,12 @@
                           </p>
                       </a>
                   </li>
-                  <!-- START WHATSAPP -->
+                  <!-- ******************--------------------->
                   <li class="nav-item" id="lnk-whatsapp">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-users color2"></i>
                           <p>
-                                طلب عقد إرتباط
+                              طلب عقد إرتباط
                               <i class="right fas fa-angle-left "></i>
                           </p>
                       </a>
@@ -38,17 +38,48 @@
                           </li>
                       </ul>
                   </li>
+                  <!-- ******************--------------------->
                   <li class="nav-item" id="lnk-accounting">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-users color2"></i>
                           <p>
-                                إعداد تقرير محاسبي
+                              إعداد تقرير محاسبي
                               <i class="right fas fa-angle-left "></i>
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-accounting">
+                              <a href="main.php?dir=clients/accounting_report&page=add" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> اضافة عقد جديد </p>
+                              </a>
+                          </li>
                           <li class="nav-item" id="lnk-rep-accounting">
                               <a href="main.php?dir=clients/accounting_report&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة العقود </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <!-- ******************--------------------->
+                  <li class="nav-item" id="lnk-tax-services">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-users color2"></i>
+                          <p>
+                              خدمة زكاة وضرائب
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-tax-services">
+                              <a href="main.php?dir=clients/tax_services&page=add" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> اضافة عقد جديد </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-tax-services">
+                              <a href="main.php?dir=clients/tax_services&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
                                   <p> مشاهدة العقود </p>
                               </a>

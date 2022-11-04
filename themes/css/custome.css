@@ -124,7 +124,7 @@
  }
 
  .category .data .myform .box {
-   margin-top: 10px;
+   margin-top: 15px;
  }
 
  .category .data .myform .box2 {
@@ -667,6 +667,10 @@
  }
 
  .box2 span {
+   color: red;
+ }
+
+ .box span {
    color: red;
  }
 
@@ -1542,7 +1546,7 @@
  }
 
  .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
- 
+
    color: #fff;
  }
 
@@ -1931,9 +1935,10 @@
  }
 
  .nav li.active-tab {
-   background-color: #fff;
+   background-color: #e9e9e9;
    color: #fff;
-   border-radius: 7px;
+   border-radius: 4px;
+   height: 37px;
  }
 
  .nav li.active-tab a {
@@ -2212,11 +2217,62 @@
    color: #007bff;
  }
 
- .category .data .myform .upload-wrapper label{
-  width: 100%;
- } 
- .category .data .myform .upload-wrapper .hint{
-  font-size: 14px;
-  color: #767474;
- 
+ .category .data .myform .upload-wrapper label {
+   width: 100%;
+ }
+
+ .category .data .myform .upload-wrapper .hint {
+   font-size: 14px;
+   color: #767474;
+
+ }
+
+ .files_style {}
+
+ .files_style p {}
+
+ .files_style p a {
+   text-decoration: none;
+   background: var(--blue);
+   padding: 5px;
+   margin-top: 0px;
+   border-radius: 2px;
+
+ }
+
+ .box .check_box_items {
+   margin-top: 15px;
+   display: flex;
+   border: 1px solid #f1f1f1;
+   padding: 5px;
+   border-radius: 4px;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   -ms-border-radius: 4px;
+   -o-border-radius: 4px;
+ }
+
+ .box .check_box_items .form-check {
+   margin-right: 10px;
+   margin-left: 10px;
+   margin-top: 4px;
+ }
+
+ .box .check_box_items .form-check label {
+   font-size: 18px;
+   color: #28292a;
+ }
+
+ #checked_input {
+   display: none;
+ }
+
+ .box .check_box_items .form-check input {}
+
+ .dataTables_wrapper {
+   position: relative;
+   clear: both;
+   background: #fff;
+   border-radius: 5px;
+   padding: 10px;
  }

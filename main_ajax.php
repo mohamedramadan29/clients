@@ -24,6 +24,14 @@ include 'init.php';
             include 'clients/accounting_report/ajax_add.php';
         } elseif ($dir == 'clients/accounting_report' && $page == 'ajax_edit') {
             include 'clients/accounting_report/ajax_edit.php';
-        } 
+        }
         // END Accounting Report
+
+        // START Tax Services ( نموذج طلب عقد ارتباط لخدمة زكاة وضرائب)
+        if ($dir == 'clients/tax_services' && $page == 'ajax_add') {
+            include 'clients/tax_services/ajax_add.php';
+        } elseif ($dir == 'clients/tax_services' && $page == 'ajax_edit') {
+            include 'clients/tax_services/ajax_edit.php';
+        }
+        // END Tax Services
         ?>

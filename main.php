@@ -45,7 +45,7 @@ if (isset($_SESSION['client_id'])) {
         // END admin_users
         /***************** START CLIENTS FOLDER**************** */
         // START Accounting Report ( عقد إعداد تقرير محاسبي )
-        if(isset($_SESSION['client_id'])){
+        if (isset($_SESSION['client_id'])) {
             if ($dir == 'clients/accounting_report' && $page == 'add') {
                 include 'clients/accounting_report/add.php';
             } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
@@ -55,11 +55,29 @@ if (isset($_SESSION['client_id'])) {
             } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
                 include 'clients/accounting_report/report.php';
             }
-        }else{
+        } else {
             header('Location:index.php');
             exit();
         }
         // END Accounting Report
+
+        /***************** START CLIENTS FOLDER**************** */
+        // START Tax Services ( نموذج طلب عقد ارتباط لخدمة زكاة وضرائب)
+        if (isset($_SESSION['client_id'])) {
+            if ($dir == 'clients/tax_services' && $page == 'add') {
+                include 'clients/tax_services/add.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'edit') {
+                include 'clients/tax_services/edit.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'delete') {
+                include 'clients/tax_services/delete.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'report') {
+                include 'clients/tax_services/report.php';
+            }
+        } else {
+            header('Location:index.php');
+            exit();
+        }
+        // END Tax Services
         /***************** END CLIENTS FOLDER**************** */
         // END CONTACT
         if ($dir == 'dashboard' && $page == 'dashboard') {

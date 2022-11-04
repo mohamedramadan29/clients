@@ -92,12 +92,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'zuser_id' => $user_id,
             ]);
             if ($stmt) { ?>
-                <script>
+                 <script>
                     document.getElementById("add_form").reset();
-                    /*setTimeout(() => {
-                        let url = "login.php";
+                    setTimeout(() => {
+                        let url = "main.php?dir=clients/accounting_report&page=report";
                         window.location.href = url;
-                    }, 6000);*/
+                    }, 2000);
                 </script>
                 <!--  <div class="alert-success">
                     </div> -->

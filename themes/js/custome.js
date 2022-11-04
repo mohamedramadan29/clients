@@ -202,7 +202,24 @@ $(document).ready(function () {
       $("#lnk-rep-whatsapp").addClass("active-tab");
     }
   }
-
+  /////////////////////////////////////
+  if (window.location.href.indexOf("dir=clients/accounting_report") != -1) {
+    $("#lnk-accounting").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-accounting").addClass("active-tab");
+    } else {
+      $("#lnk-rep-accounting").addClass("active-tab");
+    }
+  }
+  //////////////////////////////////////////////
+  if (window.location.href.indexOf("dir=clients/tax_services") != -1) {
+    $("#lnk-tax-services").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-tax-services").addClass("active-tab");
+    } else {
+      $("#lnk-rep-tax-services").addClass("active-tab");
+    }
+  }
   // END CONTACT
 
   $(".fa-eye").click(function () {
@@ -256,5 +273,5 @@ $(document).ready(function () {
     });
   });
 
-  
+
 });
