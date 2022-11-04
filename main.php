@@ -45,14 +45,19 @@ if (isset($_SESSION['client_id'])) {
         // END admin_users
         /***************** START CLIENTS FOLDER**************** */
         // START Accounting Report ( عقد إعداد تقرير محاسبي )
-        if ($dir == 'clients/accounting_report' && $page == 'add') {
-            include 'clients/accounting_report/add.php';
-        } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
-            include 'clients/accounting_report/edit.php';
-        } elseif ($dir == 'clients/accounting_report' && $page == 'delete') {
-            include 'clients/accounting_report/delete.php';
-        } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
-            include 'clients/accounting_report/report.php';
+        if(isset($_SESSION['client_id'])){
+            if ($dir == 'clients/accounting_report' && $page == 'add') {
+                include 'clients/accounting_report/add.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
+                include 'clients/accounting_report/edit.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'delete') {
+                include 'clients/accounting_report/delete.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
+                include 'clients/accounting_report/report.php';
+            }
+        }else{
+            header('Location:index.php');
+            exit();
         }
         // END Accounting Report
         /***************** END CLIENTS FOLDER**************** */

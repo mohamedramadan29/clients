@@ -20,7 +20,7 @@
 
   <!-- Bootstrap 4 -->
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
-  </script>
+  </script> 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
@@ -39,11 +39,12 @@
 
   <!-- END RATING SYSTEM -->
   <!-- popper js -->
+
   <script src="<?php echo $js; ?>popper.min.js"></script>
   <script src="https://kit.fontawesome.com/588e070751.js" crossorigin="anonymous"></script>
   <!-- Bootstrap -->
 
-
+  <script src="<?php echo $js; ?>upload_file.js"></script>
   <script src="<?php echo $js; ?>custome.js"></script>
   <script src="dist/js/adminlte.js"></script>
   <!-- START SEND DATA WITH AJAX -->
@@ -52,7 +53,7 @@
     $(function() {
       $(document).ready(function() {
         var percent = $('#percent');
-        var status = $('.status');
+        var status = $('#status');
 
         $('.ajax_form').ajaxForm({
           beforeSend: function() {
@@ -63,19 +64,13 @@
           uploadProgress: function(event, position, total, percentComplete) {
             var percentVal = percentComplete + '%';
             percent.html(percentVal);
-
             $("#percent").html(percentVal);
             $("#percent").width(percentVal);
           },
           complete: function(xhr) {
             status.html(xhr.responseText);
-            setTimeout(() => {
-              $('.modal').modal('hide');
-            }, 1500);
-            setTimeout(() => {
-              $('.modal').modal('hide');
-              document.location.reload();
-            }, 2000);
+          },
+          success: function() {
 
           }
         });

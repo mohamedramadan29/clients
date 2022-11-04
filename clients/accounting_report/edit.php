@@ -1,10 +1,17 @@
+
+<?php 
+$ar_id = $_GET["ar_id"];
+$stmt = $connect->prepare("SELECT * FROM accounting_report WHERE ar_id=?");
+$stmt->execute(array($ar_id));
+$ar_data = $stmt->fetch();
+?>
 <div class="container-fluid">
     <div class="data">
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=client_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
-                    <li class="breadcrumb-item active" aria-current="page">نموذج طلب عقد إعداد تقرير محاسبي</li>
+                    <li class="breadcrumb-item active" aria-current="page">تعديل طلب عقد إعداد تقرير محاسبي</li>
                 </ol>
             </nav>
         </div>
@@ -12,80 +19,74 @@
         <div class="myform">
 
             <!-- ********************** END CODE ********************** -->
-            <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
+            <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_edit" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="col-lg-8">
                         <div class="form-data">
-                            <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
+
                             <div class="box2">
                                 <label id="name"> اســـم العميـــــــــل <span> * </span> </label>
-                                <input required class="form-control" type="text" name="ar_client_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_client_name']; ?>">
+                                <input required class="form-control" type="text" name="ar_client_name" value="<?php echo $ar_data["ar_client_name"]; ?>">
                             </div>
                             <div class="box2">
                                 <label id="name_en">الـكـيـان الـقـانـونـي<span> * </span></label>
                                 <select name="ar_legal" class="form-control" id="">
                                     <option value=""> -- اختر الكيان الـقـانـونـي -- </option>
-                                    <?php
-                                    if (($_SERVER["REQUEST_METHOD"] == "POST")) { ?>
-                                        <option selected value="<?php $_REQUEST['ar_legal'] ?>"> <?php echo $_REQUEST['ar_legal'] ?> </option>
-                                    <?php
-                                    }
-                                    ?>
-                                    <option value="مؤسسة فردية">مؤسسة فردية </option>
-                                    <option value="شركة ذات مسئولية محدودة"> شركة ذات مسئولية محدودة </option>
-                                    <option value="شركة تضامنية"> شركة تضامنية </option>
-                                    <option value="شركة مساهمة"> شركة مساهمة </option>
-                                    <option value="جهة غير هادفة للربح"> جهة غير هادفة للربح </option>
-                                    <option value="فردي"> فردي </option>
+                                    <option <?php if($ar_data["ar_legal"] == "مؤسسة فردية") echo "selected";?> value="مؤسسة فردية">مؤسسة فردية </option>
+                                    <option <?php if($ar_data["ar_legal"] == "شركة ذات مسئولية محدودة") echo "selected";?> value="شركة ذات مسئولية محدودة"> شركة ذات مسئولية محدودة </option>
+                                    <option <?php if($ar_data["ar_legal"] == "شركة تضامنية") echo "selected";?> value="شركة تضامنية"> شركة تضامنية </option>
+                                    <option <?php if($ar_data["ar_legal"] == "شركة مساهمة") echo "selected";?> value="شركة مساهمة"> شركة مساهمة </option>
+                                    <option <?php if($ar_data["ar_legal"] == "جهة غير هادفة للربح") echo "selected";?> value="جهة غير هادفة للربح"> جهة غير هادفة للربح </option>
+                                    <option <?php if($ar_data["ar_legal"] == "فردي") echo "selected";?> value="فردي"> فردي </option>
                                 </select>
 
                             </div>
                             <div class="box2">
                                 <label id="car_model">رقم السجل التجاري<span> * </span></label>
-                                <input required class="form-control" type="text" name="ar_account_num" placeholder=" رقم السجل التجاري 10 ارقام " value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_account_num']; ?>">
+                                <input required class="form-control" type="text" name="ar_account_num" placeholder=" رقم السجل التجاري 10 ارقام " value="<?php echo $ar_data["ar_account_num"]; ?>">
 
                             </div>
                             <div class="box2">
                                 <label id="car_model"> اسـم مـديـر المنشأة <span> * </span></label>
-                                <input required class="form-control" type="text" name="ar_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_manager_name']; ?>">
+                                <input required class="form-control" type="text" name="ar_manager_name" value="<?php echo $ar_data["ar_manager_name"];  ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_model">رقم جوال المـديـر <span> * </span></label>
-                                <input required class="form-control" type="text" placeholder=" رقم جوال المدير يجب ان يكون 10 ارقام" name="ar_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_manager_phone']; ?>">
+                                <input required class="form-control" type="text" placeholder=" رقم جوال المدير يجب ان يكون 10 ارقام" name="ar_manager_phone" value="<?php echo $ar_data["ar_manager_phone"];  ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay">البريد الإلكتروني للعميل<span> * </span> </label>
-                                <input required class="form-control" type="email" name="ar_client_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_client_email']; ?>">
+                                <input required class="form-control" type="email" name="ar_client_email" value="<?php echo $ar_data["ar_client_email"]; ?>">
                             </div>
                             <div class="box">
                                 <label id="car_pricerent"> أذكرسبب طلب الخدمة <span> * </span></label>
-                                <textarea required name="ar_serv_reason" placeholder="حدد الغرض والسبب من طلب التقرير بالتفصيل، وجود شك جنائي ، التأكد من صحة النظام المالي للمنشأة، إلخ" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_serv_reason']; ?></textarea>
+                                <textarea required name="ar_serv_reason" placeholder="حدد الغرض والسبب من طلب التقرير بالتفصيل، وجود شك جنائي ، التأكد من صحة النظام المالي للمنشأة، إلخ" class="form-control"><?php echo $ar_data["ar_serv_reason"];  ?></textarea>
                             </div>
                             <div class="box">
                                 <label id="car_pricerent"> النطاق المستندي <span> * </span></label>
-                                <textarea required name="ar_doc_scop" placeholder="حدد نوع ووصف للمستندات التي سيتم تقديمها إلينا كمكتب" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_doc_scop']; ?></textarea>
+                                <textarea required name="ar_doc_scop" placeholder="حدد نوع ووصف للمستندات التي سيتم تقديمها إلينا كمكتب" class="form-control"><?php echo $ar_data["ar_doc_scop"];  ?></textarea>
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay"> النطاق الزمني <span> * </span> </label>
                                 <br>
                                 <label id="car_pricepay">أقــدم مستند كان بتاريخ<span> * </span> </label>
-                                <input required class="form-control" type="date" name="ar_old_doc" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_old_doc']; ?>">
+                                <input required class="form-control" type="date" name="ar_old_doc" value="<?php echo $ar_data["ar_old_doc"];  ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay">أحدث مستند كان بتاريخ<span> * </span> </label>
-                                <input required class="form-control" type="date" name="ar_new_doc" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_new_doc']; ?>">
+                                <input required class="form-control" type="date" name="ar_new_doc" value="<?php echo $ar_data["ar_new_doc"];  ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay"> أعدها <span> * </span> </label>
-                                <input required class="form-control" type="text" placeholder="فضلا ضع اسمك هنا" name="ar_prepare" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_prepare']; ?>">
+                                <input required class="form-control" type="text" placeholder="فضلا ضع اسمك هنا" name="ar_prepare" value="<?php echo $ar_data["ar_prepare"];  ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay"> تاريخ الإعداد <span> * </span> </label>
-                                <input required class="form-control" type="date" name="ar_prepare_date" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_prepare_date']; ?>">
+                                <input required class="form-control" type="date" name="ar_prepare_date" value="<?php echo $ar_data["ar_prepare_date"];  ?>">
                             </div>
                             <div class="box">
-                                <label> المستندات المؤيدة للطلب (المرفقات) <span> * </span> </label>
+                                <label> هل تريد تغير المستندات المؤيدة للطلب  <span> * </span> </label>
                                 <div class="check_prototype_resualt">
                                     <div class="box mb-3">
                                         <div class="upload-file">
@@ -95,8 +96,8 @@
                                                     <p> <a> اختر الملفات للرفع
                                                         </a>
                                                     </p>
-                                                </label> 
-                                                <p class="hint"> يمكنك اختيار  اكثر من ملف </p>
+                                                </label>
+                                                <p class="hint"> اذا كنت تريد تغير الملفات يجب عليك رفع جميع المفات مرة اخري </p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -109,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="box submit_box">
-                                <input class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
+                                <input class="btn btn-primary text-center" name="add_car" type="submit" value="تعديل الطلب">
                             </div>
                         </div>
                     </div>
