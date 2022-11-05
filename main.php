@@ -78,6 +78,23 @@ if (isset($_SESSION['client_id'])) {
             exit();
         }
         // END Tax Services
+
+        // START Contract Request ( نموذج طلب عقد إرتباط مراجعة )
+        if (isset($_SESSION['client_id'])) {
+            if ($dir == 'clients/contract_request' && $page == 'add') {
+                include 'clients/contract_request/add.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'edit') {
+                include 'clients/contract_request/edit.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'delete') {
+                include 'clients/contract_request/delete.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'report') {
+                include 'clients/contract_request/report.php';
+            }
+        } else {
+            header('Location:index.php');
+            exit();
+        }
+        // END Contract Request
         /***************** END CLIENTS FOLDER**************** */
         // END CONTACT
         if ($dir == 'dashboard' && $page == 'dashboard') {

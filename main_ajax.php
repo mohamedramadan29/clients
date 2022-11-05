@@ -34,4 +34,11 @@ include 'init.php';
             include 'clients/tax_services/ajax_edit.php';
         }
         // END Tax Services
+        // START Contract Request ( نموذج طلب عقد إرتباط مراجعة )
+        if ($dir == 'clients/contract_request' && $page == 'ajax_add') {
+            include 'clients/contract_request/ajax_add.php';
+        } elseif ($dir == 'clients/contract_request' && $page == 'ajax_edit') {
+            include 'clients/contract_request/ajax_edit.php';
+        }
+        // END Contract Request
         ?>
