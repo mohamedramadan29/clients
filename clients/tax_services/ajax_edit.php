@@ -4,13 +4,13 @@ include "config.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['add_car'])) {
-        $ar_id = $_POST['ar_id'];
-
+        $tax_id = $_POST['tax_id'];
         $file = '';
         $file_tmp = '';
         $location = '';
         $uploadplace = "uploads/";
         if (isset($_FILES['files']['name'])) {
+
             foreach ($_FILES['files']['name'] as $key => $val) {
                 $file = $_FILES['files']['name'][$key];
                 $file_tmp = $_FILES['files']['tmp_name'][$key];
@@ -18,78 +18,75 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $location .= $file . " ";
             }
         }
-        $ar_client_name = $_POST['ar_client_name'];
-        $ar_legal = $_POST['ar_legal'];
-        $ar_account_num =  $_POST['ar_account_num'];
-        $ar_manager_name = $_POST['ar_manager_name'];
-        $ar_manager_phone = $_POST['ar_manager_phone'];
-        $ar_client_email = $_POST['ar_client_email'];
-        $ar_serv_reason = $_POST['ar_serv_reason'];
-        $ar_doc_scop = $_POST['ar_doc_scop'];
-        $ar_old_doc = $_POST['ar_old_doc'];
-        $ar_new_doc = $_POST['ar_new_doc'];
-        $ar_prepare = $_POST['ar_prepare'];
-        $ar_prepare_date = $_POST['ar_prepare_date']; 
-
+        $tax_client_name = $_POST['tax_client_name'];
+        $tax_legal = $_POST['tax_legal'];
+        $tax_account_num =  $_POST['tax_account_num'];
+        $tax_account_type = $_POST['tax_account_type'];
+        $tax_year_start = $_POST['tax_year_start'];
+        $tax_year_end = $_POST['tax_year_end'];
+        $tax_serv_type = $_POST['tax_serv_type'];
+        $tax_add_serv = $_POST['tax_add_serv'];
+        $tax_serv_reason = $_POST['tax_serv_reason'];
+        $tax_years_required = $_POST['tax_years_required'];
+        $tax_income = $_POST['tax_income'];
+        $tax_uniq_num = $_POST['tax_uniq_num'];
+        $tax_client_prev = $_POST['tax_client_prev'];
+        $tax_client_prev_img = $_POST['tax_client_prev_img'];
+        $tax_client_prev_year = $_POST['tax_client_prev_year'];
+        $tax_verify_website = $_POST['tax_verify_website'];
+        $tax_client_account_exer = $_POST['tax_client_account_exer'];
+        $tax_manager_name = $_POST['tax_manager_name'];
+        $tax_manager_phone = $_POST['tax_manager_phone'];
+        $tax_manager_email = $_POST['tax_manager_email'];
+        $tax_accounter_name = $_POST['tax_accounter_name'];
+        $tax_accounter_phone = $_POST['tax_accounter_phone'];
+        $tax_accounter_email = $_POST['tax_accounter_email'];
+        $tax_prepare = $_POST['tax_prepare'];
+        $tax_prepare_date = $_POST['tax_prepare_date'];
+        $user_id  = $_SESSION['client_id'];
         /// More Validation To Show Error
         $formerror = [];
-        if (strlen($ar_account_num) > 10 || strlen($ar_account_num) < 10) {
+        if (strlen($tax_account_num) > 10 || strlen($tax_account_num) < 10) {
             $formerror[] = 'يجب ان يكون رقم السجل التجاري 10 ارقام';
         }
-        if (empty($ar_client_name)) {
+        if (empty($tax_client_name)) {
             $formerror[] = '   من فضلك ادخل اسم العميل';
         }
-        if (empty($ar_legal)) {
+        if (empty($tax_legal)) {
             $formerror[] = '      من فضلك ادخل الكيان القانوني      ';
         }
-        if (empty($ar_manager_name)) {
-            $formerror[] = '    من فضلك ادخل اسم المدير ';
-        }
-        if (empty($ar_manager_phone)) {
-            $formerror[] = '      من فضلك ادخل رقم جوال المدير    ';
-        }
-        if (empty($ar_client_email)) {
-            $formerror[] = '       من فضلك ادخل البريد الالكتروني للعميل    ';
-        }
-        if (empty($ar_serv_reason)) {
-            $formerror[] = '      من فضلك ادخل سبب طلب الخدمة    ';
-        }
-        if (empty($ar_doc_scop)) {
-            $formerror[] = '      من فضلك ادخل   النطاق المستندي    ';
-        }
-        if (empty($ar_old_doc)) {
-            $formerror[] = '      من فضلك ادخل اقدم تاريخ مستند    ';
-        }
-        if (empty($ar_new_doc)) {
-            $formerror[] = ' من فضلك ادخل احدث تاريخ مستند';
-        }
-        if (empty($ar_prepare)) {
+        if (empty($tax_prepare)) {
             $formerror[] = '   من فضلك ادخل من اعد الطلب   ';
         }
-
         if (empty($formerror)) {
-            $stmt = $connect->prepare("UPDATE accounting_report SET
-                     ar_client_name=?,ar_legal=?,ar_account_num=?,ar_manager_name=?,
-                     ar_manager_phone=?,ar_client_email=?,ar_serv_reason=?,ar_doc_scop=?,ar_old_doc=?,
-                     ar_new_doc=?,ar_prepare=?,ar_prepare_date=? WHERE ar_id=?");
+            $stmt = $connect->prepare("UPDATE tax_report SET 
+                     tax_client_name=?,tax_legal=?,tax_account_num=?,tax_account_type=?,
+                     tax_year_start=?,tax_year_end=?,tax_serv_type=?,tax_add_serv=?,tax_serv_reason=?,
+                     tax_years_required=?,tax_income=?,tax_uniq_num=?,tax_client_prev=?,tax_client_prev_img=?,tax_client_prev_year=?,
+                     tax_verify_website=?,tax_client_account_exer=?,tax_manager_name=?,tax_manager_phone=?,
+                     tax_manager_email=?,tax_accounter_name=?,tax_accounter_phone=?,tax_accounter_email=?,
+                     tax_prepare=?,tax_prepare_date=? WHERE tax_id=?");
             $stmt->execute([
-                $ar_client_name,$ar_legal,$ar_account_num,$ar_manager_name,
-                $ar_manager_phone,$ar_client_email,$ar_serv_reason,$ar_doc_scop,
-                $ar_old_doc, $ar_new_doc,$ar_prepare,$ar_prepare_date,$ar_id
+                $tax_client_name, $tax_legal, $tax_account_num, $tax_account_type,
+                $tax_year_start, $tax_year_end, $tax_serv_type, $tax_add_serv,
+                $tax_serv_reason, $tax_years_required, $tax_income,
+                $tax_uniq_num, $tax_client_prev, $tax_client_prev_img,
+                $tax_client_prev_year, $tax_verify_website, $tax_client_account_exer,
+                $tax_manager_name, $tax_manager_phone, $tax_manager_email,
+                $tax_accounter_name, $tax_accounter_phone, $tax_accounter_email,
+                $tax_prepare, $tax_prepare_date, $tax_id
             ]);
             if($file_tmp !=""){
-                $stmt = $connect->prepare("UPDATE accounting_report SET ar_files=? WHERE ar_id=?");
+                $stmt = $connect->prepare("UPDATE tax_report SET tax_files=? WHERE tax_id=?");
                 $stmt->execute(array(
-                    $location,
-                    $ar_id
+                    $location,$tax_id
                 ));
-
             }
             if ($stmt) { ?>
                 <script>
                     document.getElementById("edit_form").reset();
                     setTimeout(() => {
-                        let url = "main.php?dir=clients/accounting_report&page=report";
+                        let url = "main.php?dir=clients/tax_services&page=report";
                         window.location.href = url;
                     }, 2000);
                 </script>

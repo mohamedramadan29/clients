@@ -16,7 +16,6 @@ $tax_data = $stmt->fetch();
         </div>
 
         <div class="myform">
-
             <!-- ********************** END CODE ********************** -->
             <form id="edit_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/tax_services&page=ajax_edit" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
