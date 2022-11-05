@@ -66,7 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($ar_prepare)) {
             $formerror[] = '   من فضلك ادخل من اعد الطلب   ';
         }
-
+        if (empty($_FILES['files']['name'])) {
+            $formerror[] = '   من فضلك ادخل  المرفقات   ';
+        }
         if (empty($formerror)) {
             $stmt = $connect->prepare("INSERT INTO accounting_report
                      (ar_client_name,ar_legal,ar_account_num,ar_manager_name,
@@ -92,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'zuser_id' => $user_id,
             ]);
             if ($stmt) { ?>
-                 <script>
+                <script>
                     document.getElementById("add_form").reset();
                     setTimeout(() => {
                         let url = "main.php?dir=clients/accounting_report&page=report";

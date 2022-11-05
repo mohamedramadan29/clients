@@ -116,6 +116,7 @@
    color: #434343;
    display: block;
    text-align: right;
+   line-height: 1.9;
 
  }
 
@@ -2266,7 +2267,9 @@
  #checked_input {
    display: none;
  }
-
+ #checked_input2 {
+  display: none;
+}
  .box .check_box_items .form-check input {}
 
  .dataTables_wrapper {
@@ -2276,3 +2279,13 @@
    border-radius: 5px;
    padding: 10px;
  }
+ .alert{
+  margin-top: 10px;
+  font-size: 15px;
+ }
+.box .input-group-text{
+  color: #444444 !important;
+}
+.box2 span.input-group-text{
+  color: #444444 !important;
+}

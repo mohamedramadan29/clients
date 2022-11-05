@@ -21,17 +21,23 @@
                       </a>
                   </li>
                   <!-- ******************--------------------->
-                  <li class="nav-item" id="lnk-whatsapp">
+                  <li class="nav-item" id="lnk-contract">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-users color2"></i>
                           <p>
-                              طلب عقد إرتباط
+                              عقد إرتباط مراجعة
                               <i class="right fas fa-angle-left "></i>
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
-                          <li class="nav-item" id="lnk-rep-whatsapp">
-                              <a href="clients/main.php?dir=contract_request&page=report" class="nav-link">
+                          <li class="nav-item" id="lnk-add-contract">
+                              <a href="main.php?dir=clients/contract_request&page=add" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> اضافة عقد جديد </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-contract">
+                              <a href="main.php?dir=clients/contract_request&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
                                   <p> مشاهدة العقود </p>
                               </a>
