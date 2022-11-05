@@ -31,8 +31,8 @@
                 </tr>
             </thead>
             <tbody> <?php
-                    $stmt = $connect->prepare('SELECT * FROM accounting_report');
-                    $stmt->execute();
+                    $stmt = $connect->prepare('SELECT * FROM accounting_report WHERE user_id=?');
+                    $stmt->execute(array($_SESSION['client_id']));
                     $alltype = $stmt->fetchAll();
                     foreach ($alltype as $ar_data) { ?> <tr>
                         <td><?php echo $ar_data['ar_client_name']; ?> </td>

@@ -31,8 +31,8 @@
                 </tr>
             </thead>
             <tbody> <?php
-                    $stmt = $connect->prepare('SELECT * FROM tax_report');
-                    $stmt->execute();
+                    $stmt = $connect->prepare('SELECT * FROM tax_report  WHERE user_id=?');
+                    $stmt->execute(array($_SESSION['client_id']));
                     $alltype = $stmt->fetchAll();
                     foreach ($alltype as $tax_data) { ?> <tr>
                         <td><?php echo $tax_data['tax_client_name']; ?> </td>
