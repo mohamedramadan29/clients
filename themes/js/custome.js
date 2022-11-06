@@ -184,22 +184,167 @@ $(document).ready(function () {
 
     delete_image(data_table, col_pk, col_val, img_column, data_value);
   });
-  $("#tableone").DataTable({
-    responsive: true,
-    bLengthChange: false,
-  });
-  $("#table").DataTable();
+
+  $('#tableone').DataTable({
+     
+    language: {
+
+      "search": "ابحث:",
+      "emptyTable": " لا يوجد بيانات ",
+      "infoEmpty": " لا يوجد بيانات ",
+      "infoFiltered": " لا يوجد بيانات ",
+      "paginate": {
+        "first": "الأول",
+        "previous": "السابق",
+        "next": "التالي",
+        "last": "الأخير"
+      },
+      "searchBuilder": {
+        "add": "اضافة شرط",
+        "clearAll": "ازالة الكل",
+        "condition": "الشرط",
+        "data": "المعلومة",
+        "logicAnd": "و",
+        "logicOr": "أو",
+        "value": "القيمة",
+        "conditions": {
+          "date": {
+            "after": "بعد",
+            "before": "قبل",
+            "between": "بين",
+            "empty": "فارغ",
+            "equals": "تساوي",
+            "notBetween": "ليست بين",
+            "notEmpty": "ليست فارغة",
+            "not": "ليست "
+          },
+          "number": {
+            "between": "بين",
+            "empty": "فارغة",
+            "equals": "تساوي",
+            "gt": "أكبر من",
+            "lt": "أقل من",
+            "not": "ليست",
+            "notBetween": "ليست بين",
+            "notEmpty": "ليست فارغة",
+            "gte": "أكبر أو تساوي",
+            "lte": "أقل أو تساوي"
+          },
+          "string": {
+            "not": "ليست",
+            "notEmpty": "ليست فارغة",
+            "startsWith": " تبدأ بـ ",
+            "contains": "تحتوي",
+            "empty": "فارغة",
+            "endsWith": "تنتهي ب",
+            "equals": "تساوي",
+            "notContains": "لا تحتوي",
+            "notStartsWith": "لا تبدأ بـ",
+            "notEndsWith": "لا تنتهي بـ"
+          },
+          "array": {
+            "equals": "تساوي",
+            "empty": "فارغة",
+            "contains": "تحتوي",
+            "not": "ليست",
+            "notEmpty": "ليست فارغة",
+            "without": "بدون"
+          }
+        },
+        "button": {
+          "0": "فلاتر البحث",
+          "_": "فلاتر البحث (%d)"
+        },
+        "deleteTitle": "حذف فلاتر",
+        "leftTitle": "محاذاة يسار",
+        "rightTitle": "محاذاة يمين",
+        "title": {
+          "0": "البحث المتقدم",
+          "_": "البحث المتقدم (فعال)"
+        }
+      },
+      "searchPanes": {
+        "clearMessage": "ازالة الكل",
+        "collapse": {
+          "0": "بحث",
+          "_": "بحث (%d)"
+        },
+        "count": "عدد",
+        "countFiltered": "عدد المفلتر",
+        "loadMessage": "جارِ التحميل ...",
+        "title": "الفلاتر النشطة",
+        "showMessage": "إظهار الجميع",
+        "collapseMessage": "إخفاء الجميع",
+        "emptyPanes": "لا يوجد مربع بحث"
+      },
+      "infoThousands": ",",
+      "datetime": {
+        "previous": "السابق",
+        "next": "التالي",
+        "hours": "الساعة",
+        "minutes": "الدقيقة",
+        "seconds": "الثانية",
+        "unknown": "-",
+        "amPm": [
+          "صباحا",
+          "مساءا"
+        ],
+        "weekdays": [
+          "الأحد",
+          "الإثنين",
+          "الثلاثاء",
+          "الأربعاء",
+          "الخميس",
+          "الجمعة",
+          "السبت"
+        ],
+        "months": [
+          "يناير",
+          "فبراير",
+          "مارس",
+          "أبريل",
+          "مايو",
+          "يونيو",
+          "يوليو",
+          "أغسطس",
+          "سبتمبر",
+          "أكتوبر",
+          "نوفمبر",
+          "ديسمبر"
+        ]
+      },
+
+      "decimal": ",",
+      "infoFiltered": "(مرشحة من مجموع _MAX_ مُدخل)",
+      "searchPlaceholder": "ابحث"
+    },
+    select: true, 
+      dom: 'Bfrtip',
+      buttons: [
+          'excel','print'
+      ],
+  
+  }); 
 
 
   // START NEW WEB SITE EDUCTION
 
-  // START WHATSAPP
+  // START Admin Users 
   if (window.location.href.indexOf("dir=admin_users") != -1) {
     $("#lnk-whatsapp").addClass("active menu-is-opening menu-open");
     if (window.location.href.indexOf("add") != -1) {
       $("#lnk-add-whatsapp").addClass("active-tab");
     } else {
       $("#lnk-rep-whatsapp").addClass("active-tab");
+    }
+  }
+  // START Privilage
+  if (window.location.href.indexOf("dir=privilage") != -1) {
+    $("#lnk-privilage").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-rep-privilage").addClass("active-tab");
+    } else {
+      $("#lnk-rep-privilage").addClass("active-tab");
     }
   }
   /////////////////////////////////////
@@ -212,16 +357,16 @@ $(document).ready(function () {
     }
   }
   //////////////////////////////////////////////
-    /////////////////////////////////////
-    if (window.location.href.indexOf("dir=clients/accounting_report") != -1) {
-      $("#lnk-accounting").addClass("active menu-is-opening menu-open");
-      if (window.location.href.indexOf("add") != -1) {
-        $("#lnk-add-accounting").addClass("active-tab");
-      } else {
-        $("#lnk-rep-accounting").addClass("active-tab");
-      }
+  /////////////////////////////////////
+  if (window.location.href.indexOf("dir=clients/accounting_report") != -1) {
+    $("#lnk-accounting").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-accounting").addClass("active-tab");
+    } else {
+      $("#lnk-rep-accounting").addClass("active-tab");
     }
-    //////////////////////////////////////////////
+  }
+  //////////////////////////////////////////////
   if (window.location.href.indexOf("dir=clients/tax_services") != -1) {
     $("#lnk-tax-services").addClass("active menu-is-opening menu-open");
     if (window.location.href.indexOf("add") != -1) {

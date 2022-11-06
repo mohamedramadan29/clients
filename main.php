@@ -31,7 +31,7 @@ if (isset($_SESSION['client_id'])) {
         } elseif ($dir == 'company' && $page == 'report') {
             include 'company/report.php';
         }
-
+        /***************  Admin Dashboard Page  ******/
         // START admin_users
         if ($dir == 'admin_users' && $page == 'add') {
             // include 'whatsapp/add.php';
@@ -43,6 +43,19 @@ if (isset($_SESSION['client_id'])) {
             include 'admin_users/report.php';
         }
         // END admin_users
+
+        // START Privilage
+        if ($dir == 'privilage' && $page == 'add') {
+            // include 'whatsapp/add.php';
+        } elseif ($dir == 'privilage' && $page == 'edit') {
+            include 'privilage/edit.php';
+        } elseif ($dir == 'privilage' && $page == 'delete') {
+            include 'privilage/delete.php';
+        } elseif ($dir == 'privilage' && $page == 'report') {
+            include 'privilage/report.php';
+        }
+        // END Privilage
+        //****************** End Admin Dashboard Page ************* */        
         /***************** START CLIENTS FOLDER**************** */
         // START Accounting Report ( عقد إعداد تقرير محاسبي )
         if (isset($_SESSION['client_id'])) {
@@ -55,9 +68,6 @@ if (isset($_SESSION['client_id'])) {
             } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
                 include 'clients/accounting_report/report.php';
             }
-        } else {
-            header('Location:index.php');
-            exit();
         }
         // END Accounting Report
 
@@ -73,9 +83,6 @@ if (isset($_SESSION['client_id'])) {
             } elseif ($dir == 'clients/tax_services' && $page == 'report') {
                 include 'clients/tax_services/report.php';
             }
-        } else {
-            header('Location:index.php');
-            exit();
         }
         // END Tax Services
 
@@ -90,9 +97,6 @@ if (isset($_SESSION['client_id'])) {
             } elseif ($dir == 'clients/contract_request' && $page == 'report') {
                 include 'clients/contract_request/report.php';
             }
-        } else {
-            header('Location:index.php');
-            exit();
         }
         // END Contract Request
         /***************** END CLIENTS FOLDER**************** */

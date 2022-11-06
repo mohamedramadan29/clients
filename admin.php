@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-12">
-                        <div class="form-block mx-auto"> 
+                        <div class="form-block mx-auto">
                             <div class="">
                                 <div class="text-center mb-5">
                                     <h3 class="text-uppercase"> شاشة دخول الادمن <strong></strong></h3>
@@ -58,10 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <label for="password">كلمة المرور</label>
                                         <input name="password" type="password" class="form-control" placeholder=" " id="password">
                                     </div>
-
-
                                     <div class="forget_pass">
-
                                         <div class="mb-5 align-items-center">
                                             <label class="control control--checkbox mb-3 mb-sm-0">
                                                 <span class="caption">
@@ -74,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                     <input type="submit" value=" تسجيل دخول  الادمن" class="btn btn-block py-2">
                                 </form>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
