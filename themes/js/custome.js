@@ -321,7 +321,7 @@ $(document).ready(function () {
     select: true, 
       dom: 'Bfrtip',
       buttons: [
-          'excel','print'
+          //'excel','print'
       ],
   
   }); 

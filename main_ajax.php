@@ -19,6 +19,13 @@ include 'init.php';
         } elseif ($dir == 'admin_users' && $page == 'edit') {
             include 'admin_users/edit.php';
         }
+
+         // START Privivlage
+         if ($dir == 'privilage' && $page == 'add') {
+            include 'privilage/add.php';
+        } elseif ($dir == 'privilage' && $page == 'edit') {
+            include 'privilage/edit.php';
+        }
         // START Accounting Report ( عقد إعداد تقرير محاسبي )
         if ($dir == 'clients/accounting_report' && $page == 'ajax_add') {
             include 'clients/accounting_report/ajax_add.php';

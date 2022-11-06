@@ -70,6 +70,13 @@
                     'zuser_city' => $user_city,
                 ]);
                 if ($stmt) { ?>
+                 <script>
+                     document.getElementById("add_form").reset();
+                     setTimeout(() => {
+                         let url = "main.php?dir=admin_users&page=report";
+                         window.location.href = url;
+                     }, 2000);
+                 </script>
                  <div class="alert-success ">
                      تم اضافة مستخدم جديد بنجاح
 

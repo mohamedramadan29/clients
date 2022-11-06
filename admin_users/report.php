@@ -90,7 +90,7 @@
                         </form>
                         <!-- START RESPONSE SPACE  -->
                         <!-- area to display a message after completion of upload -->
-                        <div class='status'></div>
+                        <div id='status'></div>
                         <br>
                         <!-- END RESPONSE SPACE  -->
                     </div>
@@ -248,7 +248,7 @@
                                                         </div>
 
                                                         <div class="box2">
-                                                            <label id="name_en">  تاريخ التسجيل <span> * </span></label>
+                                                            <label id="name_en"> تاريخ التسجيل <span> * </span></label>
                                                             <input class="form-control" type="text" name="" value="<?php echo $type['user_login_date']; ?>">
                                                         </div>
                                                         <div class="box2">
@@ -303,6 +303,7 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                         
 
                                         </div>
                                     </div>
