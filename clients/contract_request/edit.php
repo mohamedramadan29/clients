@@ -14,19 +14,15 @@ $con_data = $stmt->fetch();
                 </ol>
             </nav>
         </div>
-
         <div class="myform">
-
             <!-- ********************** END CODE ********************** -->
             <form id="edit_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/contract_request&page=ajax_edit" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <input type="hidden" name="con_id" value="<?php echo $con_data["con_id"]; ?>">
                 <div class="row">
-
                     <div class="col-lg-9">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
-
                             <div class="box2">
                                 <label id="name"> اســـم العميـــــــــل <span> * </span> </label>
                                 <input required class="form-control" type="text" name="con_client_name" value="<?php echo $con_data["con_client_name"]; ?>">
@@ -51,8 +47,6 @@ $con_data = $stmt->fetch();
                                 <label id="car_model">الرقم المميز بالزكاة <span> * </span></label>
                                 <input required class="form-control" type="text" name="con_uniq_num" value="<?php echo $con_data["con_uniq_num"];  ?>">
                             </div>
-
-
                             <div class="box2">
                                 <label id="car_model">نوع نظام الحسابات لدى هيئة الزكاة والضريبة والجمارك <span> * </span></label>
                                 <div class="check_box_items">
@@ -81,12 +75,10 @@ $con_data = $stmt->fetch();
                                 <label id="car_pricepay"> تـــنـــتــــهــــي فـــي <span> * </span> </label>
                                 <input required class="form-control" type="date" name="con_year_end" value="<?php echo $con_data["con_year_end"]; ?>">
                             </div>
-
                             <div class="box">
                                 <label id="car_pricerent">أذكرسبب الإصدار <span> * </span></label>
                                 <textarea required name="con_reason" placeholder=" اذكر التفاصيل " class="form-control"><?php echo $con_data["con_reason"]; ?></textarea>
                             </div>
-
                             <div class="box2">
                                 <label id="car_model"> السنـة/السنوات الماليـة المطلوبة <span> * </span></label>
                                 <input required class="form-control" type="text" placeholder="افصل بين  السنة والاخري (,)" name="con_years_required" value="<?php echo $con_data["con_years_required"];   ?>">
@@ -307,7 +299,6 @@ $con_data = $stmt->fetch();
                                     <input type="text" name="con_fee_expect" placeholder="بالريال السعودي" aria-label="First name" class="form-control" value="<?php echo $con_data['con_fee_expect'] ?>">
                                 </div>
                             </div>
-
                             <p class="alert alert-secondary">هل هناك شروط خاصة حول إصدار القوائم المالية؟</p>
                             <div class="box">
                                 <label id="car_model"> هل توقيت الإصدار مرتبط بمواعيد هامة مع الجهات المختصة مثل هيئة الزكاة، لجنة الإفصاح بهيئة الاستثمار، منصة بلدي للأنشطة الهندسية وغيرها <span> * </span></label>

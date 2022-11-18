@@ -61,6 +61,8 @@ if (isset($_SESSION['client_id'])) {
                 include 'clients/accounting_report/add.php';
             } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
                 include 'clients/accounting_report/edit.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'view') {
+                include 'clients/accounting_report/view.php';
             } elseif ($dir == 'clients/accounting_report' && $page == 'delete') {
                 include 'clients/accounting_report/delete.php';
             } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
@@ -76,6 +78,8 @@ if (isset($_SESSION['client_id'])) {
                 include 'clients/tax_services/add.php';
             } elseif ($dir == 'clients/tax_services' && $page == 'edit') {
                 include 'clients/tax_services/edit.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'view') {
+                include 'clients/tax_services/view.php';
             } elseif ($dir == 'clients/tax_services' && $page == 'delete') {
                 include 'clients/tax_services/delete.php';
             } elseif ($dir == 'clients/tax_services' && $page == 'report') {
@@ -90,6 +94,8 @@ if (isset($_SESSION['client_id'])) {
                 include 'clients/contract_request/add.php';
             } elseif ($dir == 'clients/contract_request' && $page == 'edit') {
                 include 'clients/contract_request/edit.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'view') {
+                include 'clients/contract_request/view.php';
             } elseif ($dir == 'clients/contract_request' && $page == 'delete') {
                 include 'clients/contract_request/delete.php';
             } elseif ($dir == 'clients/contract_request' && $page == 'report') {
