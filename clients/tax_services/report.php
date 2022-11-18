@@ -1,4 +1,4 @@
-<div class="container customer_report">
+<div class="container-fluid customer_report">
     <div class="data">
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -40,14 +40,14 @@
                         <td> <?php echo $tax_data['tax_account_num']; ?> </td>
                         <td> <?php echo $tax_data['tax_manager_name']; ?> </td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $tax_data['tax_id']; ?>">
-                                مشاهدة <i class="fa fa-eye"></i>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $tax_data['tax_id']; ?>">
+                                <i class="fa fa-eye"></i>
                             </button>
-                            <a class="btn btn-primary btn-sm" href="main.php?dir=clients/tax_services&page=edit&tax_id=<?php echo $tax_data['tax_id']; ?> ">
-                                تعديل <i class="fa fa-edit"></i>
+                            <a class="btn btn-primary" href="main.php?dir=clients/tax_services&page=edit&tax_id=<?php echo $tax_data['tax_id']; ?> ">
+                                <i class="fa fa-edit"></i>
                             </a>
-                            <a class="confirm btn btn-danger btn-sm" href="main.php?dir=clients/tax_services&page=delete&tax_id=<?php echo $tax_data['tax_id']; ?> ">
-                                حذف <i class="fa fa-trash"></i>
+                            <a class="confirm btn btn-danger" href="main.php?dir=clients/tax_services&page=delete&tax_id=<?php echo $tax_data['tax_id']; ?> ">
+                                <i class="fa fa-trash"></i>
                             </a>
                         </td>
                     </tr> <?php

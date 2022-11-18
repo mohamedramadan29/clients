@@ -21,7 +21,7 @@ $tax_data = $stmt->fetch();
                 <div class="row">
                     <input required class="form-control" type="hidden" name="tax_id" value="<?php echo $tax_id ?>">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
@@ -123,7 +123,7 @@ $tax_data = $stmt->fetch();
                                 <label id="car_model">الرقم المميز بالزكاة <span> * </span></label>
                                 <input required class="form-control" type="text" name="tax_uniq_num" value="<?php echo $tax_data['tax_uniq_num']; ?>">
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل أفاد العميل بإصدار قوائم مالية سابقة له؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -158,7 +158,7 @@ $tax_data = $stmt->fetch();
                                 <label id="car_model"> آخر قوائم مودعة لعام </label>
                                 <input class="form-control" type="text" name="tax_client_prev_year" value="<?php echo $tax_data['tax_client_prev_year']; ?>">
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> في حال الإجابة أعلاه (بنعم) يرجى إلزامياً توفير صورة من القوائم المالية <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -175,7 +175,7 @@ $tax_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل تم التحقق من موقع قوائم عن آخر قوائم مالية صادرة؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -192,7 +192,7 @@ $tax_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل محاسب العميل لديه خبرة ومعرفة في توفير أي مستندات أو معلومات إضافية؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -271,7 +271,7 @@ $tax_data = $stmt->fetch();
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="info">
                             <h4> معلومات تهمك !! </h4>
                             <ul class="">

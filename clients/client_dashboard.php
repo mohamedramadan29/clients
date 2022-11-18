@@ -2,7 +2,7 @@
 ob_start();
 $pagetitle = ' الرئيسية  ';
 ?>
-<div class="container dashboard">
+<div class="container-fluid dashboard">
     <div class="bread bread_dasha">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -13,7 +13,7 @@ $pagetitle = ' الرئيسية  ';
     </div>
 </div>
 <div class="client_serv">
-    <div class="container">
+    <div class="container-fluid">
         <div class="data">
             <h2> الخدمات </h2>
             <div class="serv_link">

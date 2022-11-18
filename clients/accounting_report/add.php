@@ -15,7 +15,7 @@
             <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <div class="box2">
@@ -113,7 +113,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="info">
                             <h4> معلومات تهمك !! </h4>
                             <ul class="">

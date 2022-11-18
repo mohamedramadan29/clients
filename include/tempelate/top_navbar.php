@@ -9,39 +9,71 @@
         </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto topnav">
- 
-            <!-- Notifications Dropdown Menu -->
+
+
+            <li class="nav-item">
+                <a class="nav-link"href="main.php?dir=dashboard&page=client_dashboard">
+                    الرئيسية
+                </a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">15</span>
+                    عقد ارتباط مراجعه
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-item dropdown-header">15 Notifications</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-envelope mr-2"></i> 4 new messages
-                        <span class="float-right text-muted text-sm">3 mins</span>
+                    <a href="main.php?dir=clients/contract_request&page=add" class="dropdown-item">
+                        اضافة عقد جديد
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-users mr-2"></i> 8 friend requests
-                        <span class="float-right text-muted text-sm">12 hours</span>
+                    <a href="main.php?dir=clients/contract_request&page=report" class="dropdown-item">
+                        مشاهدة العقود
                     </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                إعداد تقرير محاسبي
                 </a>
-            </li> 
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="main.php?dir=clients/accounting_report&page=add" class="dropdown-item">
+                        اضافة عقد جديد
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="main.php?dir=clients/accounting_report&page=report" class="dropdown-item">
+                        مشاهدة العقود
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                خدمة زكاة وضرائب
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="main.php?dir=clients/tax_services&page=add" class="dropdown-item">
+                        اضافة عقد جديد
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="main.php?dir=clients/tax_services&page=report" class="dropdown-item">
+                        مشاهدة العقود
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-user-circle"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-user"></i> حسابي
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="signout.php" class="dropdown-item">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> تسجيل خروج
+                    </a>
+                </div>
+            </li>
+
         </ul>
 
 

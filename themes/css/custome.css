@@ -107,7 +107,7 @@
  .category .data .myform {
    /* background: #e8edfd;*/
    text-align: right;
-   padding: 40px;
+   padding: 5px;
  }
 
  .category .data .myform label {
@@ -131,7 +131,7 @@
  .category .data .myform .box2 {
    display: inline-block;
    margin-top: 15px;
-   width: 49%;
+   width: 32.5%;
  }
 
  .category .data .myform input[type=text],
@@ -156,6 +156,12 @@
    height: 34px;
 
  }
+
+ .dropdown-item:hover, .dropdown-item:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color:#0069d9;
+}
 
 
  .alert-success {
@@ -205,12 +211,15 @@
    margin-top: 40px;
  }
 
+ .navbar-light .navbar-nav .nav-link {
+   color: #111;
+ }
+
  /*START DASHBOARD*/
 
  .dashboard {
-   padding: 30px;
-   background-color: #f4f6f9;
-   margin-top: 65px;
+   background-color: #f1f1f1;
+
  }
 
  .dashboard h2 {
@@ -1497,15 +1506,20 @@
    content: "" !important;
  }
 
- .bread_dasha {
-   position: relative;
-   top: -30px;
+ .bread_dasha {}
 
+ .dropdown-item {
+   text-align: right;
+ }
+
+ .dropdown-menu-lg {
+   min-width: 220px;
  }
 
  .bread .breadcrumb {
    background-color: #fff;
-   margin-top: 20px;
+   padding-top: 30px;
+   padding-bottom: 30px;
  }
 
  .bread a {
@@ -1630,9 +1644,6 @@
    color: #36d33b;
  }
 
- .nav-item {
-   border-bottom: 1px solid #4e4e4e;
- }
 
  .nav-sidebar .nav-link>.right,
  .nav-sidebar .nav-link>p>.right {
@@ -2241,7 +2252,8 @@
 
  }
 
- .box .check_box_items {
+ .box .check_box_items,
+ .box2 .check_box_items {
    margin-top: 15px;
    display: flex;
    border: 1px solid #f1f1f1;
@@ -2308,4 +2320,12 @@
 
  .category .data .myform .form-switch input {
    margin-right: 0;
+ }
+
+ .content-wrapper {
+   margin-right: 0 !important;
+ }
+
+ .wrapper .content-wrapper {
+   background-color: #f1f1f1;
  }

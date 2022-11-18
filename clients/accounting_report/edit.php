@@ -23,7 +23,7 @@ $ar_data = $stmt->fetch();
                 <div class="row">
                 <input required class="form-control" type="hidden" name="ar_id" value="<?php echo $ar_id ?>">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="form-data">
 
                             <div class="box2">
@@ -115,7 +115,7 @@ $ar_data = $stmt->fetch();
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="info">
                             <h4> معلومات تهمك !! </h4>
                             <ul class="">

@@ -22,7 +22,7 @@ $con_data = $stmt->fetch();
                 <input type="hidden" name="con_id" value="<?php echo $con_data["con_id"]; ?>">
                 <div class="row">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
@@ -53,7 +53,7 @@ $con_data = $stmt->fetch();
                             </div>
 
 
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model">نوع نظام الحسابات لدى هيئة الزكاة والضريبة والجمارك <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -110,7 +110,7 @@ $con_data = $stmt->fetch();
                                     <option <?php if ($con_data['con_income'] == 'مختلطة زكوي وضريبي') echo 'selected' ?> value="مختلطة زكوي وضريبي"> مختلطة زكوي وضريبي </option>
                                 </select>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل أفاد العميل بإصدار قوائم مالية سابقة له؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -143,15 +143,15 @@ $con_data = $stmt->fetch();
                                     }
                                 });
                             </script>
-                            <div class="box" id="checked_input">
+                            <div class="box2" id="checked_input">
                                 <label id="car_model"> آخر قوائم مودعة لعام </label>
                                 <input class="form-control" type="text" name="con_client_prev_year" value="<?php echo $con_data['con_client_prev_year'] ?>">
                             </div>
-                            <div class="box" id="checked_input2">
+                            <div class="box2" id="checked_input2">
                                 <label id="car_model">اختر اسم مكتب المحاسب القانوني الذي أصدر القوائم المالية</label>
                                 <input class="form-control" type="text" name="con_office_name_prev" value="<?php echo $con_data['con_office_name_prev'] ?>">
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> في حال الإجابة أعلاه (بنعم) يرجى إلزامياً توفير صورة من القوائم المالية <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -168,7 +168,7 @@ $con_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل تم التحقق من موقع قوائم عن آخر قوائم مالية صادرة؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -185,7 +185,7 @@ $con_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل تم الحصول على ميزان مراجعة وفق متطلبات برنامج المراجعة الإلكتروني <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -202,7 +202,7 @@ $con_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل محاسب العميل لديه خبرة ومعرفة في توفير أي مستندات أو معلومات إضافية؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -327,7 +327,7 @@ $con_data = $stmt->fetch();
                                 </div>
                             </div>
 
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> توفير نسخة باللغة الإنجليزية <span class="star"> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -346,7 +346,7 @@ $con_data = $stmt->fetch();
                             </div>
 
 
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> توفير نسخ إضافية عن المسموح به <span class="star"> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -365,7 +365,7 @@ $con_data = $stmt->fetch();
                             </div>
 
 
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> توفير نسخة مختومة بالكامل <span class="star"> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -382,7 +382,7 @@ $con_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> توفير مصادقات على كشوف مرفقة لجهات أخرى <span class="star"> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -399,7 +399,7 @@ $con_data = $stmt->fetch();
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> رفع القوائم المالية على موقع هيئة الزكاة والضريبة من قبل المكتب. <span class="star"> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -454,7 +454,7 @@ $con_data = $stmt->fetch();
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="info">
                             <h4> معلومات تهمك !! </h4>
                             <ul class="">

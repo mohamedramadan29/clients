@@ -1,4 +1,4 @@
-<div class="container customer_report">
+<div class="container-fluid customer_report">
     <div class="data">
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -41,13 +41,13 @@
                         <td> <?php echo $ar_data['ar_manager_name']; ?> </td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $ar_data['ar_id']; ?>">
-                                مشاهدة <i class="fa fa-eye"></i>
+                                <i class="fa fa-eye"></i>
                             </button>
                             <a class="btn btn-primary btn-sm" href="main.php?dir=clients/accounting_report&page=edit&ar_id=<?php echo $ar_data['ar_id']; ?> ">
-                                تعديل <i class="fa fa-edit"></i>
+                                <i class="fa fa-edit"></i>
                             </a>
                             <a class="confirm btn btn-danger btn-sm" href="main.php?dir=clients/accounting_report&page=delete&ar_id=<?php echo $ar_data['ar_id']; ?> ">
-                                حذف <i class="fa fa-trash"></i>
+                                <i class="fa fa-trash"></i>
                             </a>
                         </td>
                     </tr> <?php

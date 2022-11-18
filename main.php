@@ -3,13 +3,11 @@ ob_start();
 $pagetitle = 'الرئيسية';
 session_start();
 include 'init.php';
-include $tem . 'top_navbar.php';
 if (isset($_SESSION['client_id'])) {
-    include $tem . 'left_sidebar_client.php';
+    include $tem . 'top_navbar_client.php';
 } else {
-    include $tem . 'left_sidebar.php';
+    include $tem . 'top_navbar.php';
 }
-
 ?>
 <div class="content-wrapper">
     <div class="category">

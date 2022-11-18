@@ -15,7 +15,7 @@
             <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/tax_services&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
@@ -141,7 +141,7 @@
                                 <label id="car_model">الرقم المميز بالزكاة <span> * </span></label>
                                 <input required class="form-control" type="text" name="tax_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_uniq_num']; ?>">
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل أفاد العميل بإصدار قوائم مالية سابقة له؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -176,7 +176,7 @@
                                 <label id="car_model"> آخر قوائم مودعة لعام </label>
                                 <input class="form-control" type="text" name="tax_client_prev_year" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_client_prev_year']; ?>">
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> في حال الإجابة أعلاه (بنعم) يرجى إلزامياً توفير صورة من القوائم المالية <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل تم التحقق من موقع قوائم عن آخر قوائم مالية صادرة؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -210,7 +210,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="box">
+                            <div class="box2">
                                 <label id="car_model"> هل محاسب العميل لديه خبرة ومعرفة في توفير أي مستندات أو معلومات إضافية؟ <span> * </span></label>
                                 <div class="check_box_items">
                                     <div class="form-check">
@@ -289,7 +289,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="info">
                             <h4> معلومات تهمك !! </h4>
                             <ul class="">
