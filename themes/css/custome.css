@@ -2335,20 +2335,65 @@
    margin-bottom: 20px;
    margin-top: 5px;
  }
- .dataTables_wrapper .dt-buttons .btn-secondary{
-  background-color: #4a69bd;
-  border-color: #4a69bd;
+
+ .dataTables_wrapper .dt-buttons .btn-secondary {
+   background-color: #4a69bd;
+   border-color: #4a69bd;
  }
- .dataTables_wrapper .dt-buttons .btn-primary{
-  background-color:   #e55039;
-  border-color: #e55039;
+
+ .dataTables_wrapper .dt-buttons .btn-primary {
+   background-color: #e55039;
+   border-color: #e55039;
  }
- .priv_custome tr th{
-  text-align: right !important;
+
+ .priv_custome tr th {
+   text-align: right !important;
  }
- .priv_custome tr td input[type="checkbox"]{
-  margin-left: -24px !important;
+
+ .priv_custome tr td input[type="checkbox"] {
+   margin-left: -24px !important;
  }
- .table-responsive{
-  background-color: #fff !important;
+
+ .table-responsive {
+   background-color: #fff !important;
  }
+
+ /* START ADMIN DASHBAORD */
+ .admin_dashbaord {
+   background-color: #fff;
+   margin-top: 20px;
+   padding-top: 40px;
+ }
+
+ .admin_dashbaord .data {}
+
+ .admin_dashbaord .data .small_box {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e74c3c;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+ }
+ .admin_dashbaord .data .small-box1{
+  background-color: #2980b9
+ }
+ .admin_dashbaord .data .small-box2{
+  background-color: #e67e22
+ }
+ .admin_dashbaord .data .small_box .icon {}
+
+ .admin_dashbaord .data .small_box .icon i {
+  font-size: 40px;
+ }
+
+ .admin_dashbaord .data .small_box .inner {}
+
+ .admin_dashbaord .data .small_box .inner span {}
+
+ .admin_dashbaord .data .small_box .inner h3 {
+  text-align: center;
+  margin-top: 15px;
+ }
+
+ /* END ADMIN DASHBOARD */

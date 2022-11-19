@@ -112,15 +112,19 @@ if (isset($_SESSION['client_id'])) {
             }
         }
         // END Account
-                // START Record Screen
-                if (isset($_SESSION['client_id'])) {
-                    if ($dir == 'clients/record_screen' && $page == 'view') {
-                        include 'clients/record_screen/view.php';
-                    } elseif ($dir == 'clients/record_screen' && $page == 'view_tax') {
-                        include 'clients/record_screen/view_tax.php';
-                    }
-                }
-                // END Record Screen
+        // START Record Screen
+        if (isset($_SESSION['client_id'])) {
+            if ($dir == 'clients/record_screen' && $page == 'view') {
+                include 'clients/record_screen/view.php';
+            } elseif ($dir == 'clients/record_screen' && $page == 'view_tax') {
+                include 'clients/record_screen/view_tax.php';
+            } elseif ($dir == 'clients/record_screen' && $page == 'view_account') {
+                include 'clients/record_screen/view_account.php';
+            } elseif ($dir == 'clients/record_screen' && $page == 'view_contract') {
+                include 'clients/record_screen/view_contract.php';
+            }
+        }
+        // END Record Screen
         /***************** END CLIENTS FOLDER**************** */
         // END CONTACT
         if ($dir == 'dashboard' && $page == 'dashboard') {

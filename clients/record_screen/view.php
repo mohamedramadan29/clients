@@ -179,6 +179,7 @@
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
+                       <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
                         <td> <?php echo $type['ar_id']; ?> </td>
                         <td> <?php echo $type['ar_client_name']; ?> </td>
                         <td> -- <?php // echo $type['ar_years_required']; 
@@ -243,12 +244,13 @@
                 }
                 ?>
 
-                <!-- Show  accounting_report   (  طلب عقد ارتباط )  -->
+                <!-- Show  Contract   (  طلب عقد ارتباط )  -->
                 <?php
                 $stmt = $connect->prepare('SELECT * FROM contract_report WHERE user_id=? ORDER BY con_id DESC LIMIT 2');
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
+                      <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
                         <td> <?php echo $type['con_id']; ?> </td>
                         <td> <?php echo $type['con_client_name']; ?> </td>
                         <td> <?php echo $type['con_years_required']; ?> </td>
