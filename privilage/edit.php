@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     /// More Validation To Show Error
 
     $stmt = $connect->prepare("UPDATE privilage SET 
-    (priv_users=?,priv_show=?,priv_edit=?,priv_show_users=?,priv_edit_users=?,
+    priv_users=?,priv_show=?,priv_edit=?,priv_show_users=?,priv_edit_users=?,
     priv_arrive_branch=?,priv_create_report=?,priv_show_attach=?,
     priv_agree_refuse_serv=?,priv_edit_report=?,priv_confirm_report=?,
     priv_confirm_receive_money=?,priv_finish_ref=?,priv_serv_start=?,

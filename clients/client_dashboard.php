@@ -20,7 +20,7 @@ $pagetitle = ' الرئيسية  ';
                 <a href="main.php?dir=clients/contract_request&page=add" class="btn btn-primary"> خدمة مراجعه قوائم مالية </a>
                 <a href="main.php?dir=clients/accounting_report&page=add" class="btn btn-warning"> خدمة اعداد تقرير محاسبي </a>
                 <a href="main.php?dir=clients/tax_services&page=add" class="btn btn-secondary"> خدمة زكاة وضرائب</a>
-                <a href="" class="btn btn-dark">الدخول لشاشات السجلات</a>
+                <a href="main.php?dir=clients/record_screen&page=view" class="btn btn-dark">الدخول لشاشات السجلات</a>
             </div>
         </div>
     </div>
