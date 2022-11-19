@@ -2349,3 +2349,6 @@
  .priv_custome tr td input[type="checkbox"]{
   margin-left: -24px !important;
  }
+ .table-responsive{
+  background-color: #fff !important;
+ }

@@ -116,8 +116,8 @@ if (isset($_SESSION['client_id'])) {
                 if (isset($_SESSION['client_id'])) {
                     if ($dir == 'clients/record_screen' && $page == 'view') {
                         include 'clients/record_screen/view.php';
-                    } elseif ($dir == 'clients/record_screen' && $page == 'edit') {
-                        include 'clients/record_screen/edit.php';
+                    } elseif ($dir == 'clients/record_screen' && $page == 'view_tax') {
+                        include 'clients/record_screen/view_tax.php';
                     }
                 }
                 // END Record Screen

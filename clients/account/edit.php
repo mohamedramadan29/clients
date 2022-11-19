@@ -10,7 +10,6 @@ if (isset($_SESSION['client_id'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['add_car'])) {
         $user_id = $_POST['user_id'];
-
         $user_personal_name = $_POST['user_personal_name'];
         $user_password = $_POST['user_password'];
         $user_phone =  $_POST['user_phone'];
