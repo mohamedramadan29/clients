@@ -1,112 +1,82 @@
-<?php
-ob_start();
-$pagetitle = ' الرئيسية  ';
-?>
-<div class="container-fluid dashboard">
-    <div class="bread bread_dasha">
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=client_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
-                <li class="breadcrumb-item active" aria-current="page"> <?php echo $lang['dashboard']; ?> </li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<div class="client_serv">
-    <div class="container-fluid">
-        <div class="data">
-            <h2> الخدمات </h2>
-            <div class="serv_link">
-                <a href="main.php?dir=clients/contract_request&page=add" class="btn btn-primary"> خدمة مراجعه قوائم مالية </a>
-                <a href="main.php?dir=clients/accounting_report&page=add" class="btn btn-warning"> خدمة اعداد تقرير محاسبي </a>
-                <a href="main.php?dir=clients/tax_services&page=add" class="btn btn-secondary"> خدمة زكاة وضرائب</a>
-                <a href="main.php?dir=clients/record_screen&page=view" class="btn btn-dark">الدخول لشاشات السجلات</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="admin_dashbaord">
-    <div class="container">
-        <div class="data">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="small_box small-box1">
-                        <div class="icon">
-                            <span> <i class="fa fa-chart-area"></i> </span>
-                        </div>
-                        <div class="inner">
-                            <span> مراجعه قوائم مالية </span>
-                            <?php
-                            $stmt = $connect->prepare(
-                                'SELECT COUNT(con_id) FROM contract_report WHERE user_id=?'
-                            );
-                            $stmt->execute([$_SESSION['client_id']]);
-                            $count = $stmt->fetchcolumn();
-                            ?>
-                            <h3> <?php echo $count; ?> </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="small_box small-box2">
-                        <div class="icon">
-                            <span> <i class="fa fa-file-excel"></i> </span>
-                        </div>
-                        <div class="inner">
-                            <span> اعداد تقرير محاسبي </span>
-                            <?php
-                            $stmt = $connect->prepare(
-                                'SELECT COUNT(ar_id) FROM  accounting_report WHERE user_id=?'
-                            );
-                            $stmt->execute([$_SESSION['client_id']]);
-                            $count = $stmt->fetchcolumn();
-                            ?>
-                            <h3> <?php echo $count; ?> </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="small_box small-box3">
-                        <div class="icon">
-                            <span> <i class="fa fa-tasks"></i> </span>
-                        </div>
-                        <div class="inner">
-                            <span> زكاة وضرائب </span>
-                            <?php
-                            $stmt = $connect->prepare(
-                                'SELECT COUNT(tax_id) FROM tax_report WHERE user_id=?'
-                            );
-                            $stmt->execute([$_SESSION['client_id']]);
-                            $count = $stmt->fetchcolumn();
-                            ?>
-                            <h3> <?php echo $count; ?> </h3>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="container-fluid customer_report">
-
+    <div class="data">
+        <div class="bread">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ادارة مهام العملاء </a> <i class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item active" aria-current="page">مشاهدة السجلات الخاصة بالمستخدم </li>
+                </ol>
+            </nav>
+        </div>
+        <!-------------------------- START NEW WHATSAPP MEMEBER------------------------->
+        <!-- Content Row -->
+        <!-- START MODEL TO ADD NEW RECORD  -->
+    </div>
+    <!-- END RECORD TO EDIT NEW RECORD  -->
     <?php
-    if (isset($_SESSION['client_id'])) {
-        $client_id = $_SESSION['client_id'];
-        $stmt = $connect->prepare("SELECT * FROM users WHERE user_id=?");
-        $stmt->execute(array($client_id));
-        $client_data = $stmt->fetch();
+    if (isset($_GET['user_id'])) {
+        $client_id = $_GET['user_id'];
     }
     ?>
+    <div class="table-responsive">
+
+        <br>
+        <table id="tableone2" class="table table-light table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>رمز المستخدم </th>
+                    <th>نوع المستخدم</th>
+                    <th> الاسم الشخصى </th>
+                    <th>اسم المستخدم</th>
+                    <th> البريد الالكتروني </th>
+                    <th> رقم الجوال </th>
+                    <th> المدينة </th>
+                    <th> الحالة </th>
+                    <th> تاريخ الانضمام </th>
+                </tr>
+            </thead>
+            <tbody> <?php
+                    $stmt = $connect->prepare('SELECT * FROM users WHERE user_id=?');
+                    $stmt->execute(array($client_id));
+                    $alltype = $stmt->fetchAll();
+                    foreach ($alltype as $type) { ?> <tr>
+                        <td><?php echo $type['user_code']; ?> </td>
+                        <td> <?php echo $type['user_type']; ?> </td>
+                        <td> <?php echo $type['user_personal_name']; ?> </td>
+                        <td><?php echo $type['user_name']; ?> </td>
+                        <td> <?php echo $type['user_email']; ?> </td>
+                        <td> <?php echo $type['user_phone']; ?> </td>
+                        <td> <?php echo $type['user_city']; ?> </td>
+                        <td>
+                            <?php
+                            if ($type['user_stat'] == 1) { ?>
+                                <button class="btn btn-success btn-sm"> نشط </button>
+                            <?php
+                            } else { ?>
+                                <button class="btn btn-danger btn-sm"> معلق </button>
+                            <?php
+                            }
+
+                            ?>
+                        <td> <?php echo $type['user_login_date']; ?> </td>
+                    </tr> <?php
+                            ?>
+                <?php
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+    <hr style="color: red;">
 
     <div class="table-responsive">
         <div class="add_new_record">
             <button type="button" class="btn btn-primary btn-sm">
-                حركة اخر العملاء الخاصين بك التي تم العمل عليهم
+                حركة اخر العملاء الخاصة بالمستخدم
             </button>
         </div>
+
         <table id="tableone" class="table table-light table-striped table-hover table-bordered">
             <thead>
                 <tr>
@@ -128,7 +98,7 @@ $pagetitle = ' الرئيسية  ';
                 <!-- Show Tax Services (زكاء وضرائب)  -->
                 <?php
                 $stmt = $connect->prepare('SELECT * FROM tax_report WHERE user_id=? ORDER BY tax_id DESC LIMIT 2');
-                $stmt->execute(array($_SESSION['client_id']));
+                $stmt->execute(array($client_id));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
                         <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_tax&tax_id=<?php echo $type['tax_id']; ?>"> <?php echo $type['tax_id']; ?> </a> </td>
@@ -193,11 +163,10 @@ $pagetitle = ' الرئيسية  ';
                 <?php
                 }
                 ?>
-
                 <!-- Show  accounting_report   (  اعداد تقرير محاسبي  )  -->
                 <?php
                 $stmt = $connect->prepare('SELECT * FROM accounting_report WHERE user_id=? ORDER BY ar_id DESC LIMIT 2');
-                $stmt->execute(array($_SESSION['client_id']));
+                $stmt->execute(array($client_id));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
                         <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
@@ -268,7 +237,7 @@ $pagetitle = ' الرئيسية  ';
                 <!-- Show  Contract   (  طلب عقد ارتباط )  -->
                 <?php
                 $stmt = $connect->prepare('SELECT * FROM contract_report WHERE user_id=? ORDER BY con_id DESC LIMIT 2');
-                $stmt->execute(array($_SESSION['client_id']));
+                $stmt->execute(array($client_id));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
                         <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
@@ -341,9 +310,5 @@ $pagetitle = ' الرئيسية  ';
 
 
 </div>
-<!--
 </div>
 </div>
-            -->
-<?php ob_end_flush();
-?>

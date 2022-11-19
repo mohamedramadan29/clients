@@ -125,7 +125,9 @@
                     <th> البريد الالكتروني </th>
                     <th> رقم الجوال </th>
                     <th> المدينة </th>
+                    <th> حركة الحساب </th>
                     <th> الحالة </th>
+
                     <th> </th>
                 </tr>
             </thead>
@@ -141,6 +143,7 @@
                         <td> <?php echo $type['user_email']; ?> </td>
                         <td> <?php echo $type['user_phone']; ?> </td>
                         <td> <?php echo $type['user_city']; ?> </td>
+                        <td> <a href="main.php?dir=record_screen&page=view&user_id=<?php echo $type['user_id']; ?>" class="btn btn-outline-primary btn-sm"> حركة الحساب </a> </td>
                         <td>
                             <?php
                             if ($type['user_stat'] == 1) { ?>
@@ -161,7 +164,7 @@
                             </button>
                             <a class="confirm btn btn-danger" href="main.php?dir=admin_users&page=delete&user_id=<?php echo $type['user_id']; ?> ">
                                 <i class="fa fa-trash"></i>
-                                
+
                             </a>
                         </td>
                     </tr> <?php

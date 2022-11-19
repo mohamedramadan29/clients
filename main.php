@@ -41,7 +41,17 @@ if (isset($_SESSION['client_id'])) {
             include 'admin_users/report.php';
         }
         // END admin_users
-
+        // START ADMIN RECORD SCREEN
+        if ($dir == 'record_screen' && $page == 'view') {
+            include 'record_screen/view.php';
+        } elseif ($dir == 'record_screen' && $page == 'view_tax') {
+            include 'record_screen/view_tax.php';
+        } elseif ($dir == 'record_screen' && $page == 'view_account') {
+            include 'record_screen/view_account.php';
+        } elseif ($dir == 'record_screen' && $page == 'view_contract') {
+            include 'record_screen/view_contract.php';
+        }
+        // END ADMIN RECORD SCREEN
         // START Privilage
         if ($dir == 'privilage' && $page == 'add') {
             // include 'whatsapp/add.php';
