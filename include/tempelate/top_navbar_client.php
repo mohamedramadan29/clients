@@ -66,7 +66,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-                    <a href="#" class="dropdown-item">
+                    <a href="main.php?dir=clients/account&page=edit" class="dropdown-item">
                         <i class="fa fa-user"></i> حسابي
                     </a>
                     <div class="dropdown-divider"></div>

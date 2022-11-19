@@ -186,7 +186,7 @@ $(document).ready(function () {
   });
 
   $('#tableone').DataTable({
-     
+    "pageLength": 30,
     language: {
 
       "search": "ابحث:",
@@ -316,15 +316,24 @@ $(document).ready(function () {
 
       "decimal": ",",
       "infoFiltered": "(مرشحة من مجموع _MAX_ مُدخل)",
-      "searchPlaceholder": "ابحث"
+      "searchPlaceholder": "بحث"
     },
-    select: true, 
-      dom: 'Bfrtip',
-      buttons: [
-          //'excel','print'
-      ],
-  
-  }); 
+    select: true,
+    dom: 'Bfrtip',
+    buttons: [
+      {
+        extend: 'excel',
+        className: 'btn btn-secondary btn-sm',
+        text: ' <i class="fa fa-file-export"></i> تصدير لملف اكسل',
+      },
+      {
+        extend: 'print',
+        className: 'btn btn-primary btn-sm',
+        text: '<i class="fa fa-print"></i>  طباعه   ',
+      }
+    ],
+
+  });
 
 
   // START NEW WEB SITE EDUCTION

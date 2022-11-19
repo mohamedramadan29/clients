@@ -1,60 +1,41 @@
-<div class="wrapper">
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light mynavbar">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-            <li class="nav-item mytogglebutton">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <li class="nav-item">
+                <a class="nav-link" href="main.php?dir=dashboard&page=dashboard">
+                <?php echo $website_title; ?>
+                </a>
             </li>
         </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto topnav">
-
-
             <li class="nav-item">
-                <a class="nav-link"href="main.php?dir=dashboard&page=client_dashboard">
+                <a class="nav-link" href="main.php?dir=dashboard&page=dashboard">
                     الرئيسية
                 </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                    عقد ارتباط مراجعه
+                    المستخدمين
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="main.php?dir=clients/contract_request&page=add" class="dropdown-item">
-                        اضافة عقد جديد
-                    </a>
                     <div class="dropdown-divider"></div>
-                    <a href="main.php?dir=clients/contract_request&page=report" class="dropdown-item">
-                        مشاهدة العقود
+                    <a href="main.php?dir=admin_users&page=report" class="dropdown-item">
+                        مشاهدة المستخدمين
                     </a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                إعداد تقرير محاسبي
+                    صلاحيات المستخدمين
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="main.php?dir=clients/accounting_report&page=add" class="dropdown-item">
-                        اضافة عقد جديد
-                    </a>
+
                     <div class="dropdown-divider"></div>
-                    <a href="main.php?dir=clients/accounting_report&page=report" class="dropdown-item">
-                        مشاهدة العقود
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                خدمة زكاة وضرائب
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="main.php?dir=clients/tax_services&page=add" class="dropdown-item">
-                        اضافة عقد جديد
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="main.php?dir=clients/tax_services&page=report" class="dropdown-item">
-                        مشاهدة العقود
+                    <a href="main.php?dir=privilage&page=report" class="dropdown-item">
+                        مشاهدة الصلاحيات
                     </a>
                 </div>
             </li>

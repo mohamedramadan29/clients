@@ -158,10 +158,10 @@
  }
 
  .dropdown-item:hover, .dropdown-item:focus {
-  color: #fff;
-  text-decoration: none;
-  background-color:#0069d9;
-}
+   color: #fff;
+   text-decoration: none;
+   background-color: #0069d9;
+ }
 
 
  .alert-success {
@@ -2328,4 +2328,24 @@
 
  .wrapper .content-wrapper {
    background-color: #f1f1f1;
+ }
+
+ .dataTables_wrapper .dt-buttons {
+   text-align: left;
+   margin-bottom: 20px;
+   margin-top: 5px;
+ }
+ .dataTables_wrapper .dt-buttons .btn-secondary{
+  background-color: #4a69bd;
+  border-color: #4a69bd;
+ }
+ .dataTables_wrapper .dt-buttons .btn-primary{
+  background-color:   #e55039;
+  border-color: #e55039;
+ }
+ .priv_custome tr th{
+  text-align: right !important;
+ }
+ .priv_custome tr td input[type="checkbox"]{
+  margin-left: -24px !important;
  }

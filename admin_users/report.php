@@ -1,4 +1,4 @@
-<div class="container customer_report">
+<div class="container-fluid customer_report">
     <div class="data">
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -81,16 +81,25 @@
                                         <label id="name_en">المدينة<span> * </span></label>
                                         <input class="form-control" type="text" name="user_city">
                                     </div>
-
+                                    <div class="box2">
+                                        <label id="name_en">حالة المستخدم<span> * </span></label>
+                                        <select class="form-control" name="user_stat">
+                                            <option value=""> - اختر حالة المستخدم -</option>
+                                            <option value="1"> نشط </option>
+                                            <option value="0">معلق</option>
+                                        </select>
+                                    </div>
                                     <div class="box submit_box">
                                         <input class="btn btn-outline-primary btn-sm" name="add_car" type="submit" value=" اضافه مستخدم جديد ">
                                     </div>
                                 </div>
                         </div>
                         </form>
+                        <br>
+                        <br>
                         <!-- START RESPONSE SPACE  -->
                         <!-- area to display a message after completion of upload -->
-                        <div id='status'></div>
+                        <div class='status'></div>
                         <br>
                         <!-- END RESPONSE SPACE  -->
                     </div>
@@ -109,12 +118,14 @@
         <table id="tableone" class="table table-light table-striped table-hover table-bordered">
             <thead>
                 <tr>
-                    <th>اسم المستخدم</th>
                     <th>رمز المستخدم </th>
-                    <th>تاريخ الانضمام</th>
                     <th>نوع المستخدم</th>
-                    <th>المسمي الوظيفي</th>
-
+                    <th> الاسم الشخصى </th>
+                    <th>اسم المستخدم</th>
+                    <th> البريد الالكتروني </th>
+                    <th> رقم الجوال </th>
+                    <th> المدينة </th>
+                    <th> الحالة </th>
                     <th> </th>
                 </tr>
             </thead>
@@ -123,27 +134,41 @@
                     $stmt->execute();
                     $alltype = $stmt->fetchAll();
                     foreach ($alltype as $type) { ?> <tr>
-                        <td><?php echo $type['user_name']; ?> </td>
                         <td><?php echo $type['user_code']; ?> </td>
-                        <td> <?php echo $type['user_login_date']; ?> </td>
                         <td> <?php echo $type['user_type']; ?> </td>
-                        <td> <?php echo $type['user_jop_title']; ?> </td>
+                        <td> <?php echo $type['user_personal_name']; ?> </td>
+                        <td><?php echo $type['user_name']; ?> </td>
+                        <td> <?php echo $type['user_email']; ?> </td>
+                        <td> <?php echo $type['user_phone']; ?> </td>
+                        <td> <?php echo $type['user_city']; ?> </td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $type['user_id']; ?>">
-                                مشاهدة <i class="fa fa-eye"></i>
+                            <?php
+                            if ($type['user_stat'] == 1) { ?>
+                                <button class="btn btn-success btn-sm"> نشط </button>
+                            <?php
+                            } else { ?>
+                                <button class="btn btn-danger btn-sm"> معلق </button>
+                            <?php
+                            }
+
+                            ?>
+                        <td>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $type['user_id']; ?>">
+                                <i class="fa fa-eye"></i>
                             </button>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editrecord<?php echo $type['user_id']; ?>">
-                                تعديل <i class="fa fa-edit"></i>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editrecord<?php echo $type['user_id']; ?>">
+                                <i class="fa fa-edit"></i>
                             </button>
-                            <a class="confirm btn btn-danger btn-sm" href="main.php?dir=admin_users&page=delete&user_id=<?php echo $type['user_id']; ?> ">
-                                حذف <i class="fa fa-trash"></i>
+                            <a class="confirm btn btn-danger" href="main.php?dir=admin_users&page=delete&user_id=<?php echo $type['user_id']; ?> ">
+                                <i class="fa fa-trash"></i>
+                                
                             </a>
                         </td>
                     </tr> <?php
                             ?>
                     <!-- START MODEL TO Edit RECORD  -->
                     <!-- Modal -->
-                    <div class="modal fade" id="editrecord<?php echo $type['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade edit_form" id="editrecord<?php echo $type['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -163,7 +188,6 @@
                                                                 <option value=""> -- اختر نوع المستخدم --</option>
                                                                 <option <?php if ($type['user_type'] == 'ضيف') echo 'selected'; ?> value="ضيف"> ضيف </option>
                                                                 <option <?php if ($type['user_type'] == 'موظف') echo 'selected'; ?> value="موظف">موظف</option>
-
                                                             </select>
                                                         </div>
                                                         <div class="box2">
@@ -206,6 +230,14 @@
                                                             <label id="name_en">المدينة<span> * </span></label>
                                                             <input class="form-control" type="text" name="user_city" value="<?php echo $type['user_city']; ?>">
                                                         </div>
+                                                        <div class="box2">
+                                                            <label id="name_en">حالة المستخدم<span> * </span></label>
+                                                            <select class="form-control" name="user_stat">
+                                                                <option value=""> - اختر حالة المستخدم -</option>
+                                                                <option <?php if ($type['user_stat'] == '1') echo 'selected'; ?> value="1"> نشط </option>
+                                                                <option <?php if ($type['user_stat'] == '0') echo 'selected'; ?> value="0">معلق</option>
+                                                            </select>
+                                                        </div>
 
                                                         <div class="box submit_box">
                                                             <input class="btn btn-outline-primary btn-sm" name="add_car" type="submit" value="تعديل المستخدم">
@@ -213,11 +245,11 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <!-- START RESPONSE SPACE  -->
-                                            <!-- area to display a message after completion of upload -->
                                             <br>
                                             <div class='status'></div>
                                             <!-- END RESPONSE SPACE  -->
+                                            <!-- START RESPONSE SPACE  -->
+                                            <!-- area to display a message after completion of upload -->
                                         </div>
                                     </div>
                                 </div>
@@ -226,6 +258,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class='status'></div>
                     </div>
                     <!-- END RECORD TO EDIT NEW RECORD  -->
                     <!-- START MODEL VIEW  -->
@@ -300,18 +333,24 @@
                                                             <label id="name_en">المدينة<span> * </span></label>
                                                             <input class="form-control" type="text" name="user_city" value="<?php echo $type['user_city']; ?>">
                                                         </div>
+                                                        <div class="box2">
+                                                            <label id="name_en">حالة المستخدم<span> * </span></label>
+                                                            <select class="form-control" name="user_stat">
+                                                                <option value=""> - اختر حالة المستخدم -</option>
+                                                                <option <?php if ($type['user_stat'] == '1') echo 'selected'; ?> value="1"> نشط </option>
+                                                                <option <?php if ($type['user_stat'] == '0') echo 'selected'; ?> value="0">معلق</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>
-                                         
+
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer d-flex justify-content-between">
-                                    <div>
-                                        <button type="button" name="button" class="btn btn-primary printbtn btn-sm"> طباعه <i class="fa fa-print"></i></button>
-                                    </div>
+
                                     <div>
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"> <i class="fa fa-close"></i> اغلاق </button>
                                     </div>

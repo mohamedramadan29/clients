@@ -34,6 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['user_city'],
         FILTER_SANITIZE_STRING
     );
+    $user_stat = filter_var(
+        $_POST['user_stat'],
+        FILTER_SANITIZE_STRING
+    );
     /// More Validation To Show Error
     $formerror = [];
     if (empty($user_name)) {
@@ -47,20 +51,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $connect->prepare("UPDATE users SET 
     user_type=?,user_jop_title=?,user_personal_name=?
-    ,user_name=?,user_password=?,user_phone=?,user_email=?,user_city=? WHERE user_id=?");
-    $stmt->execute([$user_type, $user_jop_title, 
-    $user_personal_name,
-    $user_name,  $user_password, $user_phone,  $user_email,  $user_city,$user_id
+    ,user_name=?,user_password=?,user_phone=?,user_email=?,user_city=?,user_stat=? WHERE user_id=?");
+    $stmt->execute([
+        $user_type, $user_jop_title,
+        $user_personal_name,
+        $user_name,  $user_password, $user_phone,  $user_email,  $user_city, $user_stat, $user_id
     ]);
     if ($stmt) { ?>
-        <div class="container">
-            <div class="alert-success">
-                تم تعديل المستخدم بنجاح
-
-                <?php // header('refresh:3,url=main.php?dir=city&page=report'); 
-                ?>
-            </div>
-        </div>
-
+        <script>
+            document.getElementById("edit_form").reset();
+            setTimeout(() => {
+                let url = "main.php?dir=admin_users&page=report";
+                window.location.href = url;
+            },100);
+        </script>
+     
 <?php }
 }

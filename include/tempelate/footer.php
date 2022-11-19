@@ -60,7 +60,7 @@
     $(function() {
       $(document).ready(function() {
         var percent = $('#percent');
-        var status = $('#status');
+        var status = $('.status');
 
         $('.ajax_form').ajaxForm({
           beforeSend: function() {

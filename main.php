@@ -103,6 +103,15 @@ if (isset($_SESSION['client_id'])) {
             }
         }
         // END Contract Request
+        // START Account ( نموذج طلب عقد إرتباط مراجعة )
+        if (isset($_SESSION['client_id'])) {
+            if ($dir == 'clients/account' && $page == 'add') {
+                include 'clients/account/add.php';
+            } elseif ($dir == 'clients/account' && $page == 'edit') {
+                include 'clients/account/edit.php';
+            }
+        }
+        // END Account
         /***************** END CLIENTS FOLDER**************** */
         // END CONTACT
         if ($dir == 'dashboard' && $page == 'dashboard') {
@@ -111,6 +120,7 @@ if (isset($_SESSION['client_id'])) {
         if ($dir == 'dashboard' && $page == 'client_dashboard') {
             include 'clients/client_dashboard.php';
         }
+
 
         // END EDUCATION WEB SITE ///////////////////////////////////////
 
