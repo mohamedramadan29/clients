@@ -201,7 +201,7 @@ $pagetitle = ' الرئيسية  ';
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
                         <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
-                        <td> <?php echo $type['ar_id']; ?> </td>
+
                         <td> <?php echo $type['ar_client_name']; ?> </td>
                         <td> -- <?php // echo $type['ar_years_required']; 
                                 ?> </td>
@@ -272,7 +272,7 @@ $pagetitle = ' الرئيسية  ';
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
                         <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
-                        <td> <?php echo $type['con_id']; ?> </td>
+
                         <td> <?php echo $type['con_client_name']; ?> </td>
                         <td> <?php echo $type['con_years_required']; ?> </td>
                         <td> عقد ارتباط </td>

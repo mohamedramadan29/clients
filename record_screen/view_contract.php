@@ -9,8 +9,8 @@ $con_data = $stmt->fetch();
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=client_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
-                    <li class="breadcrumb-item active" aria-current="page"> مشاهدة نموذج طلب عقد إرتباط مراجعة </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ادارة مهام العملاء </a> <i class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item active" aria-current="page"> تفاصيل نموذج طلب عقد إرتباط مراجعة </li>
                 </ol>
             </nav>
         </div>
@@ -18,15 +18,13 @@ $con_data = $stmt->fetch();
         <div class="myform">
 
             <!-- ********************** END CODE ********************** -->
-            <form id="edit_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/contract_request&page=ajax_edit" method="POST" autocomplete="on" enctype="multipart/form-data">
+            <form id="edit_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=record_screen&page=edit_contract" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <input type="hidden" name="con_id" value="<?php echo $con_data["con_id"]; ?>">
                 <div class="row">
-
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
-
                             <div class="box2">
                                 <label id="name"> اســـم العميـــــــــل <span> * </span> </label>
                                 <input required class="form-control" type="text" name="con_client_name" value="<?php echo $con_data["con_client_name"]; ?>">
@@ -453,12 +451,87 @@ $con_data = $stmt->fetch();
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-4">
+                        <div class="form-data">
+                            <p class="alert alert-info"> عمل تعديلات علي العقد <i class="fa fa-edit"></i></p>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ صدور العقد </label>
+                                <input class="form-control" type="date" name="date_issuance" value="<?php echo $con_data['date_issuance'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ بدء الخدمة </label>
+                                <input class="form-control" type="date" name="date_start_services" value="<?php echo $con_data['date_start_services'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ انتهاء الخدمة </label>
+                                <input class="form-control" type="date" name="date_end_services" value="<?php echo $con_data['date_end_services'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> ارفاق عقد موقع </label>
+                                <select name="send_signed_contract" id="" class="form-control">
+                                    <option value=""> -- اختر -- </option>
+                                    <option value="1"> تم الارفاق </option>
+                                    <option value="0"> لم يتم الارفاق </option>
+                                </select>
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> ارفاق ايصالات سداد الاتعاب </label>
+                                <select name="send_payment_fee" id="" class="form-control">
+                                    <option value=""> -- اختر -- </option>
+                                    <option value="1"> تم الارفاق </option>
+                                    <option value="0">لم يتم الارفاق</option>
+                                </select>
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> الحالة </label>
+                                <select name="status" id="" class="form-control">
+                                    <option value=""> -- اختر -- </option>
+                                    <option value="1"> انتهت </option>
+                                    <option value="0"> قائمة </option>
+                                </select>
+                            </div>
+                            <p class="alert alert-info"> مراحل طلب الخدمة </p>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ الموافقة على نموذج الخدمة </label>
+                                <input class="form-control" type="date" name="agree_services" value="<?php echo $con_data['agree_services'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ إرسال عقد الارتباط </label>
+                                <input class="form-control" type="date" name="send_link_note" value="<?php echo $con_data['send_link_note'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ إرسال العقد الموقع وايصالات السداد </label>
+                                <input class="form-control" type="date" name="send_sign_contract_payment_receipt" value="<?php echo $con_data['send_sign_contract_payment_receipt'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ التحقق من توقيع العقد وايصالات السداد </label>
+                                <input class="form-control" type="date" name="verification_contract_req" value="<?php echo $con_data['verification_contract_req'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ الانتهاء من أعمال المراجعة </label>
+                                <input class="form-control" type="date" name="end_revision_work" value="<?php echo $con_data['end_revision_work'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ إرسال ايصال سداد الدفعة الأخيرة </label>
+                                <input class="form-control" type="date" name="send_end_fee" value="<?php echo $con_data['send_end_fee'] ?>">
+                            </div>
+                            <div class="box3">
+                                <label id="car_model"> تاريخ إيداع في منصة قوائم </label>
+                                <input class="form-control" type="date" name="deposit_plat_form" value="<?php echo $con_data['deposit_plat_form'] ?>">
+                            </div>
+                            <div class="box text-center">
+                                <button type="submit" class="btn btn-primary btn-sm"> تعديل العقد <i class="fa fa-edit"></i> </button>
+                            </div>
+
+                            <!--*********************** START CODE ******************** -->
+                            <!-- Area to display the percent of progress -->
+                            <!-- area to display a message after completion of upload -->
+                            <div class='status'></div>
+                        </div>
+                    </div>
                 </div>
         </div>
         </form>
-        <!--*********************** START CODE ******************** -->
-        <!-- Area to display the percent of progress -->
-        <!-- area to display a message after completion of upload -->
-        <div id='status'></div>
+
     </div>
 </div>

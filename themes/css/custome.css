@@ -133,7 +133,11 @@
    margin-top: 15px;
    width: 32.5%;
  }
-
+ .category .data .myform .box3 {
+  display: inline-block;
+  margin-top: 15px;
+  width: 49%;
+}
  .category .data .myform input[type=text],
  .category .data .myform input[type=email],
  .category .data .myform input[type=select] {

@@ -20,12 +20,21 @@ include 'init.php';
             include 'admin_users/edit.php';
         }
 
-         // START Privivlage
-         if ($dir == 'privilage' && $page == 'add') {
+        // START Privivlage
+        if ($dir == 'privilage' && $page == 'add') {
             include 'privilage/add.php';
         } elseif ($dir == 'privilage' && $page == 'edit') {
             include 'privilage/edit.php';
         }
+        // START ADMIN RECORD SCREEN
+        if ($dir == 'record_screen' && $page == 'edit_account') {
+            include 'record_screen/edit_account.php.php';
+        } elseif ($dir == 'record_screen' && $page == 'edit_contract') {
+            include 'record_screen/edit_contract.php';
+        } elseif ($dir == 'record_screen' && $page == 'edit_tax') {
+            include 'record_screen/edit_tax.php';
+        }  
+        // END ADMIN RECORD SCREEN
         // START Accounting Report ( عقد إعداد تقرير محاسبي )
         if ($dir == 'clients/accounting_report' && $page == 'ajax_add') {
             include 'clients/accounting_report/ajax_add.php';
