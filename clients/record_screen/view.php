@@ -99,6 +99,7 @@
                     <th> تاريخ انتهاء الخدمة </th>
                     <th> ارفاق عقد موقع </th>
                     <th> ارفاق ايصالات سداد الاتعاب </th>
+                     
                     <th> الحالة </th>
                 </tr>
             </thead>
@@ -179,8 +180,8 @@
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                       <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
-                        <td> <?php echo $type['ar_id']; ?> </td>
+                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
+                   
                         <td> <?php echo $type['ar_client_name']; ?> </td>
                         <td> -- <?php // echo $type['ar_years_required']; 
                                 ?> </td>
@@ -250,8 +251,8 @@
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                      <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
-                        <td> <?php echo $type['con_id']; ?> </td>
+                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
+                    
                         <td> <?php echo $type['con_client_name']; ?> </td>
                         <td> <?php echo $type['con_years_required']; ?> </td>
                         <td> عقد ارتباط </td>
@@ -264,7 +265,8 @@
                                 } else {
                                     echo $type['date_issuance'];
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
                         <td> <?php
                                 if ($type['date_start_services'] == 0) { ?>
                                 لم يحدد
@@ -272,7 +274,8 @@
                                 } else {
                                     echo $type['date_start_services'];
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
                         <td> <?php
                                 if ($type['date_end_services'] == 0) { ?>
                                 لم يحدد
@@ -280,7 +283,8 @@
                                 } else {
                                     echo $type['date_end_services'];
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
                         <td> <?php
                                 if ($type['send_signed_contract'] == 0) { ?>
                                 لم يتم الارفاق
@@ -289,7 +293,9 @@
                                 تم الارفاق
                             <?php
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
+
                         <td> <?php
                                 if ($type['send_payment_fee'] == 0) { ?>
                                 لم يتم الارفاق
@@ -298,7 +304,9 @@
                                 تم الارفاق
                             <?php
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
+
                         <td> <?php
                                 if ($type['status'] == 0) { ?>
                                 قائمة
@@ -307,7 +315,8 @@
                                 انتهت
                             <?php
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
                     </tr> <?php
                             ?>
                 <?php

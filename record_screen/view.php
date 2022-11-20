@@ -97,11 +97,11 @@
 
                 <!-- Show Tax Services (زكاء وضرائب)  -->
                 <?php
-                $stmt = $connect->prepare('SELECT * FROM tax_report WHERE user_id=? ORDER BY tax_id DESC LIMIT 2');
+                $stmt = $connect->prepare('SELECT * FROM tax_report WHERE user_id=? ORDER BY tax_id DESC');
                 $stmt->execute(array($client_id));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_tax&tax_id=<?php echo $type['tax_id']; ?>"> <?php echo $type['tax_id']; ?> </a> </td>
+                        <td> <a class="btn btn-default" href="main.php?dir=record_screen&page=view_tax&tax_id=<?php echo $type['tax_id']; ?>"> <?php echo $type['tax_id']; ?> </a> </td>
                         <td> <?php echo $type['tax_client_name']; ?> </td>
                         <td> <?php echo $type['tax_years_required']; ?> </td>
                         <td> زكاة وضرائب </td>
@@ -165,12 +165,12 @@
                 ?>
                 <!-- Show  accounting_report   (  اعداد تقرير محاسبي  )  -->
                 <?php
-                $stmt = $connect->prepare('SELECT * FROM accounting_report WHERE user_id=? ORDER BY ar_id DESC LIMIT 2');
+                $stmt = $connect->prepare('SELECT * FROM accounting_report WHERE user_id=? ORDER BY ar_id DESC');
                 $stmt->execute(array($client_id));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
-                        <td> <?php echo $type['ar_id']; ?> </td>
+                        <td> <a class="btn btn-default" href="main.php?dir=record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
+                         
                         <td> <?php echo $type['ar_client_name']; ?> </td>
                         <td> -- <?php // echo $type['ar_years_required']; 
                                 ?> </td>
@@ -236,12 +236,12 @@
 
                 <!-- Show  Contract   (  طلب عقد ارتباط )  -->
                 <?php
-                $stmt = $connect->prepare('SELECT * FROM contract_report WHERE user_id=? ORDER BY con_id DESC LIMIT 2');
+                $stmt = $connect->prepare('SELECT * FROM contract_report WHERE user_id=? ORDER BY con_id DESC');
                 $stmt->execute(array($client_id));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
-                        <td> <?php echo $type['con_id']; ?> </td>
+                        <td> <a class="btn btn-default" href="main.php?dir=record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
+                         
                         <td> <?php echo $type['con_client_name']; ?> </td>
                         <td> <?php echo $type['con_years_required']; ?> </td>
                         <td> عقد ارتباط </td>
