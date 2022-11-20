@@ -118,68 +118,73 @@ $ar_data = $stmt->fetch();
                             <p class="alert alert-info"> عمل تعديلات علي العقد <i class="fa fa-edit"></i></p>
                             <div class="box3">
                                 <label id="car_model"> تاريخ صدور العقد </label>
-                                <input class="form-control" type="date" name="date_issuance" value="<?php echo $con_data['date_issuance'] ?>">
+                                <input class="form-control" type="date" name="date_issuance" value="<?php echo $ar_data['date_issuance'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ بدء الخدمة </label>
-                                <input class="form-control" type="date" name="date_start_services" value="<?php echo $con_data['date_start_services'] ?>">
+                                <input class="form-control" type="date" name="date_start_services" value="<?php echo $ar_data['date_start_services'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ انتهاء الخدمة </label>
-                                <input class="form-control" type="date" name="date_end_services" value="<?php echo $con_data['date_end_services'] ?>">
+                                <input class="form-control" type="date" name="date_end_services" value="<?php echo $ar_data['date_end_services'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> ارفاق عقد موقع </label>
                                 <select name="send_signed_contract" id="" class="form-control">
                                     <option value=""> -- اختر -- </option>
-                                    <option value="1"> تم الارفاق </option>
-                                    <option value="0"> لم يتم الارفاق </option>
+                                    <option <?php if ($ar_data['send_signed_contract'] == '1') echo 'selected'; ?> value="1"> تم الارفاق </option>
+                                    <option <?php if ($ar_data['send_signed_contract'] == '0') echo 'selected'; ?> value="0"> لم يتم الارفاق </option>
                                 </select>
                             </div>
                             <div class="box3">
                                 <label id="car_model"> ارفاق ايصالات سداد الاتعاب </label>
                                 <select name="send_payment_fee" id="" class="form-control">
                                     <option value=""> -- اختر -- </option>
-                                    <option value="1"> تم الارفاق </option>
-                                    <option value="0">لم يتم الارفاق</option>
+                                    <option <?php if ($ar_data['send_payment_fee'] == '1') echo 'selected'; ?> value="1"> تم الارفاق </option>
+                                    <option <?php if ($ar_data['send_payment_fee'] == '0') echo 'selected'; ?> value="0">لم يتم الارفاق</option>
                                 </select>
                             </div>
                             <div class="box3">
                                 <label id="car_model"> الحالة </label>
                                 <select name="status" id="" class="form-control">
                                     <option value=""> -- اختر -- </option>
-                                    <option value="1"> انتهت </option>
-                                    <option value="0"> قائمة </option>
+                                    <option <?php if ($ar_data['status'] == '1') echo 'selected'; ?> value="1"> انتهت </option>
+                                    <option <?php if ($ar_data['status'] == '0') echo 'selected'; ?> value="0"> قائمة </option>
                                 </select>
                             </div>
                             <p class="alert alert-info"> مراحل طلب الخدمة </p>
                             <div class="box3">
                                 <label id="car_model"> تاريخ الموافقة على نموذج الخدمة </label>
-                                <input class="form-control" type="date" name="agree_services" value="<?php echo $con_data['agree_services'] ?>">
+                                <input class="form-control" type="date" name="agree_services" value="<?php echo $ar_data['agree_services'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ إرسال عقد الارتباط </label>
-                                <input class="form-control" type="date" name="send_link_note" value="<?php echo $con_data['send_link_note'] ?>">
+                                <input class="form-control" type="date" name="send_link_note" value="<?php echo $ar_data['send_link_note'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ إرسال العقد الموقع وايصالات السداد </label>
-                                <input class="form-control" type="date" name="send_sign_contract_payment_receipt" value="<?php echo $con_data['send_sign_contract_payment_receipt'] ?>">
+                                <input class="form-control" type="date" name="send_sign_contract_payment_receipt" value="<?php echo $ar_data['send_sign_contract_payment_receipt'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ التحقق من توقيع العقد وايصالات السداد </label>
-                                <input class="form-control" type="date" name="verification_contract_req" value="<?php echo $con_data['verification_contract_req'] ?>">
+                                <input class="form-control" type="date" name="verification_contract_req" value="<?php echo $ar_data['verification_contract_req'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ الانتهاء من أعمال المراجعة </label>
-                                <input class="form-control" type="date" name="end_revision_work" value="<?php echo $con_data['end_revision_work'] ?>">
+                                <input class="form-control" type="date" name="end_revision_work" value="<?php echo $ar_data['end_revision_work'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ إرسال ايصال سداد الدفعة الأخيرة </label>
-                                <input class="form-control" type="date" name="send_end_fee" value="<?php echo $con_data['send_end_fee'] ?>">
+                                <input class="form-control" type="date" name="send_end_fee" value="<?php echo $ar_data['send_end_fee'] ?>">
                             </div>
                             <div class="box3">
                                 <label id="car_model"> تاريخ إيداع في منصة قوائم </label>
-                                <input class="form-control" type="date" name="deposit_plat_form" value="<?php echo $con_data['deposit_plat_form'] ?>">
+                                <input class="form-control" type="date" name="deposit_plat_form" value="<?php echo $ar_data['deposit_plat_form'] ?>">
+                            </div>
+                            <div class="box">
+                                <label id="car_model"> ملاحظات </label>
+                                <textarea name="notes" class="form-control"><?php echo $ar_data['notes'] ?></textarea>
+
                             </div>
                             <div class="box text-center">
                                 <button type="submit" class="btn btn-primary btn-sm"> تعديل العقد <i class="fa fa-edit"></i> </button>
@@ -194,6 +199,6 @@ $ar_data = $stmt->fetch();
                 </div>
         </div>
         </form>
-         
+
     </div>
 </div>

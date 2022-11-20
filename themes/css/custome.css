@@ -1422,7 +1422,7 @@
  .table>tfoot>tr>th,
  .table>thead>tr>td,
  .table>thead>tr>th {
-   padding: 4px 10px !important;
+   padding: 10px 10px !important;
  }
 
  .rent_button {

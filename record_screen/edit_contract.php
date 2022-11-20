@@ -20,11 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $end_revision_work = $_POST['end_revision_work'];
     $send_end_fee = $_POST['send_end_fee'];
     $deposit_plat_form = $_POST['deposit_plat_form'];
+    $notes = $_POST['notes'];
     $stmt = $connect->prepare("UPDATE contract_report SET
                 date_issuance=?,date_start_services=?,date_end_services=?,send_signed_contract=?,
 send_payment_fee=?,status=?,agree_services=?,send_link_note=?,send_sign_contract_payment_receipt=?,
 verification_contract_req=?,end_revision_work=?,send_end_fee=?,
-deposit_plat_form=? WHERE con_id=?");
+deposit_plat_form=?,notes=? WHERE con_id=?");
     $stmt->execute([
         $date_issuance,
         $date_start_services,
@@ -39,6 +40,7 @@ deposit_plat_form=? WHERE con_id=?");
         $end_revision_work,
         $send_end_fee,
         $deposit_plat_form,
+        $notes,
         $con_id,
     ]);
 
