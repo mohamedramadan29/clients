@@ -1,58 +1,98 @@
 <?php
-include "connect.php";
-include "config.php";
+include 'connect.php';
+include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ar_id = $_POST['ar_id'];
-    $date_issuance = $_POST['date_issuance'];
-    $date_start_services = $_POST['date_start_services'];
-    $con_account_num =  $_POST['con_account_num'];
-    $con_uniq_num = $_POST['con_uniq_num'];
-    $date_end_services = $_POST['date_end_services'];
-    $send_signed_contract = $_POST['send_signed_contract'];
-    $con_year_end = $_POST['con_year_end'];
-    $send_payment_fee = $_POST['send_payment_fee'];
-    $status = $_POST['status'];
-    $agree_services = $_POST['agree_services'];
-    $send_link_note = $_POST['send_link_note'];
-    $send_sign_contract_payment_receipt = $_POST['send_sign_contract_payment_receipt'];
-    $verification_contract_req = $_POST['verification_contract_req'];
-    $end_revision_work = $_POST['end_revision_work'];
-    $send_end_fee = $_POST['send_end_fee'];
-    $deposit_plat_form = $_POST['deposit_plat_form'];
-    $notes = $_POST['notes'];
-    $stmt = $connect->prepare("UPDATE accounting_report SET
-                date_issuance=?,date_start_services=?,date_end_services=?,send_signed_contract=?,
-send_payment_fee=?,status=?,agree_services=?,send_link_note=?,send_sign_contract_payment_receipt=?,
-verification_contract_req=?,end_revision_work=?,send_end_fee=?,
-deposit_plat_form=?,notes=? WHERE ar_id=?");
-    $stmt->execute([
-        $date_issuance,
-        $date_start_services,
-        $date_end_services,
-        $send_signed_contract,
-        $send_payment_fee,
-        $status,
-        $agree_services,
-        $send_link_note,
-        $send_sign_contract_payment_receipt,
-        $verification_contract_req,
-        $end_revision_work,
-        $send_end_fee,
-        $deposit_plat_form,
-        $notes,
-        $ar_id,
-    ]);
 
-    if ($stmt) { ?>
+    $ar_client_name = $_POST['ar_client_name'];
+    $ar_legal = $_POST['ar_legal'];
+    $ar_account_num = $_POST['ar_account_num'];
+    $ar_manager_name = $_POST['ar_manager_name'];
+    $ar_manager_phone = $_POST['ar_manager_phone'];
+    $ar_client_email = $_POST['ar_client_email'];
+    $ar_serv_reason = $_POST['ar_serv_reason'];
+    $ar_doc_scop = $_POST['ar_doc_scop'];
+    $ar_old_doc = $_POST['ar_old_doc'];
+    $ar_new_doc = $_POST['ar_new_doc'];
+    $ar_prepare = $_POST['ar_prepare'];
+    $ar_prepare_date = $_POST['ar_prepare_date'];
 
-        <!--  <div class="alert-success">
+    /// More Validation To Show Error
+    $formerror = [];
+    if (strlen($ar_account_num) > 10 || strlen($ar_account_num) < 10) {
+        $formerror[] = 'يجب ان يكون رقم السجل التجاري 10 ارقام';
+    }
+    if (empty($ar_client_name)) {
+        $formerror[] = '   من فضلك ادخل اسم العميل';
+    }
+    if (empty($ar_legal)) {
+        $formerror[] = '      من فضلك ادخل الكيان القانوني      ';
+    }
+    if (empty($ar_manager_name)) {
+        $formerror[] = '    من فضلك ادخل اسم المدير ';
+    }
+    if (empty($ar_manager_phone)) {
+        $formerror[] = '      من فضلك ادخل رقم جوال المدير    ';
+    }
+    if (empty($ar_client_email)) {
+        $formerror[] = '       من فضلك ادخل البريد الالكتروني للعميل    ';
+    }
+    if (empty($ar_serv_reason)) {
+        $formerror[] = '      من فضلك ادخل سبب طلب الخدمة    ';
+    }
+    if (empty($ar_doc_scop)) {
+        $formerror[] = '      من فضلك ادخل   النطاق المستندي    ';
+    }
+    if (empty($ar_old_doc)) {
+        $formerror[] = '      من فضلك ادخل اقدم تاريخ مستند    ';
+    }
+    if (empty($ar_new_doc)) {
+        $formerror[] = ' من فضلك ادخل احدث تاريخ مستند';
+    }
+    if (empty($ar_prepare)) {
+        $formerror[] = '   من فضلك ادخل من اعد الطلب   ';
+    }
+
+    if (empty($formerror)) {
+        $stmt = $connect->prepare("UPDATE accounting_report SET
+                     ar_client_name=?,ar_legal=?,ar_account_num=?,ar_manager_name=?,
+                     ar_manager_phone=?,ar_client_email=?,ar_serv_reason=?,ar_doc_scop=?,ar_old_doc=?,
+                     ar_new_doc=?,ar_prepare=?,ar_prepare_date=? WHERE ar_id=?");
+        $stmt->execute([
+            $ar_client_name,
+            $ar_legal,
+            $ar_account_num,
+            $ar_manager_name,
+            $ar_manager_phone,
+            $ar_client_email,
+            $ar_serv_reason,
+            $ar_doc_scop,
+            $ar_old_doc,
+            $ar_new_doc,
+            $ar_prepare,
+            $ar_prepare_date,
+            $ar_id,
+        ]);
+        if ($stmt) { ?>
+            <script>
+                document.getElementById("edit_form").reset();
+                setTimeout(() => {
+                    let url = "main.php?dir=record_screen&page=view_account&ar_id=<?php echo $ar_id; ?>";
+                    window.location.href = url;
+                }, 2000);
+            </script>
+            <!--  <div class="alert-success">
                     </div> -->
-        <?php
-        ?>
-        <div class='container alert alert-success' role='alert'> تم تعديل الطلب بنجاح </div>
-        <?php //header('refresh:3;url=main.php?dir=fire&page=report'); 
-        ?>
-<?php
+            <?php  ?>
+            <div class='container alert alert-success' role='alert'> تم تعديل الطلب بنجاح </div>
+            <?php
+            //header('refresh:3;url=main.php?dir=fire&page=report');
+            ?>
+        <?php }
+    } else {
+        foreach ($formerror as $errors) { ?>
+            <div class="alert alert-danger"> <?php echo $errors; ?> </div>
+<?php }
     }
 } ?>

@@ -28,7 +28,7 @@ include 'init.php';
         }
         // START ADMIN RECORD SCREEN
         if ($dir == 'record_screen' && $page == 'edit_account') {
-            include 'record_screen/edit_account.php.php';
+            include 'record_screen/edit_account.php';
         } elseif ($dir == 'record_screen' && $page == 'edit_contract') {
             include 'record_screen/edit_contract.php';
         } elseif ($dir == 'record_screen' && $page == 'edit_tax') {

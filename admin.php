@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="text-center mb-5">
                                     <h3 class="text-uppercase"> شاشة دخول الادمن <strong></strong></h3>
                                 </div>
-                                <form class="" action="#" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                <form class="" action="#" method="POST" action="<?php echo $_SERVER[
+                                    'PHP_SELF'
+                                ]; ?>">
                                     <div class="form-group first">
                                         <label for="username">اسم المستخدم</label>
                                         <input name="comname" type="text" class="form-control" placeholder="  " id="username">

@@ -21,7 +21,7 @@ $con_data = $stmt->fetch();
             <form id="edit_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=record_screen&page=edit_contract" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <input type="hidden" name="con_id" value="<?php echo $con_data["con_id"]; ?>">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
@@ -448,10 +448,17 @@ $con_data = $stmt->fetch();
                                     }
                                     ?>
                                 </div>
+                                <div class="box text-center">
+                                    <button type="submit" class="btn btn-danger btn-sm"> تعديل العقد والموافقة علية<i class="fa fa-edit"></i> </button>
+                                </div>
+                                <!--*********************** START CODE ******************** -->
+                                <!-- Area to display the percent of progress -->
+                                <!-- area to display a message after completion of upload -->
+                                <div class='status'></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 d-none">
                         <div class="form-data">
                             <p class="alert alert-info"> عمل تعديلات علي العقد <i class="fa fa-edit"></i></p>
                             <div class="box3">
@@ -470,24 +477,24 @@ $con_data = $stmt->fetch();
                                 <label id="car_model"> ارفاق عقد موقع </label>
                                 <select name="send_signed_contract" id="" class="form-control">
                                     <option value=""> -- اختر -- </option>
-                                    <option <?php if($con_data['send_signed_contract'] == '1') echo 'selected';?> value="1"> تم الارفاق </option>
-                                    <option  <?php if($con_data['send_signed_contract'] == '0') echo 'selected';?> value="0"> لم يتم الارفاق </option>
+                                    <option <?php if ($con_data['send_signed_contract'] == '1') echo 'selected'; ?> value="1"> تم الارفاق </option>
+                                    <option <?php if ($con_data['send_signed_contract'] == '0') echo 'selected'; ?> value="0"> لم يتم الارفاق </option>
                                 </select>
                             </div>
                             <div class="box3">
                                 <label id="car_model"> ارفاق ايصالات سداد الاتعاب </label>
                                 <select name="send_payment_fee" id="" class="form-control">
                                     <option value=""> -- اختر -- </option>
-                                    <option <?php if($con_data['send_payment_fee'] == '1') echo 'selected';?> value="1"> تم الارفاق </option>
-                                    <option <?php if($con_data['send_payment_fee'] == '0') echo 'selected';?> value="0">لم يتم الارفاق</option>
+                                    <option <?php if ($con_data['send_payment_fee'] == '1') echo 'selected'; ?> value="1"> تم الارفاق </option>
+                                    <option <?php if ($con_data['send_payment_fee'] == '0') echo 'selected'; ?> value="0">لم يتم الارفاق</option>
                                 </select>
                             </div>
                             <div class="box3">
                                 <label id="car_model"> الحالة </label>
                                 <select name="status" id="" class="form-control">
                                     <option value=""> -- اختر -- </option>
-                                    <option <?php if($con_data['status'] == '1') echo 'selected';?> value="1"> انتهت </option>
-                                    <option <?php if($con_data['status'] == '0') echo 'selected';?> value="0"> قائمة </option>
+                                    <option <?php if ($con_data['status'] == '1') echo 'selected'; ?> value="1"> انتهت </option>
+                                    <option <?php if ($con_data['status'] == '0') echo 'selected'; ?> value="0"> قائمة </option>
                                 </select>
                             </div>
                             <p class="alert alert-info"> مراحل طلب الخدمة </p>
@@ -522,7 +529,7 @@ $con_data = $stmt->fetch();
                             <div class="box">
                                 <label id="car_model"> ملاحظات </label>
                                 <textarea name="notes" class="form-control"><?php echo $con_data['notes'] ?></textarea>
-                                
+
                             </div>
                             <div class="box text-center">
                                 <button type="submit" class="btn btn-primary btn-sm"> تعديل العقد <i class="fa fa-edit"></i> </button>

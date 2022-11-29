@@ -21,7 +21,7 @@ $tax_data = $stmt->fetch();
                 <div class="row">
                     <input required class="form-control" type="hidden" name="tax_id" value="<?php echo $tax_id ?>">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
@@ -267,10 +267,17 @@ $tax_data = $stmt->fetch();
                                     }
                                     ?>
                                 </div>
+                                <div class="box text-center">
+                                    <button type="submit" class="btn btn-danger btn-sm"> تعديل العقد والموافقة علية<i class="fa fa-edit"></i> </button>
+                                </div>
+                                <!--*********************** START CODE ******************** -->
+                                <!-- Area to display the percent of progress -->
+                                <!-- area to display a message after completion of upload -->
+                                <div class='status'></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 d-none">
                         <div class="form-data">
                             <p class="alert alert-info"> عمل تعديلات علي العقد <i class="fa fa-edit"></i></p>
                             <div class="box3">

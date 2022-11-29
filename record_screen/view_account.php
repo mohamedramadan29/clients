@@ -22,7 +22,7 @@ $ar_data = $stmt->fetch();
                 <div class="row">
                     <input required class="form-control" type="hidden" name="ar_id" value="<?php echo $ar_id ?>">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="form-data">
 
                             <div class="box2">
@@ -111,9 +111,17 @@ $ar_data = $stmt->fetch();
                                     ?>
                                 </div>
                             </div>
+                            <div class="box text-center">
+                                <button type="submit" class="btn btn-danger btn-sm"> تعديل العقد والموافقة علية<i class="fa fa-edit"></i> </button>
+                            </div>
+
+                            <!--*********************** START CODE ******************** -->
+                            <!-- Area to display the percent of progress -->
+                            <!-- area to display a message after completion of upload -->
+                            <div class='status'></div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 d-none">
                         <div class="form-data">
                             <p class="alert alert-info"> عمل تعديلات علي العقد <i class="fa fa-edit"></i></p>
                             <div class="box3">
@@ -190,10 +198,7 @@ $ar_data = $stmt->fetch();
                                 <button type="submit" class="btn btn-primary btn-sm"> تعديل العقد <i class="fa fa-edit"></i> </button>
                             </div>
 
-                            <!--*********************** START CODE ******************** -->
-                            <!-- Area to display the percent of progress -->
-                            <!-- area to display a message after completion of upload -->
-                            <div class='status'></div>
+
                         </div>
                     </div>
                 </div>
