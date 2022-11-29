@@ -51,6 +51,10 @@ if (isset($_SESSION['client_id'])) {
         } elseif ($dir == 'record_screen' && $page == 'view_contract') {
             include 'record_screen/view_contract.php';
         }
+        // START Review Plane
+        if ( $dir == 'review_plane' && $page == 'edit' ) {
+            include 'review_plane/edit.php';
+        }  
         // END ADMIN RECORD SCREEN
         // START Privilage
         if ($dir == 'privilage' && $page == 'add') {
@@ -163,33 +167,33 @@ include $tem . 'footer.php';
 ob_end_flush();
 ?>
 <script type="text/javascript">
-    // customer script
+// customer script
 
 
-    var dev = $("#logo").dropify({});
-    dev = dev.data("dropify")
-    var dev2 = $("#logo2").dropify({});
-    dev2 = dev2.data("dropify")
-    var dev3 = $("#logo3").dropify({});
-    dev2 = dev3.data("dropify")
-    var dev4 = $("#logo4").dropify({});
-    dev4 = dev4.data("dropify")
+var dev = $("#logo").dropify({});
+dev = dev.data("dropify")
+var dev2 = $("#logo2").dropify({});
+dev2 = dev2.data("dropify")
+var dev3 = $("#logo3").dropify({});
+dev2 = dev3.data("dropify")
+var dev4 = $("#logo4").dropify({});
+dev4 = dev4.data("dropify")
 </script>
 
 <script>
-    $(function() {
-        $("#rating").rateYo({
-            rating: 2,
-            fullStar: true,
-            starWidth: "27px"
-        });
+$(function() {
+    $("#rating").rateYo({
+        rating: 2,
+        fullStar: true,
+        starWidth: "27px"
     });
+});
 
-    // Getter
-    var normalFill = $("#rating").rateYo("option", "fullStar"); //returns true
+// Getter
+var normalFill = $("#rating").rateYo("option", "fullStar"); //returns true
 
-    // Setter
-    $("#rating").rateYo("option", "fullStar", true); //returns a jQuery Element
+// Setter
+$("#rating").rateYo("option", "fullStar", true); //returns a jQuery Element
 
-    // END ACTIVE LINK
+// END ACTIVE LINK
 </script>

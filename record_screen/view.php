@@ -91,6 +91,7 @@
                     <th> ارفاق عقد موقع </th>
                     <th> ارفاق ايصالات سداد الاتعاب </th>
                     <th> الحالة </th>
+                    <th> مذكرة التخطيط </th>
                 </tr>
             </thead>
             <tbody>
@@ -157,7 +158,8 @@
                                 انتهت
                             <?php
                                 }
-                            ?> </td>
+                            ?> </td> 
+                            <td> <a href="main.php?dir=review_plane&page=edit&tax_id=<?php echo $type['tax_id']; ?>" class="btn btn-outline-success btn-sm"> مذكرة التخطيط </a> </td>
                     </tr> <?php
                             ?>
                 <?php
@@ -228,6 +230,7 @@
                             <?php
                                 }
                             ?> </td>
+                              <td> <a href="main.php?dir=review_plane&page=edit&ar_id=<?php echo $type['ar_id']; ?>" class="btn btn-outline-success btn-sm"> مذكرة التخطيط </a> </td>
                     </tr> <?php
                             ?>
                 <?php
@@ -298,6 +301,7 @@
                             <?php
                                 }
                             ?> </td>
+                              <td> <a href="main.php?dir=review_plane&page=edit&con_id=<?php echo $type['con_id']; ?>" class="btn btn-outline-success btn-sm"> مذكرة التخطيط </a> </td>
                     </tr> <?php
                             ?>
                 <?php
