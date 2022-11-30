@@ -133,11 +133,13 @@
    margin-top: 15px;
    width: 32.5%;
  }
+
  .category .data .myform .box3 {
-  display: inline-block;
-  margin-top: 15px;
-  width: 49%;
-}
+   display: inline-block;
+   margin-top: 15px;
+   width: 49%;
+ }
+
  .category .data .myform input[type=text],
  .category .data .myform input[type=email],
  .category .data .myform input[type=select] {
@@ -161,7 +163,8 @@
 
  }
 
- .dropdown-item:hover, .dropdown-item:focus {
+ .dropdown-item:hover,
+ .dropdown-item:focus {
    color: #fff;
    text-decoration: none;
    background-color: #0069d9;
@@ -232,7 +235,7 @@
    font-size: 22px;
    margin-top: -30px;
  }
- 
+
  .latest_order {
    padding-top: 20px;
  }
@@ -1308,7 +1311,8 @@
    }
  }
 
- .fa-solid, .fas {
+ .fa-solid,
+ .fas {
    margin-left: 10px;
  }
 
@@ -1316,9 +1320,19 @@
    margin-left: 10px;
  }
 
- .fa, .fa-brands, .fa-duotone, .fa-light,
- .fa-regular, .fa-solid, .fa-thin,
- .fab, .fad, .fal, .far, .fas, .fat {
+ .fa,
+ .fa-brands,
+ .fa-duotone,
+ .fa-light,
+ .fa-regular,
+ .fa-solid,
+ .fa-thin,
+ .fab,
+ .fad,
+ .fal,
+ .far,
+ .fas,
+ .fat {
    margin-left: 10px;
  }
 
@@ -1411,7 +1425,8 @@
    background-color: #364150;
  }
 
- .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+ .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+ .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
 
    color: #fff;
  }
@@ -1531,16 +1546,20 @@
      margin-bottom: 20px;
    }
 
-   .btn-sm, .btn-group-sm>.btn {
+   .btn-sm,
+   .btn-group-sm>.btn {
      margin: auto !important;
      display: block !important;
      text-align: center !important;
      margin-bottom: 4px !important;
    }
 
-   .table>tbody>tr>td, .table>tbody>tr>th,
-   .table>tfoot>tr>td, .table>tfoot>tr>th,
-   .table>thead>tr>td, .table>thead>tr>th {
+   .table>tbody>tr>td,
+   .table>tbody>tr>th,
+   .table>tfoot>tr>td,
+   .table>tfoot>tr>th,
+   .table>thead>tr>td,
+   .table>thead>tr>th {
      padding: 4px 10px !important;
      font-size: 15px !important;
    }
@@ -1568,7 +1587,8 @@
    text-align: right !important;
  }
 
- .nav-sidebar .nav-link>.right, .nav-sidebar .nav-link>p>.right {
+ .nav-sidebar .nav-link>.right,
+ .nav-sidebar .nav-link>p>.right {
    position: absolute;
    left: 1rem !important;
    top: 0.7rem;
@@ -1816,7 +1836,8 @@
    text-align: center !important;
  }
 
- input[type="radio"], input[type="checkbox"] {
+ input[type="radio"],
+ input[type="checkbox"] {
    box-sizing: border-box;
    padding: 0;
    width: 20px;
@@ -2219,27 +2240,31 @@
  .admin_dashbaord .data {}
 
  .admin_dashbaord .data .small_box {
-  display: flex;
-  justify-content: space-around;
-  background-color: #e74c3c;
-  padding: 20px;
-  border-radius: 10px;
-  color: #fff;
-  margin-bottom: 20px;
+   display: flex;
+   justify-content: space-around;
+   background-color: #e74c3c;
+   padding: 20px;
+   border-radius: 10px;
+   color: #fff;
+   margin-bottom: 20px;
  }
- .admin_dashbaord .data .small-box1{
-  background-color: #2980b9
+
+ .admin_dashbaord .data .small-box1 {
+   background-color: #2980b9
  }
- .admin_dashbaord .data .small-box2{
-  background-color: #e67e22
+
+ .admin_dashbaord .data .small-box2 {
+   background-color: #e67e22
  }
- .admin_dashbaord .data .small-box4{
-  background-color: #6c5ce7;
+
+ .admin_dashbaord .data .small-box4 {
+   background-color: #6c5ce7;
  }
+
  .admin_dashbaord .data .small_box .icon {}
 
  .admin_dashbaord .data .small_box .icon i {
-  font-size: 40px;
+   font-size: 40px;
  }
 
  .admin_dashbaord .data .small_box .inner {}
@@ -2247,10 +2272,45 @@
  .admin_dashbaord .data .small_box .inner span {}
 
  .admin_dashbaord .data .small_box .inner h3 {
-  text-align: center;
-  margin-top: 15px;
+   text-align: center;
+   margin-top: 15px;
  }
 
+ .report_plane label {
+   padding: 5px;
+   border-radius: 6px;
+   font-size: 13px !important;
+   font-weight: 400 !important;
+ }
 
- 
+ .report_plane input {
+   margin-top: 6px;
+ }
+
+ .report_plane ul {
+   margin-top: 10px;
+   margin-bottom: 10px;
+ }
+
+ .report_plane ul li {
+   margin-top: 6px;
+   font-size: 14px;
+ }
+
+ .report_plane .table>tbody>tr>td,
+ .report_plane .table>tbody>tr>th,
+ .report_plane .table>tfoot>tr>td,
+ .report_plane .table>tfoot>tr>th,
+ .report_plane .table>thead>tr>td,
+ .report_plane .table>thead>tr>th {
+   padding: 4px 4px !important;
+   font-size: 14px;
+ }
+
+ .table th,
+ .table td {
+
+   vertical-align: middle;
+ }
+
  /* END ADMIN DASHBOARD */

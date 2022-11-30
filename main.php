@@ -52,9 +52,9 @@ if (isset($_SESSION['client_id'])) {
             include 'record_screen/view_contract.php';
         }
         // START Review Plane
-        if ( $dir == 'review_plane' && $page == 'edit' ) {
+        if ($dir == 'review_plane' && $page == 'edit') {
             include 'review_plane/edit.php';
-        }  
+        }
         // END ADMIN RECORD SCREEN
         // START Privilage
         if ($dir == 'privilage' && $page == 'add') {
@@ -167,33 +167,61 @@ include $tem . 'footer.php';
 ob_end_flush();
 ?>
 <script type="text/javascript">
-// customer script
+    // customer script
 
 
-var dev = $("#logo").dropify({});
-dev = dev.data("dropify")
-var dev2 = $("#logo2").dropify({});
-dev2 = dev2.data("dropify")
-var dev3 = $("#logo3").dropify({});
-dev2 = dev3.data("dropify")
-var dev4 = $("#logo4").dropify({});
-dev4 = dev4.data("dropify")
+    var dev = $("#logo").dropify({});
+    dev = dev.data("dropify")
+    var dev2 = $("#logo2").dropify({});
+    dev2 = dev2.data("dropify")
+    var dev3 = $("#logo3").dropify({});
+    dev2 = dev3.data("dropify")
+    var dev4 = $("#logo4").dropify({});
+    dev4 = dev4.data("dropify")
 </script>
 
 <script>
-$(function() {
-    $("#rating").rateYo({
-        rating: 2,
-        fullStar: true,
-        starWidth: "27px"
+    $(function() {
+        $("#rating").rateYo({
+            rating: 2,
+            fullStar: true,
+            starWidth: "27px"
+        });
     });
-});
+</script>
 
-// Getter
-var normalFill = $("#rating").rateYo("option", "fullStar"); //returns true
+<script>
+    /*
+    var text = document.getElementById("value1");
+    var text2 = document.getElementById("value2");
+    window.onload = function() {
+        text.addEventListener("input", function() {
+            console.log(text.value);
+        });
+    }
+    */
 
-// Setter
-$("#rating").rateYo("option", "fullStar", true); //returns a jQuery Element
+    var vall1 = $("#value1").bind("input", function() {
+        // console.log($("#value1").val());
+    });
+    $("#value2").bind("input", function() {
+      //  console.log($("#value2").val());
+    });
+    console.log(vall1);
+</script>
+<script>
+    function getAmount() {
+        var value = $('#value1').val();
+        $('#amount').val(value);
 
-// END ACTIVE LINK
+        var value2 = $('#value2').val();
+        $('#amount2').val(value2);
+
+        //get the sum of each column of each row
+        var sum_value = value + value2;
+         
+    }
+    getAmount();
+    var value2 = $('#value2').bind("input");
+    console.log(value2).val();
 </script>
