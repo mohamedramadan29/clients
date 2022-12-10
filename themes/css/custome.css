@@ -2314,3 +2314,11 @@
  }
 
  /* END ADMIN DASHBOARD */
+ .dropzone {
+  min-height: 150px;
+  border: 2px dashed rgba(0,0,0,0.3) !important;
+}
+.box .dropzone.dz-clickable .dz-message span, .dropzone.dz-clickable .dz-message span{
+  cursor: pointer;
+  color: #626161 !important;
+}

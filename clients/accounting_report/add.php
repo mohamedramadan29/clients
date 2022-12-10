@@ -95,8 +95,8 @@
                                                     <p> <a> اختر الملفات للرفع
                                                         </a>
                                                     </p>
-                                                </label> 
-                                                <p class="hint"> يمكنك اختيار  اكثر من ملف </p>
+                                                </label>
+                                                <p class="hint"> يمكنك اختيار اكثر من ملف </p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -108,11 +108,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="box">
+                                <div class="dropzone" id="myDropzone1"></div>
+                            </div>
                             <div class="box submit_box">
-                                <input class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
+                                <input id="submit-all" class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-lg-3">
                         <div class="info">
                             <h4> معلومات تهمك !! </h4>

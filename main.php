@@ -166,41 +166,8 @@ include $tem . 'footer.php';
 
 ob_end_flush();
 ?>
-<script type="text/javascript">
-    // customer script
-
-
-    var dev = $("#logo").dropify({});
-    dev = dev.data("dropify")
-    var dev2 = $("#logo2").dropify({});
-    dev2 = dev2.data("dropify")
-    var dev3 = $("#logo3").dropify({});
-    dev2 = dev3.data("dropify")
-    var dev4 = $("#logo4").dropify({});
-    dev4 = dev4.data("dropify")
-</script>
-
 <script>
-    $(function() {
-        $("#rating").rateYo({
-            rating: 2,
-            fullStar: true,
-            starWidth: "27px"
-        });
-    });
-</script>
-
-<script>
-    /*
-    var text = document.getElementById("value1");
-    var text2 = document.getElementById("value2");
-    window.onload = function() {
-        text.addEventListener("input", function() {
-            console.log(text.value);
-        });
-    }
-    */
-
+ 
     var vall1 = $("#value1").bind("input", function() {
         // console.log($("#value1").val());
     });
@@ -224,4 +191,35 @@ ob_end_flush();
     getAmount();
     var value2 = $('#value2').bind("input");
     console.log(value2).val();
+</script>
+
+<script>
+    Dropzone.options.myDropzone1 = {
+        url: 'main_ajax.php?dir=clients/accounting_report&page=ajax_add',
+        autoProcessQueue: false,
+        uploadMultiple: true,
+        parallelUploads: 5,
+        maxFiles: 5,
+        maxFilesize: 400,
+        dictDefaultMessage : "اسقاط الملفات الخاصة بك هنا للرفع",
+        //acceptedFiles: '*',
+        addRemoveLinks: true,
+        init: function() {
+            dzClosure = this; // Makes sure that 'this' is understood inside the functions below.
+
+            // for Dropzone to process the queue (instead of default form behavior):
+            document.getElementById("submit-all").addEventListener("click", function(e) {
+                // Make sure that the form isn't actually being sent.
+                e.preventDefault();
+                e.stopPropagation();
+                dzClosure.processQueue();
+            });
+            //send all the form data along with the files:
+            this.on("sendingmultiple", function(data, xhr, formData) {
+                formData.append("firstname", jQuery("#firstname").val());
+                formData.append("lastname", jQuery("#lastname").val());
+                formData.append("email", jQuery("#email").val());
+            });
+        }
+    }
 </script>

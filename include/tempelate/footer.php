@@ -50,9 +50,10 @@
   <script src="<?php echo $js; ?>popper.min.js"></script>
   <script src="https://kit.fontawesome.com/588e070751.js" crossorigin="anonymous"></script>
   <!-- Bootstrap -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
   <script src="<?php echo $js; ?>upload_file.js"></script>
   <script src="<?php echo $js; ?>custome.js"></script>
+  
   <script src="dist/js/adminlte.js"></script>
   <!-- START SEND DATA WITH AJAX -->
   <!-- START SCRIPT TO UPLOAD FILES  -->

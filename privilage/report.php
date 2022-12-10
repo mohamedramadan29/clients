@@ -234,7 +234,10 @@
                     <th> </th>
                 </tr>
             </thead>
-            <tbody class="priv_custome"> <?php
+            <tbody class="priv_custome"> 
+                <!--------------------------------------------->
+                <form action="" method="POST"></form>
+                <?php
                                             $stmt = $connect->prepare('SELECT * FROM privilage');
                                             $stmt->execute();
                                             $alltype = $stmt->fetchAll(); ?>
@@ -245,11 +248,11 @@
                         <td><?php
                             if ($type['priv_show'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_show">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_show">
                             <?php
                             }  ?>
                         </td>
@@ -267,11 +270,11 @@
                             <?php
                             if ($type['priv_edit'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_edit">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_edit">
                             <?php
                             }  ?>
                         </td>
@@ -289,11 +292,11 @@
                             <?php
                             if ($type['priv_show_users'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_show_users">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_show_users">
                             <?php
                             }  ?>
                         </td>
@@ -312,11 +315,11 @@
                             <?php
                             if ($type['priv_edit_users'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_edit_users">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_edit_users">
                             <?php
                             }  ?>
                         </td>
@@ -335,11 +338,11 @@
                             <?php
                             if ($type['priv_arrive_branch'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_arrive_branch">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_arrive_branch">
                             <?php
                             }  ?>
 
@@ -359,11 +362,11 @@
                             <?php
                             if ($type['priv_create_report'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_create_report">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_create_report">
                             <?php
                             }  ?>
 
@@ -383,11 +386,11 @@
                             <?php
                             if ($type['priv_show_attach'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_show_attach">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_show_attach">
                             <?php
                             }  ?>
 
@@ -406,11 +409,11 @@
                             <?php
                             if ($type['priv_agree_refuse_serv'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_agree_refuse_serv">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_agree_refuse_serv">
                             <?php
                             }  ?>
 
@@ -429,11 +432,11 @@
                             <?php
                             if ($type['priv_edit_report'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_edit_report">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_edit_report">
                             <?php
                             }  ?>
 
@@ -454,11 +457,11 @@
                             <?php
                             if ($type['priv_confirm_report'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_confirm_report">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_confirm_report">
                             <?php
                             }  ?>
 
@@ -478,11 +481,11 @@
                             <?php
                             if ($type['priv_confirm_receive_money'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_confirm_receive_money">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_confirm_receive_money">
                             <?php
                             }  ?>
 
@@ -503,11 +506,11 @@
                             <?php
                             if ($type['priv_finish_ref'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_finish_ref">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_finish_ref">
                             <?php
                             }  ?>
 
@@ -526,11 +529,11 @@
                             <?php
                             if ($type['priv_serv_start'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_serv_start">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_serv_start">
                             <?php
                             }  ?>
 
@@ -551,11 +554,11 @@
                             <?php
                             if ($type['priv_upload_mon'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_upload_mon">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_upload_mon">
                             <?php
                             }  ?>
 
@@ -576,11 +579,11 @@
                             <?php
                             if ($type['priv_show_all_report'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_show_all_report">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_show_all_report">
                             <?php
                             }  ?>
 
@@ -601,11 +604,11 @@
                             <?php
                             if ($type['priv_show_edit_prev'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_show_edit_prev">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_show_edit_prev">
                             <?php
                             }  ?>
 
@@ -625,11 +628,11 @@
                             <?php
                             if ($type['priv_edit_clients'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_edit_clients">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_edit_clients">
                             <?php
                             }  ?>
 
@@ -650,11 +653,11 @@
                             <?php
                             if ($type['priv_edit_accounts'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_edit_accounts">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_edit_accounts">
                             <?php
                             }  ?>
 
@@ -674,11 +677,11 @@
                             <?php
                             if ($type['priv_change_refuson_team'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_change_refuson_team">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_change_refuson_team">
                             <?php
                             }  ?>
 
@@ -699,11 +702,11 @@
                             <?php
                             if ($type['priv_paper_work'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_paper_work">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_paper_work">
                             <?php
                             }  ?>
 
@@ -724,11 +727,11 @@
                             <?php
                             if ($type['priv_paper_revision'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_paper_revision">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_paper_revision">
                             <?php
                             }  ?>
 
@@ -748,11 +751,11 @@
                             <?php
                             if ($type['priv_paper_start_work'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_paper_start_work">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_paper_start_work">
                             <?php
                             }  ?>
 
@@ -774,11 +777,11 @@
                             <?php
                             if ($type['priv_paper_end_archieve'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_paper_end_archieve">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_paper_end_archieve">
                             <?php
                             }  ?>
 
@@ -799,11 +802,11 @@
                             <?php
                             if ($type['priv_paper_edit_delete_add'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked name="priv_paper_edit_delete_add">
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" disabled>
+                                <input type="checkbox" name="priv_paper_edit_delete_add">
                             <?php
                             }  ?>
 
