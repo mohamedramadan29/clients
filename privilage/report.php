@@ -236,7 +236,7 @@
             </thead>
             <tbody class="priv_custome"> 
                 <!--------------------------------------------->
-                <form action="" method="POST"></form>
+                <form action="main_ajax.php?dir=privilage&page=edit" name="tesformaction" method="POST" id="tesformaction" enctype="multipart/form-data">
                 <?php
                                             $stmt = $connect->prepare('SELECT * FROM privilage');
                                             $stmt->execute();
@@ -249,6 +249,7 @@
                             if ($type['priv_show'] == "نعم") {
                             ?>
                                 <input type="checkbox" checked name="priv_show">
+
                             <?php
                             } else {
                             ?>
@@ -270,7 +271,8 @@
                             <?php
                             if ($type['priv_edit'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked name="priv_edit">
+                                <input id='ckPump' type="checkbox" checked name="priv_edit" onclick='submitPump()'>
+                                <p> hassan </p>
                             <?php
                             } else {
                             ?>
@@ -802,11 +804,13 @@
                             <?php
                             if ($type['priv_paper_edit_delete_add'] == "نعم") {
                             ?>
-                                <input type="checkbox" checked name="priv_paper_edit_delete_add">
+                                <input id="loginSubmit" type="checkbox" checked name="priv_paper_edit_delete_add">
+                                ali
                             <?php
                             } else {
                             ?>
-                                <input type="checkbox" name="priv_paper_edit_delete_add">
+                                <input id="loginSubmit" class="testinddx" type="checkbox" name="priv_paper_edit_delete_add">
+                                <p> Ali </p>
                             <?php
                             }  ?>
 
@@ -828,6 +832,7 @@
                 -->
                     </td>
                 </tr>
+                </form>
                 <?php
                 foreach ($alltype as $type) { ?>
                     <!-- START MODEL TO Edit RECORD  -->
@@ -1040,3 +1045,4 @@
 </div>
 </div>
 </div>
+

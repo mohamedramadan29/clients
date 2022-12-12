@@ -3,22 +3,24 @@ include "connect.php";
 include "config.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['add_car'])) {
+ 
 
         $file = '';
         $file_tmp = '';
         $location = '';
         $uploadplace = "uploads/";
-        if (isset($_FILES['files']['name'])) {
+        if (isset($_FILES['file']['name'])) {
 
-            foreach ($_FILES['files']['name'] as $key => $val) {
-                $file = $_FILES['files']['name'][$key];
-                $file_tmp = $_FILES['files']['tmp_name'][$key];
+            foreach ($_FILES['file']['name'] as $key => $val) {
+                $file = $_FILES['file']['name'][$key];
+                $file_tmp = $_FILES['file']['tmp_name'][$key];
                 move_uploaded_file($file_tmp, $uploadplace . $file);
                 $location .= $file . " ";
             }
         }
+        
         $ar_client_name = $_POST['ar_client_name'];
+        echo $ar_client_name;
         $ar_legal = $_POST['ar_legal'];
         $ar_account_num =  $_POST['ar_account_num'];
         $ar_manager_name = $_POST['ar_manager_name'];
@@ -66,14 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($ar_prepare)) {
             $formerror[] = '   من فضلك ادخل من اعد الطلب   ';
         }
-        if (empty($_FILES['files']['name'])) {
+        if (empty($_FILES['file']['name'])) {
             $formerror[] = '   من فضلك ادخل  المرفقات   ';
         }
         if (empty($formerror)) {
             $stmt = $connect->prepare("INSERT INTO accounting_report
-                     (ar_client_name,ar_legal,ar_account_num,ar_manager_name,
-                     ar_manager_phone,ar_client_email,ar_serv_reason,ar_doc_scop,ar_old_doc,
-                     ar_new_doc,ar_prepare,ar_prepare_date,ar_files,user_id)
+                    (ar_client_name,ar_legal,ar_account_num,ar_manager_name,
+                    ar_manager_phone,ar_client_email,ar_serv_reason,ar_doc_scop,ar_old_doc,
+                    ar_new_doc,ar_prepare,ar_prepare_date,ar_files,user_id)
                 VALUES (:zar_client_name,:zar_legal,:zar_account_num,:zar_manager_name
                 ,:zar_manager_phone,:zar_client_email,:zar_serv_reason,:zar_doc_scop
                 ,:zar_old_doc,:zar_new_doc,:zar_prepare,:zar_prepare_date,:zar_files,:zuser_id)");
@@ -105,16 +107,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div> -->
                 <?php
                 ?>
-                <div class='container alert alert-success' role='alert'> تم ارسال الطلب بنجاح </div>
+                <div class='container alert alert-success' role='alert'>
+                     <script>
+                        alert(" تم ارسال الطلب بنجاح ");
+                     </script>
+               </div>
                 <?php //header('refresh:3;url=main.php?dir=fire&page=report'); 
                 ?>
             <?php
             }
         } else {
             foreach ($formerror as $errors) { ?>
+
                 <div class="alert alert-danger"> <?php echo $errors; ?> </div>
 <?php
             }
         }
-    }
+   
 } ?>

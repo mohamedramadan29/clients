@@ -111,7 +111,7 @@
  }
 
  .category .data .myform label {
-   font-size: 14px;
+   font-size: 12px;
    margin-bottom: 5px;
    color: #434343;
    display: block;
@@ -147,9 +147,22 @@
    box-shadow: none;
    border-radius: 0;
    border-color: #cfcfcf;
-   color: #6d6d6d;
+   color: #000000;
    border-radius: 5px;
-   height: 40px;
+   height: 35px;
+   font-size: 12px;
+ }
+
+ .select2-container--default .select2-selection--single {
+   font-size: 12px;
+   color: #000000;
+   height: 35px !important;
+ }
+
+ .select2-container--default .select2-results__option {
+
+   font-size: 13px;
+   color: #1c1c1c;
  }
 
  .category .data .myform select {
@@ -561,8 +574,14 @@
  }
 
  textarea.form-control {
-   height: 110px;
+   height: 75px;
    text-align: right;
+   font-size: 12px;
+ }
+
+ .input-group-sm>.input-group-text {
+   font-size: 14px;
+   color: #000;
  }
 
  .add_rental_accident,
@@ -2056,6 +2075,7 @@
 
  .client_serv .data .serv_link a {
    margin-top: 10px;
+   font-size: 16px;
  }
 
  @media (max-width:991px) {
@@ -2094,6 +2114,7 @@
    padding: 5px;
    border-bottom: 1px solid #f1f1f1;
    line-height: 1.8;
+   font-size: 14px;
  }
 
  .myform .info ul li a {
@@ -2169,6 +2190,11 @@
  .alert {
    margin-top: 10px;
    font-size: 15px;
+   padding: 5px;
+ }
+
+ .alert-secondary {
+   text-align: center !important;
  }
 
  .box .input-group-text {
@@ -2177,6 +2203,7 @@
 
  .box2 span.input-group-text {
    color: #444444 !important;
+   font-size: 14px;
  }
 
  .category .data .myform .form-switch {
@@ -2315,10 +2342,18 @@
 
  /* END ADMIN DASHBOARD */
  .dropzone {
-  min-height: 150px;
-  border: 2px dashed rgba(0,0,0,0.3) !important;
-}
-.box .dropzone.dz-clickable .dz-message span, .dropzone.dz-clickable .dz-message span{
-  cursor: pointer;
-  color: #626161 !important;
-}
+   min-height: 150px;
+   border: 2px dashed rgba(0, 0, 0, 0.3) !important;
+ }
+
+ .box .dropzone.dz-clickable .dz-message span,
+ .dropzone.dz-clickable .dz-message span {
+   cursor: pointer;
+   color: #626161 !important;
+ }
+
+ /* START NEW DESIGN  */
+ .input-group-text {
+   background-color: transparent;
+   border: none;
+ }

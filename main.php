@@ -167,12 +167,11 @@ include $tem . 'footer.php';
 ob_end_flush();
 ?>
 <script>
- 
     var vall1 = $("#value1").bind("input", function() {
         // console.log($("#value1").val());
     });
     $("#value2").bind("input", function() {
-      //  console.log($("#value2").val());
+        //  console.log($("#value2").val());
     });
     console.log(vall1);
 </script>
@@ -186,7 +185,7 @@ ob_end_flush();
 
         //get the sum of each column of each row
         var sum_value = value + value2;
-         
+
     }
     getAmount();
     var value2 = $('#value2').bind("input");
@@ -194,6 +193,8 @@ ob_end_flush();
 </script>
 
 <script>
+    // START IN ACCOUNTING REPORT
+    // اعداد تقرير محاسبة
     Dropzone.options.myDropzone1 = {
         url: 'main_ajax.php?dir=clients/accounting_report&page=ajax_add',
         autoProcessQueue: false,
@@ -201,12 +202,11 @@ ob_end_flush();
         parallelUploads: 5,
         maxFiles: 5,
         maxFilesize: 400,
-        dictDefaultMessage : "اسقاط الملفات الخاصة بك هنا للرفع",
+        dictDefaultMessage: "اسقاط الملفات الخاصة بك هنا للرفع",
         //acceptedFiles: '*',
         addRemoveLinks: true,
         init: function() {
             dzClosure = this; // Makes sure that 'this' is understood inside the functions below.
-
             // for Dropzone to process the queue (instead of default form behavior):
             document.getElementById("submit-all").addEventListener("click", function(e) {
                 // Make sure that the form isn't actually being sent.
@@ -216,10 +216,25 @@ ob_end_flush();
             });
             //send all the form data along with the files:
             this.on("sendingmultiple", function(data, xhr, formData) {
-                formData.append("firstname", jQuery("#firstname").val());
-                formData.append("lastname", jQuery("#lastname").val());
-                formData.append("email", jQuery("#email").val());
+                formData.
+                append("ar_client_name", jQuery("#ar_client_name").val());
+                formData.append("ar_legal", jQuery("#ar_legal").val());
+                formData.append("ar_account_num", jQuery("#ar_account_num").val());
+                formData.append("ar_manager_name", jQuery("#ar_manager_name").val());
+                formData.append("ar_manager_phone", jQuery("#ar_manager_phone").val());
+                formData.append("ar_client_email", jQuery("#ar_client_email").val());
+                formData.append("ar_serv_reason", jQuery("#ar_serv_reason").val());
+                formData.append("ar_doc_scop", jQuery("#ar_doc_scop").val());
+                formData.append("ar_old_doc", jQuery("#ar_old_doc").val());
+                formData.append("ar_new_doc", jQuery("#ar_new_doc").val());
+                formData.append("ar_prepare", jQuery("#ar_prepare").val());
+                formData.append("ar_prepare_date", jQuery("#ar_prepare_date").val());
+                formData.append("ar_prepare_date", jQuery("#ar_prepare_date").val());
             });
+            this.on('success',function(){
+                alert("Goooooooooood");
+            });
+            
         }
     }
 </script>

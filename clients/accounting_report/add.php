@@ -12,7 +12,7 @@
         <div class="myform">
 
             <!-- ********************** END CODE ********************** -->
-            <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
+            <form id="add_form" class="form-group ajax_form message_form" action="main_ajax.php?dir=clients/accounting_report&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="col-lg-9">
@@ -20,11 +20,11 @@
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <div class="box2">
                                 <label id="name"> اســـم العميـــــــــل <span> * </span> </label>
-                                <input required class="form-control" type="text" name="ar_client_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_client_name']; ?>">
+                                <input required class="form-control" type="text" id="ar_client_name" name="ar_client_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_client_name']; ?>">
                             </div>
                             <div class="box2">
                                 <label id="name_en">الـكـيـان الـقـانـونـي<span> * </span></label>
-                                <select name="ar_legal" class="form-control" id="">
+                                <select  name="ar_legal" class="form-control" id="ar_legal">
                                     <option value=""> -- اختر الكيان الـقـانـونـي -- </option>
                                     <?php
                                     if (($_SERVER["REQUEST_METHOD"] == "POST")) { ?>
@@ -43,47 +43,48 @@
                             </div>
                             <div class="box2">
                                 <label id="car_model">رقم السجل التجاري<span> * </span></label>
-                                <input required class="form-control" type="text" name="ar_account_num" placeholder=" رقم السجل التجاري 10 ارقام " value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_account_num']; ?>">
+                                <input id="ar_account_num" required class="form-control" type="text" name="ar_account_num" placeholder=" رقم السجل التجاري 10 ارقام " value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_account_num']; ?>">
 
                             </div>
                             <div class="box2">
                                 <label id="car_model"> اسـم مـديـر المنشأة <span> * </span></label>
-                                <input required class="form-control" type="text" name="ar_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_manager_name']; ?>">
+                                <input id="ar_manager_name" required class="form-control" type="text" name="ar_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_manager_name']; ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_model">رقم جوال المـديـر <span> * </span></label>
-                                <input required class="form-control" type="text" placeholder=" رقم جوال المدير يجب ان يكون 10 ارقام" name="ar_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_manager_phone']; ?>">
+                                <input id="ar_manager_phone" required class="form-control" type="text" placeholder=" رقم جوال المدير يجب ان يكون 10 ارقام" name="ar_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_manager_phone']; ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay">البريد الإلكتروني للعميل<span> * </span> </label>
-                                <input required class="form-control" type="email" name="ar_client_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_client_email']; ?>">
+                                <input id="ar_client_email" required class="form-control" type="email" name="ar_client_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_client_email']; ?>">
                             </div>
                             <div class="box">
                                 <label id="car_pricerent"> أذكرسبب طلب الخدمة <span> * </span></label>
-                                <textarea required name="ar_serv_reason" placeholder="حدد الغرض والسبب من طلب التقرير بالتفصيل، وجود شك جنائي ، التأكد من صحة النظام المالي للمنشأة، إلخ" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_serv_reason']; ?></textarea>
+                                <textarea id="ar_serv_reason" required name="ar_serv_reason" placeholder="حدد الغرض والسبب من طلب التقرير بالتفصيل، وجود شك جنائي ، التأكد من صحة النظام المالي للمنشأة، إلخ" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_serv_reason']; ?></textarea>
                             </div>
                             <div class="box">
                                 <label id="car_pricerent"> النطاق المستندي <span> * </span></label>
-                                <textarea required name="ar_doc_scop" placeholder="حدد نوع ووصف للمستندات التي سيتم تقديمها إلينا كمكتب" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_doc_scop']; ?></textarea>
+                                <textarea id="ar_doc_scop" required name="ar_doc_scop" placeholder="حدد نوع ووصف للمستندات التي سيتم تقديمها إلينا كمكتب" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_doc_scop']; ?></textarea>
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay"> النطاق الزمني <span> * </span> </label>
                                 <br>
                                 <label id="car_pricepay">أقــدم مستند كان بتاريخ<span> * </span> </label>
-                                <input required class="form-control" type="date" name="ar_old_doc" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_old_doc']; ?>">
+                                <input id="ar_old_doc" required class="form-control" type="date" name="ar_old_doc" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_old_doc']; ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay">أحدث مستند كان بتاريخ<span> * </span> </label>
-                                <input required class="form-control" type="date" name="ar_new_doc" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_new_doc']; ?>">
+                                <input id="ar_new_doc" required class="form-control" type="date" name="ar_new_doc" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_new_doc']; ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay"> أعدها <span> * </span> </label>
-                                <input required class="form-control" type="text" placeholder="فضلا ضع اسمك هنا" name="ar_prepare" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_prepare']; ?>">
+                                <input id="ar_prepare" required class="form-control" type="text" placeholder="فضلا ضع اسمك هنا" name="ar_prepare" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_prepare']; ?>">
                             </div>
                             <div class="box2">
                                 <label id="car_pricepay"> تاريخ الإعداد <span> * </span> </label>
-                                <input required class="form-control" type="date" name="ar_prepare_date" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_prepare_date']; ?>">
+                                <input id="ar_prepare_date" required class="form-control" type="date" name="ar_prepare_date" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_prepare_date']; ?>">
                             </div>
+                            <!--
                             <div class="box">
                                 <label> المستندات المؤيدة للطلب (المرفقات) <span> * </span> </label>
                                 <div class="check_prototype_resualt">
@@ -101,13 +102,14 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                 <h2 class="mb-0"> المفات المرفوعه </h2>  
                                             </div>
                                         </div>
                                         <output id="image-gallery"></output>
                                     </div>
                                 </div>
                             </div>
+                                -->
                             <div class="box">
                                 <div class="dropzone" id="myDropzone1"></div>
                             </div>

@@ -17,10 +17,10 @@ $pagetitle = ' الرئيسية  ';
         <div class="data">
             <h2> الخدمات </h2>
             <div class="serv_link">
-                <a href="main.php?dir=clients/contract_request&page=add" class="btn btn-primary"> خدمة مراجعه قوائم مالية </a>
-                <a href="main.php?dir=clients/accounting_report&page=add" class="btn btn-warning"> خدمة اعداد تقرير محاسبي </a>
-                <a href="main.php?dir=clients/tax_services&page=add" class="btn btn-secondary"> خدمة زكاة وضرائب</a>
-                <a href="main.php?dir=clients/record_screen&page=view" class="btn btn-dark">الدخول لشاشات السجلات</a>
+                <a href="main.php?dir=clients/contract_request&page=add" class="btn btn-primary"> خدمة مراجعه قوائم مالية  <i class="fa fa-plus-circle"></i> </a>
+                <a href="main.php?dir=clients/accounting_report&page=add" class="btn btn-warning"> خدمة اعداد تقرير محاسبي  <i class="fa fa-plus-circle"></i> </a>
+                <a href="main.php?dir=clients/tax_services&page=add" class="btn btn-secondary"> خدمة زكاة وضرائب <i class="fa fa-plus-circle"></i> </a>
+                <a href="main.php?dir=clients/record_screen&page=view" class="btn btn-dark">الدخول لشاشات السجلات <i class="fa fa-chart-area"></i> </a>
             </div>
         </div>
     </div>
@@ -90,7 +90,7 @@ $pagetitle = ' الرئيسية  ';
     </div>
 </div>
 
-<div class="container-fluid customer_report">
+<div class="container-fluid customer_report d-none">
 
     <?php
     if (isset($_SESSION['client_id'])) {
