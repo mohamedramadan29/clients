@@ -18,47 +18,101 @@
                     <div class="col-lg-9">
                         <div class="form-data">
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
-                            <p class="alert alert-secondary" role="alert">البيانات العامة للتحقق من العميل</p>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> اســـم العميـــــــــل :</span>
-                                    <input required type="text" name="con_client_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_client_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <p class="alert alert-secondary text-center" role="alert">البيانات العامة للتحقق من العميل</p>
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> اســـم العميـــــــــل :</span>
+                                        <input required type="text" name="con_client_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_client_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> السنـة/السنوات الماليـة المطلوبة :</span>
+                                        <input required type="text" placeholder="افصل بين  السنة والاخري (,)" name="con_years_required" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_years_required']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> الـكـيـان الـقـانـونـي :</span>
+                                        <select name="con_legal" class="form-control" id="">
+                                            <option value=""> -- اختر الكيان الـقـانـونـي -- </option>
+                                            <?php
+                                            if (($_SERVER["REQUEST_METHOD"] == "POST")) { ?>
+                                                <option selected value="<?php $_REQUEST['con_legal'] ?>"> <?php echo $_REQUEST['con_legal'] ?> </option>
+                                            <?php
+                                            }
+                                            ?>
+                                            <option value="مؤسسة فردية">مؤسسة فردية </option>
+                                            <option value="شركة ذات مسئولية محدودة"> شركة ذات مسئولية محدودة </option>
+                                            <option value="شركة تضامنية"> شركة تضامنية </option>
+                                            <option value="شركة مساهمة"> شركة مساهمة </option>
+                                            <option value="جهة غير هادفة للربح"> جهة غير هادفة للربح </option>
+                                            <option value="فردي"> فردي </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> سنة المقارنة إن وجد :</span>
+                                        <input required type="text" name="con_comparison_year" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_comparison_year']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> رقم السجل التجاري :</span>
+                                        <input required type="text" placeholder=" رقم السجل التجاري 10 ارقام " name="con_account_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_account_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">المحاسبة على الدخل :</span>
+                                        <select name="con_income" class="form-control" id="">
+                                            <option value=""> -- حدد المحاسبة على الدخل-- </option>
+                                            <?php
+                                            if (($_SERVER["REQUEST_METHOD"] == "POST")) { ?>
+                                                <option selected value="<?php $_REQUEST['con_income'] ?>"> <?php echo $_REQUEST['con_income'] ?> </option>
+                                            <?php
+                                            }
+                                            ?>
+                                            <option value="تتبع النظام الزكوي">تتبع النظام الزكوي</option>
+                                            <option value="تتبع نظام ضريبة الدخل"> تتبع نظام ضريبة الدخل </option>
+                                            <option value="مختلطة زكوي وضريبي"> مختلطة زكوي وضريبي </option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> الـكـيـان الـقـانـونـي :</span>
-                                    <select name="con_legal" class="form-control" id="">
-                                        <option value=""> -- اختر الكيان الـقـانـونـي -- </option>
-                                        <?php
-                                        if (($_SERVER["REQUEST_METHOD"] == "POST")) { ?>
-                                            <option selected value="<?php $_REQUEST['con_legal'] ?>"> <?php echo $_REQUEST['con_legal'] ?> </option>
-                                        <?php
-                                        }
-                                        ?>
-                                        <option value="مؤسسة فردية">مؤسسة فردية </option>
-                                        <option value="شركة ذات مسئولية محدودة"> شركة ذات مسئولية محدودة </option>
-                                        <option value="شركة تضامنية"> شركة تضامنية </option>
-                                        <option value="شركة مساهمة"> شركة مساهمة </option>
-                                        <option value="جهة غير هادفة للربح"> جهة غير هادفة للربح </option>
-                                        <option value="فردي"> فردي </option>
-                                    </select>
+
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> الرقم المميز بالزكاة :</span>
+                                        <input required type="text" name="con_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> رقم السجل التجاري :</span>
-                                    <input required type="text" placeholder=" رقم السجل التجاري 10 ارقام " name="con_account_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_account_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> الرقم الضريبي :</span>
+                                        <input required type="text" name="con_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> الرقم المميز بالزكاة :</span>
-                                    <input required type="text" name="con_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> نوع نظام الحسابات لدى هيئة الزكاة والضريبة والجمارك :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -77,61 +131,32 @@
                                 </div>
                             </div>
                             <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> وضح بداية ونهاية السنة المالية لدى هيئة الزكاة :</span>
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> وضح بداية ونهاية السنة المالية لدى هيئة الزكاة :</span>
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> تـبــــدأ مــــن :</span>
-                                    <input required type="date" name="con_year_start" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_year_start']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <div class="box-flex">
+                                
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> تـبــــدأ مــــن :</span>
+                                        <input required type="text" placeholder="من فضلك اختر التاريخ" class="datepick" name="con_year_start" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_year_start']; ?>" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> تـــنـــتــــهــــي فـــي :</span>
-                                    <input required type="date" name="con_year_end" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_year_end']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> تـــنـــتــــهــــي فـــي :</span>
+                                        <input required type="text" placeholder="من فضلك اختر التاريخ" class="datepick" name="con_year_end" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_year_end']; ?>" />
+                                    </div>
                                 </div>
                             </div>
                             <div class="box">
                                 <label id="car_pricerent">أذكرسبب الإصدار <span> * </span></label>
                                 <textarea required name="con_reason" placeholder=" اذكر التفاصيل " class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_reason']; ?></textarea>
                             </div>
-
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> السنـة/السنوات الماليـة المطلوبة :</span>
-                                    <input required type="text" placeholder="افصل بين  السنة والاخري (,)" name="con_years_required" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_years_required']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> سنة المقارنة إن وجد :</span>
-                                    <input required type="text" name="con_comparison_year" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_comparison_year']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">المحاسبة على الدخل :</span>
-                                    <select name="con_income" class="form-control" id="">
-                                        <option value=""> -- حدد المحاسبة على الدخل-- </option>
-                                        <?php
-                                        if (($_SERVER["REQUEST_METHOD"] == "POST")) { ?>
-                                            <option selected value="<?php $_REQUEST['con_income'] ?>"> <?php echo $_REQUEST['con_income'] ?> </option>
-                                        <?php
-                                        }
-                                        ?>
-                                        <option value="تتبع النظام الزكوي">تتبع النظام الزكوي</option>
-                                        <option value="تتبع نظام ضريبة الدخل"> تتبع نظام ضريبة الدخل </option>
-                                        <option value="مختلطة زكوي وضريبي"> مختلطة زكوي وضريبي </option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل أفاد العميل بإصدار قوائم مالية سابقة له؟ :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -165,27 +190,28 @@
                                     }
                                 });
                             </script>
-
-                            <div class="new_box" id="checked_input">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> آخر قوائم مودعة لعام :</span>
-                                    <input required type="text" name="con_client_prev_year" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_client_prev_year']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <div class="box-flex">
+                                <div class="new_box" id="checked_input">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> آخر قوائم مودعة لعام :</span>
+                                        <input required type="text" name="con_client_prev_year" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_client_prev_year']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box" id="checked_input2">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> اختر اسم مكتب المحاسب القانوني الذي أصدر القوائم المالية :</span>
+                                        <input required type="text" name="con_office_name_prev" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_office_name_prev']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="new_box" id="checked_input2">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> اختر اسم مكتب المحاسب القانوني الذي أصدر القوائم المالية :</span>
-                                    <input required type="text" name="con_office_name_prev" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_office_name_prev']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> في حال الإجابة أعلاه (بنعم) يرجى إلزامياً توفير صورة من القوائم المالية :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
                                             <input required class="form-check-input" type="radio" name="con_client_prev_img" id="tax_client_prev_img1" value="تم">
                                             <label class="form-check-label" for="tax_client_prev_img1">
-                                                تم
+                                                نعم
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -197,15 +223,14 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل تم التحقق من موقع قوائم عن آخر قوائم مالية صادرة؟ :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
                                             <input required class="form-check-input" type="radio" name="con_verify_website" id="tax_verify_website1" value="نعم">
                                             <label class="form-check-label" for="tax_verify_website1">
-                                                تم
+                                                نعم
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -217,8 +242,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل تم الحصول على ميزان مراجعة وفق متطلبات برنامج المراجعة الإلكتروني :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -236,9 +261,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل محاسب العميل لديه خبرة ومعرفة في توفير أي مستندات أو معلومات إضافية؟ :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -256,81 +280,74 @@
                                     </div>
                                 </div>
                             </div>
-
                             <p class="alert alert-secondary"> بيانات التواصل (اختياري) </p>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> اسـم المدير :</span>
-                                    <input required type="text" name="con_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_manager_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> اسـم المدير :</span>
+                                        <input required type="text" name="con_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_manager_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> رقم جوال المـديـر :</span>
+                                        <input required type="text" placeholder="10 ارقام" name="con_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_manager_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الإلكتروني للمدير :</span>
+                                        <input required type="email" name="con_manager_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_manager_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> رقم جوال المـديـر :</span>
-                                    <input required type="text" placeholder=" رقم جوال المدير يجب ان يكون 10 ارقام" name="con_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_manager_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> اسم المحاسب :</span>
+                                        <input required type="text" name="con_accounter_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_accounter_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> رقم جوال المحاسب :</span>
+                                        <input required type="text" placeholder="10 ارقام" name="con_accounter_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_accounter_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الإلكتروني للمحاسب :</span>
+                                        <input required type="email" name="con_accounter_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_accounter_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الإلكتروني للمدير :</span>
-                                    <input required type="email" name="con_manager_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_manager_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> اسم المحاسب :</span>
-                                    <input required type="text" name="con_accounter_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_accounter_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> رقم جوال المحاسب :</span>
-                                    <input required type="text" placeholder=" رقم جوال المحاسب يجب ان يكون 10 ارقام" name="con_accounter_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_accounter_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الإلكتروني للمحاسب :</span>
-                                    <input required type="email" name="con_accounter_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_accounter_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
                             <p class="alert alert-secondary">بيانات الرفع على منصة قوائم </p>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> رقم الهوية الوطنية :</span>
-                                    <input required type="text" name="con_card_num" placeholder="لازم 10 ارقام" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_card_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> رقم الهوية الوطنية :</span>
+                                        <input required type="text" name="con_card_num" placeholder="لازم 10 ارقام" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_card_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> تاريخ الميلاد :</span>
+                                        <input required type="text" name="con_upload_birth" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_upload_birth']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> رقم الجوال :</span>
+                                        <input required type="text" name="con_upload_mobile" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_upload_mobile']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الالكتروني :</span>
+                                        <input required type="email" name="con_upload_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_upload_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> تاريخ الميلاد :</span>
-                                    <input required type="text" name="con_upload_birth" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_upload_birth']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> رقم الجوال :</span>
-                                    <input required type="text" name="con_upload_mobile" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_upload_mobile']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الالكتروني :</span>
-                                    <input required type="email" name="con_upload_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_upload_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
                             <p class="alert alert-secondary"> الإجراءات الفنية لتحديد الأتعاب المهنية </p>
                             <div class="box2">
                                 <div class="input-group">
@@ -376,8 +393,8 @@
                             </div>
 
                             <p class="alert alert-secondary">هل هناك شروط خاصة حول إصدار القوائم المالية؟</p>
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل توقيت الإصدار مرتبط بمواعيد هامة مع الجهات المختصة مثل هيئة الزكاة، لجنة الإفصاح بهيئة الاستثمار، منصة بلدي للأنشطة الهندسية وغيرها :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -396,8 +413,8 @@
                                 </div>
                             </div>
 
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> توفير نسخة باللغة الإنجليزية :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -416,8 +433,8 @@
                                 </div>
                             </div>
 
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> توفير نسخ إضافية عن المسموح به :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -436,8 +453,8 @@
                                 </div>
                             </div>
 
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> توفير نسخة مختومة بالكامل :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -456,8 +473,8 @@
                                 </div>
                             </div>
 
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> توفير مصادقات على كشوف مرفقة لجهات أخرى :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -476,8 +493,8 @@
                                 </div>
                             </div>
 
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
+                            <div class="new_box check_box_div">
+                                <div class="input-group input-group-sm ">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> رفع القوائم المالية على موقع هيئة الزكاة والضريبة من قبل المكتب. :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
@@ -494,26 +511,28 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <p class="alert alert-danger"> ملاحظة: يخضع تحديد الأتعاب من قبل المكتب بناءاً على عوامل متعددة أخرى بعد دراسة حالة الطلب والموافقة عليه. </p>
-                            
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">أعدها :</span>
-                                    <input required type="text" placeholder="فضلا ضع اسمك هنا"  name="con_prepare" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_prepare']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <div class="box-flex">
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">أعدها :</span>
+                                        <input required type="text" placeholder="فضلا ضع اسمك هنا" name="con_prepare" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_prepare']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div class="new_box">
+                                    <div class="input-group input-group-sm ">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm"> تاريخ الإعداد :</span>
+                                        <input type="text" placeholder="من فضلك اختر التاريخ" class="datepick" name="con_prepare_time" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_prepare_time']; ?>" />
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="new_box">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm"> تاريخ الإعداد  :</span>
-                                    <input required type="date" placeholder="فضلا ضع اسمك هنا"  name="con_prepare_time" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_prepare_time']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div> 
                             <div class="box">
                                 <label> المستندات المؤيدة للطلب (المرفقات) <span class="star"> * </span> </label>
                                 <div class="check_prototype_resualt">
-                                    <div class="box mb-3">
+                                    <div class="box ">
                                         <div class="upload-file">
                                             <div class="upload-wrapper">
                                                 <label>

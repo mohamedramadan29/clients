@@ -406,8 +406,13 @@ $(document).ready(function () {
     var options = { mode: mode, popClose: close };
     $(".print_content").printArea(options);
   });
-  // END NEW WEBSITE EDUCATION
 
+
+  // END NEW WEBSITE EDUCATION
+/** START DATEPICKER  */
+$(function () {
+  $(".datepick").datepicker();
+  });
   $(function () {
     $(".rateyo")
       .rateYo()

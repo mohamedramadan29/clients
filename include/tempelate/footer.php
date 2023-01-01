@@ -45,6 +45,8 @@
 
   <script src="<?php echo $js; ?>popper.min.js"></script>
   <script src="https://kit.fontawesome.com/588e070751.js" crossorigin="anonymous"></script>
+  <!-- datepicker  -->
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <!-- Bootstrap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
   <script src="<?php echo $js; ?>upload_file.js"></script>

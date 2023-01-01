@@ -121,7 +121,7 @@
  }
 
  .select2-container {
-   min-width: 200px;
+   min-width: 250px;
  }
 
  .category .data .myform .box {
@@ -582,6 +582,7 @@
  .input-group-sm>.input-group-text {
    font-size: 14px;
    color: #000;
+   min-width: 150px;
  }
 
  .add_rental_accident,
@@ -2145,28 +2146,32 @@
 
  }
 
- .box .check_box_items,
- .box2 .check_box_items {
-   margin-top: 15px;
-   display: flex;
-   border: 1px solid #f1f1f1;
-   padding: 5px;
-   border-radius: 4px;
-   -webkit-border-radius: 4px;
-   -moz-border-radius: 4px;
-   -ms-border-radius: 4px;
-   -o-border-radius: 4px;
+ .check_box_div {
+   border-bottom: 1px solid #ccc;
+   padding-top: 4px;
+   padding-bottom: 4px;
  }
 
- .box .check_box_items .form-check {
+ .check_box_div .input-group span {
+   min-width: 550px;
+ }
+
+ .new_box .check_box_items,
+ .new_box .check_box_items {
+
+   display: flex;
+ }
+
+ .new_box .check_box_items .form-check {
    margin-right: 10px;
    margin-left: 10px;
    margin-top: 4px;
  }
 
- .box .check_box_items .form-check label {
-   font-size: 18px;
+ .new_box .check_box_items .form-check label {
+   font-size: 13px;
    color: #28292a;
+   cursor: pointer;
  }
 
  #checked_input {
@@ -2177,7 +2182,9 @@
    display: none;
  }
 
- .box .check_box_items .form-check input {}
+ .new_box .check_box_items .form-check input {
+   cursor: pointer;
+ }
 
  .dataTables_wrapper {
    position: relative;
@@ -2201,7 +2208,8 @@
    color: #444444 !important;
  }
 
- .box2 span.input-group-text {
+ .box2 span.input-group-text,
+ .box span.input-group-text {
    color: #444444 !important;
    font-size: 14px;
  }
@@ -2354,6 +2362,66 @@
 
  /* START NEW DESIGN  */
  .input-group-text {
-   background-color: transparent;
+   background-color: transparent !important;
+   border: none !important;
+ }
+
+ .category .data .myform input[type=text],
+ .category .data .myform input[type=email],
+ .category .data .myform input[type=select] {
    border: none;
+   border-radius: 0;
+   border-bottom: 1px solid #ccc;
+   transition: all 0.3s ease-in-out;
+   
+
+ }
+
+ .category .data .myform input[type=text]:focus,
+ .category .data .myform input[type=email]:focus,
+ .category .data .myform input[type=select]:focus,
+ .category .data .myform textarea:focus {
+   border-color: var(--main-color);
+ }
+
+ .select2-container--default.select2-container--focus .select2-selection--single,
+ .select2-container--default.select2-container--focus .select2-selection--multiple {
+   border: none !important;
+   border-radius: 0 !important;
+   border-bottom: 1px solid #ccc !important;
+ }
+
+ .select2-container--default.select2-container--focus .select2-selection--single:focus,
+ .select2-container--default.select2-container--focus .select2-selection--multiple:focus {
+   border-color: var(--main-color);
+ }
+
+ .select2-container--default .select2-selection--single {
+   border: none !important;
+   border-radius: 0 !important;
+   border-bottom: 1px solid #ccc !important;
+ }
+
+ .select2-container--default .select2-selection--single:focus {
+   border-color: var(--main-color);
+ }
+
+ .select2-container--default .select2-selection--single .select2-selection__rendered {
+   padding-left: 0;
+   height: auto;
+   margin-top: -3px;
+   color: #a3a2a2;
+ }
+
+ .box-flex {
+   display: flex;
+ }
+
+ #divstyle {
+   background-color: cadetblue;
+   width: 400px;
+   height: 300px;
+   margin-left: 100px;
+   padding-top: 30px;
+   padding-left: 30px;
  }
