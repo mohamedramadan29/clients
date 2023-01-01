@@ -531,6 +531,10 @@
 
                             <div class="box">
                                 <label> المستندات المؤيدة للطلب (المرفقات) <span class="star"> * </span> </label>
+                                <div class="box">
+                                <div class="dropzone" id="myDropzone1"></div>
+                            </div>
+                            <!--
                                 <div class="check_prototype_resualt">
                                     <div class="box ">
                                         <div class="upload-file">
@@ -546,12 +550,13 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                <h2 class="mb-0"> المفات المرفوعه </h2>  
                                             </div>
                                         </div>
                                         <output id="image-gallery"></output>
                                     </div>
                                 </div>
+                            -->
                             </div>
                             <div class="box submit_box">
                                 <input class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
