@@ -81,7 +81,7 @@
 
  .category {
    margin-top: 60px;
-   /*background-color: #fff;*/
+   background-color: #f1f1f1;
  }
 
  .category .data {
@@ -315,16 +315,19 @@
  .customer_report .table tr th {
    background: #ffffff;
    color: #474747;
-   padding: 10px;
    font-weight: bold;
    font-size: 15px;
    text-align: center;
+   padding: 2px !important;
+   margin: 0;
+   font-size: 14px;
  }
 
  .customer_report .table tr td {
-   color: #4f4e4e;
-   padding: 15px;
+   color: #4f4e4e; 
    font-size: 15px;
+   text-align: center;
+   padding: 2px !important;
  }
 
  div.dataTables_wrapper div.dataTables_filter input {
@@ -2373,7 +2376,7 @@
    border-radius: 0;
    border-bottom: 1px solid #ccc;
    transition: all 0.3s ease-in-out;
-   
+
 
  }
 
