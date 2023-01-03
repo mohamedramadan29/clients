@@ -232,9 +232,20 @@
  }
 
  .navbar-light .navbar-nav .nav-link {
-   color: #111;
+  color: #fff;
+  font-size: 15px;
  }
-
+ .navbar-light .navbar-nav .nav-link .fa-user-circle{
+  font-size:22px;
+ }
+ .navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link.active{
+  color: #f1f1f1 !important;
+ }
+ .navbar-light .navbar-brand{
+  color: #fff;
+ }
  /*START DASHBOARD*/
 
  .dashboard {
@@ -324,10 +335,11 @@
  }
 
  .customer_report .table tr td {
-   color: #4f4e4e; 
-   font-size: 15px;
+
+   color: #4f4e4e;
+   font-size: 13px;
    text-align: center;
-   padding: 2px !important;
+   padding: 1px !important;
  }
 
  div.dataTables_wrapper div.dataTables_filter input {
@@ -1312,7 +1324,9 @@
    white-space: wrap !important;
    width: auto !important;
  }
-
+.navbar{
+  background-color: #2980b9 !important;
+}
  .mynavbar {
    position: fixed;
    top: 0;
@@ -2428,4 +2442,8 @@
    margin-left: 100px;
    padding-top: 30px;
    padding-left: 30px;
+ }
+ .account_edit {
+  width: 80%;
+  margin: auto;
  }

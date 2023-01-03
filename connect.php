@@ -12,5 +12,4 @@ try {
     echo 'failed to connect' . $e->getMessage();
 }
 ob_end_flush();
-echo  "1";
 ?>
