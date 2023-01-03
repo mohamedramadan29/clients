@@ -2371,7 +2371,8 @@
 
  .category .data .myform input[type=text],
  .category .data .myform input[type=email],
- .category .data .myform input[type=select] {
+ .category .data .myform input[type=select],
+ .category .data .myform input[type=password] {
    border: none;
    border-radius: 0;
    border-bottom: 1px solid #ccc;

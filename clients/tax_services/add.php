@@ -220,7 +220,7 @@
                                     }
                                 });
                             </script>
-                            <div class="new_box">
+                            <div class="new_box" id="checked_input">
                                 <div class="input-group input-group-sm">
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> آخر قوائم مودعة لعام :</span>
                                     <input required id="tax_client_prev_year" type="text" name="tax_client_prev_year" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_client_prev_year']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
@@ -289,19 +289,19 @@
                                 <div class="new_box">
                                     <div class="input-group input-group-sm ">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> اسـم المدير :</span>
-                                        <input id="tax_manager_name" required type="text" name="tax_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_manager_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_manager_name" type="text" name="tax_manager_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_manager_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                                 <div class="new_box">
                                     <div class="input-group input-group-sm ">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> رقم جوال المـديـر :</span>
-                                        <input id="tax_manager_phone" required type="text" placeholder="10 ارقام" name="tax_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_manager_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_manager_phone" type="text" placeholder="10 ارقام" name="tax_manager_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_manager_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                                 <div class="new_box">
                                     <div class="input-group input-group-sm ">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الإلكتروني للمدير :</span>
-                                        <input id="tax_manager_email" required type="email" name="tax_manager_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_manager_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_manager_email" type="email" name="tax_manager_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_manager_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                             </div>
@@ -309,19 +309,19 @@
                                 <div class="new_box">
                                     <div class="input-group input-group-sm ">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> اسم المحاسب :</span>
-                                        <input id="tax_accounter_name" required type="text" name="tax_accounter_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_accounter_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_accounter_name" type="text" name="tax_accounter_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_accounter_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                                 <div class="new_box">
                                     <div class="input-group input-group-sm ">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> رقم جوال المحاسب :</span>
-                                        <input id="tax_accounter_phone" required type="text" placeholder="10 ارقام" name="tax_accounter_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_accounter_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_accounter_phone" type="text" placeholder="10 ارقام" name="tax_accounter_phone" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_accounter_phone']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                                 <div class="new_box">
                                     <div class="input-group input-group-sm ">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> البريد الإلكتروني للمحاسب :</span>
-                                        <input id="tax_accounter_email" required type="email" name="tax_accounter_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_accounter_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_accounter_email" type="email" name="tax_accounter_email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_accounter_email']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                             </div>

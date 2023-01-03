@@ -40,13 +40,13 @@
                         <td> <?php echo $tax_data['tax_account_num']; ?> </td>
                         <td> <?php echo $tax_data['tax_manager_name']; ?> </td>
                         <td>
-                            <a class="btn btn-warning" href="main.php?dir=clients/tax_services&page=view&tax_id=<?php echo $tax_data['tax_id']; ?> ">
+                            <a class="btn btn-warning btn-sm" href="main.php?dir=clients/tax_services&page=view&tax_id=<?php echo $tax_data['tax_id']; ?> ">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a class="btn btn-primary" href="main.php?dir=clients/tax_services&page=edit&tax_id=<?php echo $tax_data['tax_id']; ?> ">
+                            <a class="btn btn-primary btn-sm" href="main.php?dir=clients/tax_services&page=edit&tax_id=<?php echo $tax_data['tax_id']; ?> ">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="confirm btn btn-danger" href="main.php?dir=clients/tax_services&page=delete&tax_id=<?php echo $tax_data['tax_id']; ?> ">
+                            <a class="confirm btn btn-danger btn-sm" href="main.php?dir=clients/tax_services&page=delete&tax_id=<?php echo $tax_data['tax_id']; ?> ">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
@@ -58,6 +58,4 @@
             </tbody>
         </table>
     </div>
-</div>
-</div>
 </div>
