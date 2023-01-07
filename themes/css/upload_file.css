@@ -1,0 +1,95 @@
+.contact_form .data .upload-file {
+    float: left;
+    width: 100%;
+}
+
+.contact_form .data .box .upload-wrapper p {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.upload-file .upload-wrapper {}
+
+.upload-file .upload-wrapper label {
+
+    text-align: center;
+    background: url(../../uploads/2813838.jpg) top center no-repeat #fff;
+    background-size: 284px;
+    position: relative;
+    height: 60px;
+    width: 200px;
+    box-shadow: 5px 5px 0px #ffbe32, -5px -5px 0px #08481e;
+}
+
+.upload-file .upload-wrapper label>input[type=file] {
+    display: none !important;
+}
+
+.upload-file .upload-wrapper label p {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+
+}
+
+.upload-file .upload-wrapper label p a {
+    font-weight: 700;
+    color: #007bff;
+}
+
+#image-gallery {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#image-gallery .thumb-Images {}
+
+#image-gallery .thumb-Images li {
+
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: -10px -10px 0px #ffbe32, 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#image-gallery .thumb-Images li .file-info {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    width: 70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 30px;
+}
+
+#image-gallery .thumb-Images li .img-wrap {
+    margin-right: 10px;
+}
+
+#image-gallery .thumb-Images li .img-wrap img.thumb {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+#image-gallery .thumb-Images li .img-wrap .close {
+    position: absolute;
+    right: 12px;
+    color: red;
+}
+
+#image-gallery .thumb-Images li .img-wrap .close i {
+    font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
