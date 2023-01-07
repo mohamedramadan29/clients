@@ -8,13 +8,13 @@ if (isset($_POST['user_login'])) {
     $client_name = $_POST['client_name'];
     $client_password = $_POST['client_password'];
     $stmt = $connect->prepare(
-        "SELECT  * FROM users WHERE user_name=? AND user_password=? AND user_type='ضيف' LIMIT 1" 
+        "SELECT  * FROM users WHERE user_name=? AND user_password=? AND user_type='ضيف' LIMIT 1"
     );
     $stmt->execute([$client_name, $client_password]);
     $data = $stmt->fetch();
     $admindata = $stmt->rowcount();
     if ($admindata > 0) {
-        $_SESSION['client_id']=$data['user_id']; 
+        $_SESSION['client_id'] = $data['user_id'];
         header('Location:main.php?dir=dashboard&page=client_dashboard');
         exit();
     }
@@ -47,7 +47,7 @@ if (isset($_POST['user_login'])) {
                     <div class="col-md-12">
                         <div class="form-block mx-auto">
                             <div class="login_buttons">
-                                <button id="emp_login" class="btn"> دخول موظف <i class="fa fa-user"></i></button>
+                                <button id="emp_login" class="btn active"> دخول موظف <i class="fa fa-user"></i></button>
                                 <button id="user_login" class="btn"> دخول ضيف <i class="fa fa-user"></i></button>
                             </div>
                             <div class="emp_login">
@@ -63,8 +63,6 @@ if (isset($_POST['user_login'])) {
                                         <label for="password">كلمة المرور</label>
                                         <input name="password" type="password" class="form-control" placeholder=" " id="password">
                                     </div>
-
-
                                     <div class="forget_pass">
                                         <div class="mb-5 align-items-center">
                                             <label class="control control--checkbox mb-3 mb-sm-0">
@@ -92,9 +90,6 @@ if (isset($_POST['user_login'])) {
                                         <label for="password">كلمة المرور</label>
                                         <input name="client_password" type="password" class="form-control" placeholder=" " id="password">
                                     </div>
-
-
-
                                     <div class="forget_pass">
 
                                         <div class="mb-5 align-items-center">
