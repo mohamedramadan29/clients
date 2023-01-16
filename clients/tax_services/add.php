@@ -22,6 +22,7 @@
                             <div class="box-flex">
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">
+                                        <input type="hidden" class="" name="user_id" id="user_id" value="<?php echo $_SESSION['client_id']; ?>">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> اســـم العميـــــــــل :</span>
                                         <input id="tax_client_name" required type="text" name="tax_client_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_client_name']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
@@ -57,7 +58,7 @@
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> الرقم الضريبي :</span>
-                                        <input required type="text" name="con_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input required type="text" id="tex_number" name="tex_number" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                             </div>
@@ -67,13 +68,13 @@
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> نوع نظام الحسابات لدى هيئة الزكاة والضريبة والجمارك :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="tax_account_type" id="flexRadioDefault1" value="حسابات نظامية">
+                                            <input class="form-check-input" id="tax_account_type" type="radio" name="tax_account_type" id="flexRadioDefault1" value="حسابات نظامية">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 حسابات نظامية
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="tax_account_type" id="flexRadioDefault2" value="تقديري">
+                                            <input class="form-check-input" id="tax_account_type" type="radio" name="tax_account_type" id="flexRadioDefault2" value="تقديري">
                                             <label class="form-check-label" for="flexRadioDefault2">
                                                 تقديري
                                             </label>
@@ -149,7 +150,7 @@
 
                             <div class="box">
                                 <label id="car_pricerent"> أذكرسبب طلب الخدمة <span> * </span></label>
-                                <textarea required name="tax_serv_reason" placeholder=" اذكر التفاصيل " class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_serv_reason']; ?></textarea>
+                                <textarea required id="tax_serv_reason" name="tax_serv_reason" placeholder=" اذكر التفاصيل " class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_serv_reason']; ?></textarea>
                             </div>
                             <div class="box-flex">
                                 <div class="new_box">
@@ -232,13 +233,13 @@
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> في حال الإجابة أعلاه (بنعم) يرجى إلزامياً توفير صورة من القوائم المالية :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
-                                            <input required class="form-check-input" type="radio" name="tax_client_prev_img" id="tax_client_prev_img1" value="تم">
+                                            <input required class="form-check-input" type="radio" name="tax_client_prev_img" id="tax_client_prev_img" value="تم">
                                             <label class="form-check-label" for="tax_client_prev_img1">
                                                 تم
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input required class="form-check-input" type="radio" name="tax_client_prev_img" id="tax_client_prev_img2" value="لا ينطبق">
+                                            <input required class="form-check-input" type="radio" name="tax_client_prev_img" id="tax_client_prev_img" value="لا ينطبق">
                                             <label class="form-check-label" for="tax_client_prev_img2">
                                                 لا ينطبق
                                             </label>
@@ -251,13 +252,13 @@
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل تم التحقق من موقع قوائم عن آخر قوائم مالية صادرة؟ :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
-                                            <input required class="form-check-input" type="radio" name="tax_verify_website" id="tax_verify_website1" value="نعم">
+                                            <input required class="form-check-input" type="radio" name="tax_verify_website" id="tax_verify_website" value="نعم">
                                             <label class="form-check-label" for="tax_verify_website1">
                                                 تم
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input required class="form-check-input" type="radio" name="tax_verify_website" id="tax_verify_website2" value="لا ينطبق">
+                                            <input required class="form-check-input" type="radio" name="tax_verify_website" id="tax_verify_website" value="لا ينطبق">
                                             <label class="form-check-label" for="tax_verify_website2">
                                                 لا ينطبق
                                             </label>
@@ -270,13 +271,13 @@
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> هل محاسب العميل لديه خبرة ومعرفة في توفير أي مستندات أو معلومات إضافية؟</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
-                                            <input required class="form-check-input" type="radio" name="tax_client_account_exer" id="tax_client_account_exer1" value="نعم">
+                                            <input required class="form-check-input" type="radio" name="tax_client_account_exer" id="tax_client_account_exer" value="نعم">
                                             <label class="form-check-label" for="tax_client_account_exer1">
                                                 نعم
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input required class="form-check-input" type="radio" name="tax_client_account_exer" id="tax_client_account_exer2" value="لا ينطبق">
+                                            <input required class="form-check-input" type="radio" name="tax_client_account_exer" id="tax_client_account_exer" value="لا ينطبق">
                                             <label class="form-check-label" for="tax_client_account_exer2">
                                                 لا ينطبق
                                             </label>
@@ -343,6 +344,10 @@
 
                             <div class="box">
                                 <label> المستندات المؤيدة للطلب (المرفقات) <span> * </span> </label>
+                                <div class="box">
+                                    <div class="dropzone" id="myDropzone3"></div>
+                                </div>
+                                <!--
                                 <div class="check_prototype_resualt">
                                     <div class="box mb-3">
                                         <div class="upload-file">
@@ -358,15 +363,16 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                  <h2 class="mb-0"> المفات المرفوعه </h2> 
                                             </div>
                                         </div>
                                         <output id="image-gallery"></output>
                                     </div>
                                 </div>
+                            -->
                             </div>
                             <div class="box submit_box">
-                                <input class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
+                                <input id="submit-all" class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
                             </div>
                         </div>
                     </div>

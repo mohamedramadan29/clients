@@ -242,6 +242,7 @@ ob_end_flush();
             });
             this.on("queuecomplete", function(file) {
                 alert(" تم الطلب ينجاح ");
+                window.location.href = "main.php?dir=clients/accounting_report&page=report";
             });
         }
     }
@@ -324,6 +325,72 @@ ob_end_flush();
             });
             this.on("queuecomplete", function(file) {
                 alert(" تم الطلب ينجاح ");
+                window.location.href = "main.php?dir=clients/contract_request&page=report";
+            });
+        }
+    }
+</script>
+
+<script>
+    // START TAX SERVICES   
+
+    /*
+نموذج طلب عقد ارتباط لخدمة زكاة وضرائب   
+*/
+    Dropzone.options.myDropzone3 = {
+        url: 'main_ajax.php?dir=clients/tax_services&page=ajax_add',
+        autoProcessQueue: false,
+        uploadMultiple: true,
+        parallelUploads: 10,
+        maxFiles: 10,
+        maxFilesize: 400,
+        dictDefaultMessage: "اسقاط الملفات الخاصة بك هنا للرفع",
+        //acceptedFiles: '*',
+        addRemoveLinks: true,
+        dictRemoveFile: 'حذف الملف',
+        init: function() {
+            dzClosure = this; // Makes sure that 'this' is understood inside the functions below.
+            // for Dropzone to process the queue (instead of default form behavior):
+            document.getElementById("submit-all").addEventListener("click", function(e) {
+                // Make sure that the form isn't actually being sent.
+                e.preventDefault();
+                e.stopPropagation();
+                dzClosure.processQueue();
+            });
+            //send all the form data along with the files:
+            this.on("sendingmultiple", function(data, xhr, formData) {
+                formData.
+                append("tax_client_name", jQuery("#tax_client_name").val());
+                formData.append("tax_legal", jQuery("#tax_legal").val());
+                formData.append("tax_account_num", jQuery("#tax_account_num").val());
+                formData.append("tex_number", jQuery("#tex_number").val());
+                formData.append("tax_account_type", jQuery("#tax_account_type").val());
+                formData.append("tax_year_start", jQuery("#tax_year_start").val());
+                formData.append("tax_year_end", jQuery("#tax_year_end").val());
+                formData.append("tax_serv_type", jQuery("#tax_serv_type").val());
+                formData.append("tax_add_serv", jQuery("#tax_add_serv").val());
+                formData.append("tax_serv_reason", jQuery("#tax_serv_reason").val());
+                formData.append("tax_years_required", jQuery("#tax_years_required").val());
+                formData.append("tax_income", jQuery("#tax_income").val());
+                formData.append("tax_uniq_num", jQuery("#tax_uniq_num").val());
+                formData.append("tax_client_prev", jQuery("#tax_client_prev").val());
+                formData.append("tax_client_prev_img", jQuery("#tax_client_prev_img").val());
+                formData.append("tax_client_prev_year", jQuery("#tax_client_prev_year").val());
+                formData.append("tax_verify_website", jQuery("#tax_verify_website").val());
+                formData.append("tax_client_account_exer", jQuery("#tax_client_account_exer").val());
+                formData.append("tax_manager_name", jQuery("#tax_manager_name").val());
+                formData.append("tax_manager_phone", jQuery("#tax_manager_phone").val());
+                formData.append("tax_manager_email", jQuery("#tax_manager_email").val());
+                formData.append("tax_accounter_name", jQuery("#tax_accounter_name").val());
+                formData.append("tax_accounter_phone", jQuery("#tax_accounter_phone").val());
+                formData.append("tax_accounter_email", jQuery("#tax_accounter_email").val());
+                formData.append("tax_prepare", jQuery("#tax_prepare").val());
+                formData.append("tax_prepare_date", jQuery("#tax_prepare_date").val());
+                formData.append("user_id", jQuery("#user_id").val());
+            });
+            this.on("queuecomplete", function(file) {
+                alert(" تم الطلب ينجاح ");
+                window.location.href = "main.php?dir=clients/tax_services&page=report";
             });
         }
     }
