@@ -2476,3 +2476,15 @@
    color: #fff !important;
    border-radius: 100%;
  }
+
+ .dropzone .dz-preview .dz-remove{
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  border: none;
+  background-color: #e74c3c;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 23px;
+ }

@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo $ar_client_name;
         $ar_legal = $_POST['ar_legal'];
         $ar_account_num =  $_POST['ar_account_num'];
+        $tax_number =  $_POST['tax_number'];
         $ar_manager_name = $_POST['ar_manager_name'];
         $ar_manager_phone = $_POST['ar_manager_phone'];
         $ar_client_email = $_POST['ar_client_email'];
@@ -73,16 +74,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         if (empty($formerror)) {
             $stmt = $connect->prepare("INSERT INTO accounting_report
-                    (ar_client_name,ar_legal,ar_account_num,ar_manager_name,
+                    (ar_client_name,ar_legal,ar_account_num,tax_number,ar_manager_name,
                     ar_manager_phone,ar_client_email,ar_serv_reason,ar_doc_scop,ar_old_doc,
                     ar_new_doc,ar_prepare,ar_prepare_date,ar_files,user_id)
-                VALUES (:zar_client_name,:zar_legal,:zar_account_num,:zar_manager_name
+                VALUES (:zar_client_name,:zar_legal,:zar_account_num,:ztax_num,:zar_manager_name
                 ,:zar_manager_phone,:zar_client_email,:zar_serv_reason,:zar_doc_scop
                 ,:zar_old_doc,:zar_new_doc,:zar_prepare,:zar_prepare_date,:zar_files,:zuser_id)");
             $stmt->execute([
                 'zar_client_name' => $ar_client_name,
                 'zar_legal' => $ar_legal,
                 'zar_account_num' => $ar_account_num,
+                'ztax_num' => $tax_number,
                 'zar_manager_name' => $ar_manager_name,
                 'zar_manager_phone' => $ar_manager_phone,
                 'zar_client_email' => $ar_client_email,

@@ -53,13 +53,13 @@
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> رقم السجل التجاري :</span>
-                                        <input id="ar_account_num" required type="text" name="ar_account_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_account_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="ar_account_num" required type="text" placeholder="من فضلك ادخل 10 ارقام" name="ar_account_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['ar_account_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> الرقم الضريبي :</span>
-                                        <input required type="text" name="con_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input id="tax_number" required type="text" name="tax_number" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_number']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
                             </div>

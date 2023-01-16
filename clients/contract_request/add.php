@@ -12,7 +12,7 @@
         <div class="myform">
 
             <!-- ********************** END CODE ********************** -->
-            <form id="add_form" class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/contract_request&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
+            <form class="form-group message_form ajax_form" action="main_ajax.php?dir=clients/contract_request&page=ajax_add" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="col-lg-9">
@@ -20,6 +20,7 @@
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
                             <p class="alert alert-secondary text-center" role="alert">البيانات العامة للتحقق من العميل</p>
                             <div class="box-flex">
+                                <input type="hidden" name="user_id" id="user_id" value="<?php echo $_SESSION['client_id']; ?>">
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> اســـم العميـــــــــل :</span>
@@ -105,7 +106,7 @@
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">
                                         <span class="input-group-text" id="inputGroup-sizing-sm"> الرقم الضريبي :</span>
-                                        <input required type="text" name="con_uniq_num" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['con_uniq_num']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input required type="text" id="tax_number" name="tax_number" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['tax_number']; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     </div>
                                 </div>
 
@@ -458,13 +459,13 @@
                                     <span class="input-group-text" id="inputGroup-sizing-sm"> توفير نسخة مختومة بالكامل :</span>
                                     <div class="check_box_items">
                                         <div class="form-check">
-                                            <input id="con_copy_stamp" required class="form-check-input" type="radio" name="con_copy_stamp"  value="نعم">
+                                            <input id="con_copy_stamp" required class="form-check-input" type="radio" name="con_copy_stamp" value="نعم">
                                             <label class="form-check-label" for="con_copy_stamp1">
                                                 نعم
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input id="con_copy_stamp" required class="form-check-input" type="radio" name="con_copy_stamp"  value="لا ينطبق">
+                                            <input id="con_copy_stamp" required class="form-check-input" type="radio" name="con_copy_stamp" value="لا ينطبق">
                                             <label class="form-check-label" for="con_copy_stamp2">
                                                 لا ينطبق
                                             </label>
@@ -532,7 +533,7 @@
                             <div class="box">
                                 <label> المستندات المؤيدة للطلب (المرفقات) <span class="star"> * </span> </label>
                                 <div class="box">
-                                    <div class="dropzone" id="myDropzone1"></div>
+                                    <div class="dropzone" id="myDropzone2"></div>
                                 </div>
                                 <!--
                                 <div class="check_prototype_resualt">
@@ -559,7 +560,7 @@
                             -->
                             </div>
                             <div class="box submit_box">
-                                <input class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
+                                <input id="submit-all" class="btn btn-primary text-center" name="add_car" type="submit" value="ارسال الطلب">
                             </div>
                         </div>
                     </div>
