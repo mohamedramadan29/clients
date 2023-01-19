@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tax_accounter_email = $_POST['tax_accounter_email'];
     $tax_prepare = $_POST['tax_prepare'];
     $tax_prepare_date = $_POST['tax_prepare_date'];
-    $user_id  = $_SESSION['client_id'];
+    $user_id  = $_POST['user_id'];
     /// More Validation To Show Error
     $formerror = [];
     if (strlen($tax_account_num) > 10 || strlen($tax_account_num) < 10) {
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($tax_prepare)) {
         $formerror[] = '   من فضلك ادخل من اعد الطلب   ';
     }
-/*
+    /*
     if (empty($_FILES['files']['name'])) {
         $formerror[] = '   من فضلك ادخل  المرفقات   ';
     }*/

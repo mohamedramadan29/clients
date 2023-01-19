@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $con_upload_report = $_POST['con_upload_report'];
     $con_prepare = $_POST['con_prepare'];
     $con_prepare_time = $_POST['con_prepare_time'];
-    $user_id  = $_SESSION['client_id'];
+    $user_id  =$_POST['user_id'];
     /// More Validation To Show Error
     $formerror = [];
     if (strlen($con_account_num) > 10 || strlen($con_account_num) < 10) {
@@ -135,11 +135,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt) { ?>
             <div class="success"> Success</div>
             <script>
-                document.getElementById("add_form").reset();
+               /* document.getElementById("add_form").reset();
                 setTimeout(() => {
                     let url = "main.php?dir=clients/contract_request&page=report";
                     window.location.href = url;
-                }, 2000);
+                }, 2000);*/
             </script>
             <!--  <div class="alert-success">
                     </div> -->

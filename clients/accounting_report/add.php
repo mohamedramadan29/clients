@@ -2,9 +2,18 @@
     <div class="data">
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=client_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
-                    <li class="breadcrumb-item active" aria-current="page">نموذج طلب عقد إعداد تقرير محاسبي</li>
+                    <?php
+                    if (isset($_SESSION['client_id'])) { ?>
+                        <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=client_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
+                    <?php
+                    } else { ?>
+                        <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=privlage_dashboard"> لوحة تحكم الضيوف </a> <i class="fa fa-chevron-left"></i> </li>
+                    <?php
+                    }
+                    ?>
+                    <li class="breadcrumb-item active" aria-current="page"> نموذج طلب عقد إعداد تقرير محاسبي</li>
                 </ol>
             </nav>
         </div>
@@ -19,6 +28,35 @@
                         <div class="form-data">
 
                             <div class="alert alert-info">فضلا أدخل بيانات العميل بدقة لنتمكن من دراسة الطلب وتقديم الخدمة بشكل صحيح</div>
+                            <?php
+                            if (isset($_SESSION['client_id'])) { ?>
+                                <input type="hidden" name="user_id" id="user_id" value="<?php echo $_SESSION['client_id']; ?>">
+                            <?php
+                            } else {
+                            ?>
+                                <div class="box-flex">
+                                    <div class="input-group input-group-sm">
+                                        <span style="color: red; font-weight:bold" class="input-group-text" id="inputGroup-sizing-sm"> الضيف هو :</span>
+                                        <select required name="user_id" id="user_id">
+                                            <option value=""> -- اختر الضيف -- </option>
+                                            <?php
+                                            $stmt = $connect->prepare("SELECT  * FROM users WHERE user_type='ضيف'");
+                                            $stmt->execute();
+                                            $allusers = $stmt->fetchAll();
+                                            foreach ($allusers as $user) {
+                                            ?>
+                                                <option value="<?php echo $user['user_id'] ?>"><?php echo $user['user_name']; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+
+
                             <div class="box-flex">
                                 <div class="new_box">
                                     <div class="input-group input-group-sm">

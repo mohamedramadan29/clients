@@ -5,10 +5,11 @@ session_start();
 $Nonavbar = '';
 include 'init.php';
 if (isset($_POST['user_login'])) {
+    // تسجيل دخول الضيف 
     $client_name = $_POST['client_name'];
     $client_password = $_POST['client_password'];
     $stmt = $connect->prepare(
-        "SELECT  * FROM users WHERE user_name=? AND user_password=? AND user_type='ضيف' LIMIT 1"
+        "SELECT  * FROM users WHERE user_name=? AND user_password=? AND user_type='ضيف' AND user_stat=1 LIMIT 1"
     );
     $stmt->execute([$client_name, $client_password]);
     $data = $stmt->fetch();
@@ -16,6 +17,25 @@ if (isset($_POST['user_login'])) {
     if ($admindata > 0) {
         $_SESSION['client_id'] = $data['user_id'];
         header('Location:main.php?dir=dashboard&page=client_dashboard');
+        exit();
+    }
+}
+?>
+
+<?php
+// تسجيل دخول الموظف
+if (isset($_POST['emp_login'])) {
+    $emp_name = $_POST['emp_name'];
+    $emp_password = $_POST['emp_password'];
+    $stmt = $connect->prepare(
+        "SELECT  * FROM users WHERE user_name=? AND user_password=? AND user_type !='ضيف' AND user_stat=1 LIMIT 1 "
+    );
+    $stmt->execute([$emp_name, $emp_password]);
+    $data = $stmt->fetch();
+    $admindata = $stmt->rowcount();
+    if ($admindata > 0) {
+        $_SESSION['emp_id'] = $data['user_id'];
+        header('Location:main.php?dir=dashboard&page=privlage_dashboard');
         exit();
     }
 }
@@ -57,11 +77,11 @@ if (isset($_POST['user_login'])) {
                                 <form class="" action="#" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                     <div class="form-group first">
                                         <label for="username">اسم المستخدم</label>
-                                        <input name="comname" type="text" class="form-control" placeholder="  " id="username">
+                                        <input name="emp_name" type="text" class="form-control" placeholder="  " id="username">
                                     </div>
                                     <div class="form-group last mb-3">
                                         <label for="password">كلمة المرور</label>
-                                        <input name="password" type="password" class="form-control" placeholder=" " id="password">
+                                        <input name="emp_password" type="password" class="form-control" placeholder=" " id="password">
                                     </div>
                                     <div class="forget_pass">
                                         <div class="mb-5 align-items-center">
@@ -91,7 +111,6 @@ if (isset($_POST['user_login'])) {
                                         <input name="client_password" type="password" class="form-control" placeholder=" " id="password">
                                     </div>
                                     <div class="forget_pass">
-
                                         <div class="mb-5 align-items-center">
                                             <label class="control control--checkbox mb-3 mb-sm-0">
                                                 <span class="caption">
@@ -99,7 +118,6 @@ if (isset($_POST['user_login'])) {
                                                 </span>
                                             </label>
                                         </div>
-
                                     </div>
 
                                     <input name="user_login" type="submit" value=" تسجيل دخول كضيف" class="btn btn-block py-2">

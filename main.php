@@ -3,11 +3,11 @@ ob_start();
 $pagetitle = 'الرئيسية';
 session_start();
 include 'init.php';
-if (isset($_SESSION['admin_id']) || isset($_SESSION['client_id'])) {
-
-
+if (isset($_SESSION['admin_id']) || isset($_SESSION['client_id']) || isset($_SESSION['emp_id'])) {
     if (isset($_SESSION['client_id'])) {
         include $tem . 'top_navbar_client.php';
+    } elseif (isset($_SESSION['emp_id'])) {
+        include $tem . 'top_navbar_emp.php';
     } else {
         include $tem . 'top_navbar.php';
     }
@@ -71,66 +71,77 @@ if (isset($_SESSION['admin_id']) || isset($_SESSION['client_id'])) {
             }
             // END Privilage
             //****************** End Admin Dashboard Page ************* */        
+
+            /**
+             * start using privilage table
+             * 
+             */
+            $stmt = $connect->prepare("SELECT * FROM new_priv");
+            $stmt->execute();
+            $priv_data = $stmt->fetch();
             /***************** START CLIENTS FOLDER**************** */
+
             // START Accounting Report ( عقد إعداد تقرير محاسبي )
-            if (isset($_SESSION['client_id'])) {
-                if ($dir == 'clients/accounting_report' && $page == 'add') {
-                    include 'clients/accounting_report/add.php';
-                } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
-                    include 'clients/accounting_report/edit.php';
-                } elseif ($dir == 'clients/accounting_report' && $page == 'view') {
-                    include 'clients/accounting_report/view.php';
-                } elseif ($dir == 'clients/accounting_report' && $page == 'delete') {
-                    include 'clients/accounting_report/delete.php';
-                } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
-                    include 'clients/accounting_report/report.php';
-                }
+
+            if ($dir == 'clients/accounting_report' && $page == 'add') {
+                include 'clients/accounting_report/add.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'edit') {
+                include 'clients/accounting_report/edit.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'view') {
+                include 'clients/accounting_report/view.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'delete') {
+                include 'clients/accounting_report/delete.php';
+            } elseif ($dir == 'clients/accounting_report' && $page == 'report') {
+                include 'clients/accounting_report/report.php';
             }
+
             // END Accounting Report
 
             /***************** START CLIENTS FOLDER**************** */
             // START Tax Services ( نموذج طلب عقد ارتباط لخدمة زكاة وضرائب)
-            if (isset($_SESSION['client_id'])) {
-                if ($dir == 'clients/tax_services' && $page == 'add') {
-                    include 'clients/tax_services/add.php';
-                } elseif ($dir == 'clients/tax_services' && $page == 'edit') {
-                    include 'clients/tax_services/edit.php';
-                } elseif ($dir == 'clients/tax_services' && $page == 'view') {
-                    include 'clients/tax_services/view.php';
-                } elseif ($dir == 'clients/tax_services' && $page == 'delete') {
-                    include 'clients/tax_services/delete.php';
-                } elseif ($dir == 'clients/tax_services' && $page == 'report') {
-                    include 'clients/tax_services/report.php';
-                }
+
+            if ($dir == 'clients/tax_services' && $page == 'add') {
+                include 'clients/tax_services/add.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'edit') {
+                include 'clients/tax_services/edit.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'view') {
+                include 'clients/tax_services/view.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'delete') {
+                include 'clients/tax_services/delete.php';
+            } elseif ($dir == 'clients/tax_services' && $page == 'report') {
+                include 'clients/tax_services/report.php';
             }
+
             // END Tax Services
 
             // START Contract Request ( نموذج طلب عقد إرتباط مراجعة )
-            if (isset($_SESSION['client_id'])) {
-                if ($dir == 'clients/contract_request' && $page == 'add') {
-                    include 'clients/contract_request/add.php';
-                } elseif ($dir == 'clients/contract_request' && $page == 'edit') {
-                    include 'clients/contract_request/edit.php';
-                } elseif ($dir == 'clients/contract_request' && $page == 'view') {
-                    include 'clients/contract_request/view.php';
-                } elseif ($dir == 'clients/contract_request' && $page == 'delete') {
-                    include 'clients/contract_request/delete.php';
-                } elseif ($dir == 'clients/contract_request' && $page == 'report') {
-                    include 'clients/contract_request/report.php';
-                }
+
+            if ($dir == 'clients/contract_request' && $page == 'add') {
+                include 'clients/contract_request/add.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'edit') {
+                include 'clients/contract_request/edit.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'view') {
+                include 'clients/contract_request/view.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'delete') {
+                include 'clients/contract_request/delete.php';
+            } elseif ($dir == 'clients/contract_request' && $page == 'report') {
+                include 'clients/contract_request/report.php';
             }
+
             // END Contract Request
             // START Account ( نموذج طلب عقد إرتباط مراجعة )
-            if (isset($_SESSION['client_id'])) {
-                if ($dir == 'clients/account' && $page == 'add') {
-                    include 'clients/account/add.php';
-                } elseif ($dir == 'clients/account' && $page == 'edit') {
-                    include 'clients/account/edit.php';
-                }
+
+            if ($dir == 'clients/account' && $page == 'add') {
+                include 'clients/account/add.php';
+            } elseif ($dir == 'clients/account' && $page == 'edit') {
+                include 'clients/account/edit.php';
             }
+
             // END Account
             // START Record Screen
-            if (isset($_SESSION['client_id'])) {
+            if (
+                isset($_SESSION['client_id'])
+            ) {
                 if ($dir == 'clients/record_screen' && $page == 'view') {
                     include 'clients/record_screen/view.php';
                 } elseif ($dir == 'clients/record_screen' && $page == 'view_tax') {
@@ -150,10 +161,10 @@ if (isset($_SESSION['admin_id']) || isset($_SESSION['client_id'])) {
             if ($dir == 'dashboard' && $page == 'client_dashboard') {
                 include 'clients/client_dashboard.php';
             }
-
-
+            if ($dir == 'dashboard' && $page == 'privlage_dashboard') {
+                include 'privlage_dashboard.php';
+            }
             // END EDUCATION WEB SITE ///////////////////////////////////////
-
             //if ($page != 'report') {
             ?>
         </div>
@@ -239,10 +250,11 @@ ob_end_flush();
                 formData.append("ar_prepare", jQuery("#ar_prepare").val());
                 formData.append("ar_prepare_date", jQuery("#ar_prepare_date").val());
                 formData.append("ar_prepare_date", jQuery("#ar_prepare_date").val());
+                formData.append("user_id", jQuery("#user_id").val());
             });
             this.on("queuecomplete", function(file) {
                 alert(" تم الطلب ينجاح ");
-                window.location.href = "main.php?dir=clients/accounting_report&page=report";
+                window.location.href = "main.php?dir=clients/accounting_report&page=add";
             });
         }
     }
@@ -325,7 +337,7 @@ ob_end_flush();
             });
             this.on("queuecomplete", function(file) {
                 alert(" تم الطلب ينجاح ");
-                window.location.href = "main.php?dir=clients/contract_request&page=report";
+                window.location.href = "main.php?dir=clients/contract_request&page=add";
             });
         }
     }
@@ -390,7 +402,7 @@ ob_end_flush();
             });
             this.on("queuecomplete", function(file) {
                 alert(" تم الطلب ينجاح ");
-                window.location.href = "main.php?dir=clients/tax_services&page=report";
+                window.location.href = "main.php?dir=clients/tax_services&page=add";
             });
         }
     }

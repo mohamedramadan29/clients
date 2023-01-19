@@ -1,9 +1,10 @@
-  <!-- loader -->
+  <!-- loader 
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
       <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
       <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
     </svg>
   </div>
+  -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="<?php echo $js; ?>jquery.PrintArea.js"></script>
 
@@ -35,15 +36,17 @@
   <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <!-- jQUERY PLUGIN USED IN AJAX SEND DATA -->
-  <!-- SCRIPT TO UPLOAD FILES  -->
+  <!-- SCRIPT TO UPLOAD FILES 
   <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
-  <!-- START RATING SYSTEM -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-
+   -->
+   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+ 
   <!-- END RATING SYSTEM -->
   <!-- popper js -->
-
+<!--
   <script src="<?php echo $js; ?>popper.min.js"></script>
+-->
   <script src="https://kit.fontawesome.com/588e070751.js" crossorigin="anonymous"></script>
   <!-- datepicker  -->
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -77,6 +80,7 @@
             status.html(xhr.responseText);
           },
           success: function() {
+            
 
           }
         });

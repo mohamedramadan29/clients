@@ -55,6 +55,20 @@
                     '</div>';
             }
 
+            $stmt = $connect->prepare("SELECT * FROM users WHERE user_name=?");
+            $stmt->execute(array($user_name));
+            $count = $stmt->rowCount();
+            if ($count > 0) {
+                $formerror[] = 'اسم المستخدم موجود من قبل من فضلك ادخل اسم مستخدم اخر ';
+            }
+
+            $stmt = $connect->prepare("SELECT * FROM users WHERE user_email=?");
+            $stmt->execute(array($user_email));
+            $count = $stmt->rowCount();
+            if ($count > 0) {
+                $formerror[] = ' هناك خطا !! البريد الالكتروني مستخدم بالفعل من قبل  ';
+            }
+
             if (empty($formerror)) {
 
                 $stmt = $connect->prepare("INSERT INTO users 
@@ -74,20 +88,27 @@
                     'zuser_city' => $user_city,
                     'zuser_stat' => $user_stat,
                 ]);
-                if ($stmt) { ?>
+                if ($stmt) {
+                    // header('Location:main.php?dir=admin_users&page=report');
+                    header('refresh:2;url=main.php?dir=admin_users&page=report');
+    ?>
                  <script>
-                     document.getElementById("add_form").reset();
+                     document.getElementById("add_form_user").reset();
                      setTimeout(() => {
                          let url = "main.php?dir=admin_users&page=report";
                          window.location.href = url;
                      }, 2000);
                  </script>
-                 <div class="alert-success ">
+                 <div class="alert-success text-center" style="margin: auto; display:block">
                      تم اضافة مستخدم جديد بنجاح
-
                  </div>
-
- <?php }
+             <?php }
+            } else {
+                foreach ($formerror as $error) {
+                ?>
+                 <div class="alert alert-danger text-center"> <?php echo $error ?> </div>
+ <?php
+                }
             }
         }
     }

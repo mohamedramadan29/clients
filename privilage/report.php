@@ -12,1037 +12,1862 @@
         <!-- Content Row -->
         <!-- START MODEL TO ADD NEW RECORD  -->
         <!-- Modal -->
-        <div class="modal fade" id="addrecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header d-flex justify-content-between">
-                        <div>
-                            <h5 class="modal-title" id="exampleModalLabel"> اضافة صلاحيات جديدة </h5>
-                        </div>
-                        <div>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="myform">
-                            <form id="add_form" class="form-group insert ajax_form" action="main_ajax.php?dir=privilage&page=add" method="POST" autocomplete="on" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="box">
-                                            <label id="name"> اختر المسمي الوظيفي
-                                                <span> * </span> </label>
-                                            <select class="form-control" name="priv_users">
-                                                <option value=""> -- اختر المسمي الوظيفي -- </option>
-                                                <option value="المالك"> المالك </option>
-                                                <option value="مشرف إداري"> مشرف إداري </option>
-                                                <option value="مساعد إداري"> مساعد إداري </option>
-                                                <option value="مدير مراجعة"> مدير مراجعة </option>
-                                                <option value="مراجع"> مراجع </option>
-                                                <option value="مشرف جودة">مشرف جودة</option>
-                                                <option value="عميل مباشر"> عميل مباشر </option>
-                                                <option value="ضيف">ضيف</option>
-                                            </select>
-                                        </div>
-                                        <p class="alert alert-default-secondary"> الصلاحيات </p>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_show" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">عرض لوحة الصلاحيات</label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_edit" type="checkbox" id="flexSwitchCheckDefault2">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault2"> تحرير لوحة الصلاحيات </label>
-                                            </div>
-                                        </div>
-                                        <p class="alert alert-default-secondary"> المستخدمين </p>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_show_users" type="checkbox" id="flexSwitchCheckDefault3">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault3"> استعراض قائمة المستخدمين </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_edit_users" type="checkbox" id="flexSwitchCheckDefault4">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault4"> انشاء وتعديل حسابات المستخدمين </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_arrive_branch" type="checkbox" id="flexSwitchCheckDefault5">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault5"> الوصول إلى كل الفروع </label>
-                                            </div>
-                                        </div>
-                                        <p class="alert alert-default-secondary"> إدارة المهام1 </p>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_create_report" type="checkbox" id="flexSwitchCheckDefault6">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault6"> انشاء النماذج (طلب مراجعة،تقارير مالية،زكاة وضرائب) </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_show_attach" type="checkbox" id="flexSwitchCheckDefault7">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault7">استعراض النماذج والمرفقات</label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_agree_refuse_serv" type="checkbox" id="flexSwitchCheckDefault8">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault8">لموافقة والرفض لنماذج طلب الخدمة</label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_edit_report" type="checkbox" id="flexSwitchCheckDefault9">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault9"> التعديل على نماذج الخدمات </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_confirm_report" type="checkbox" id="flexSwitchCheckDefault10">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault10"> تأكيد إرسال العقد </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_confirm_receive_money" type="checkbox" id="flexSwitchCheckDefault11">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault11"> تأكيد التحقق من استلام الاتعاب وتوقيع العقد </label>
-                                            </div>
-                                        </div>
-                                        <p class="alert alert-default-secondary"> استعراض وتعبئة مذكرة التخطيط </p>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_finish_ref" type="checkbox" id="flexSwitchCheckDefault12">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault12"> تأكيد الانتهاء من أعمال المراجعة </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_serv_start" type="checkbox" id="flexSwitchCheckDefault13">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault13"> تأكيد إصدار الخدمة </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_upload_mon" type="checkbox" id="flexSwitchCheckDefault14">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault14"> تأكيد رفع على منصة قوائم </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_show_all_report" type="checkbox" id="flexSwitchCheckDefault15">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault15"> استعراض التقارير الشاملة </label>
-                                            </div>
-                                        </div>
-                                        <p class="alert alert-default-secondary"> ملف المراجعة </p>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_show_edit_prev" type="checkbox" id="flexSwitchCheckDefault16">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault16"> عرض وانشاء وتعديل وحذف نماذج ملفات المراجعة </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_edit_clients" type="checkbox" id="flexSwitchCheckDefault17">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault17"> تعديل بيانات العميل </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_edit_accounts" type="checkbox" id="flexSwitchCheckDefault18">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault18"> تعديل دليل الحسابات </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_change_refuson_team" type="checkbox" id="flexSwitchCheckDefault19">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault19">تغيير وتعديل فريق المراجعة</label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_paper_work" type="checkbox" id="flexSwitchCheckDefault20">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault20"> تعبئة ورقة العمل </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_paper_revision" type="checkbox" id="flexSwitchCheckDefault21">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault21"> مراجعة ورقة العمل </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_paper_start_work" type="checkbox" id="flexSwitchCheckDefault22">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault22"> اعتماد ورقة العمل </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_paper_end_archieve" type="checkbox" id="flexSwitchCheckDefault23">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault23"> الاكتمال والأرشفة </label>
-                                            </div>
-                                        </div>
-                                        <div class="box2">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" name="priv_paper_edit_delete_add" type="checkbox" id="flexSwitchCheckDefault24">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault24"> إضافة وتعديل وحذف إجراء مراجعة في ورقة عمل </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="box submit_box">
-                                        <input class="btn btn-outline-primary btn-sm" name="add_car" type="submit" value=" اضافه صلاحيات جديدة ">
-                                    </div>
-                                </div>
-                        </div>
-                        </form>
-                        <!-- START RESPONSE SPACE  -->
-                        <!-- area to display a message after completion of upload -->
-                        <div class="text-center" id='status'></div>
-                        <br>
-                        <!-- END RESPONSE SPACE  -->
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
     <!-- END RECORD TO EDIT NEW RECORD  -->
     <div class="table-responsive">
-        <div class="add_new_record">
-            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addrecord">
-                اضف صلاحيات جديدة <i class="fa fa-plus"></i>
-            </button>
-        </div>
-        <table id="tableone" class="table table-light table-striped table-hover table-bordered">
+
+    <form class="ajax_form" action="main_ajax.php?dir=privilage&page=edit" name="tesformaction" method="POST" enctype="multipart/form-data">
+        <table id="tableone" class="table privilage_table table-striped table-hover table-bordered">
             <thead>
-                <?php
-                $stmt = $connect->prepare('SELECT * FROM privilage');
-                $stmt->execute();
-                $alltype = $stmt->fetchAll(); ?>
                 <tr>
                     <th> نوع الاجراء </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <th> <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editrecord<?php echo $type['priv_id']; ?>"> <?php echo $type['priv_users']; ?></button> </th>
-
-                    <?php
-                    }
-                    ?>
-                    <th> </th>
+                    <th> المالك </th>
+                    <th> مشرف اداري </th>
+                    <th> مساعد اداري </th>
+                    <th> مدير مراجعه </th>
+                    <th> مراجع </th>
+                    <th> مشرف جودة </th>
+                    <th> عميل مباشر </th>
+                    <th> ضيف </th>
                 </tr>
             </thead>
-            <tbody class="priv_custome"> 
-                <!--------------------------------------------->
-                <form action="main_ajax.php?dir=privilage&page=edit" name="tesformaction" method="POST" id="tesformaction" enctype="multipart/form-data">
+            <tbody class="priv_custome">
                 <?php
-                                            $stmt = $connect->prepare('SELECT * FROM privilage');
-                                            $stmt->execute();
-                                            $alltype = $stmt->fetchAll(); ?>
-                <tr>
-                    <th>عرض لوحة الصلاحيات</th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td><?php
-                            if ($type['priv_show'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_show">
 
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_show">
-                            <?php
-                            }  ?>
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
+                $stmt = $connect->prepare("SELECT * FROM new_priv");
+                $stmt->execute();
+
+                $data = $stmt->fetch();
+
+                ?>
+                <!--------------------------------------------->
+                <tr>
+                    <th class="main_th"> الصلاحيات </th>
+
+                </tr>
+                <tr>
+                    <th> عرض لوحة الصلاحيات </th>
+                    <td> <?php if ($data['priv_show_own'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
                     </td>
+                    <td> <?php if ($data['priv_show_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
                     <th> تحرير لوحة الصلاحيات </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_edit'] == "نعم") {
-                            ?>
-                                <input id='ckPump' type="checkbox" checked name="priv_edit" onclick='submitPump()'>
-                                <p> hassan </p>
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_edit">
-                            <?php
-                            }  ?>
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
+                    <td> <?php if ($data['priv_edit_own'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
                     </td>
+                    <td> <?php if ($data['priv_edit_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
-                    <th>استعراض قائمة المستخدمين </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_show_users'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_show_users">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_show_users">
-                            <?php
-                            }  ?>
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
+                    <th  class="main_th"> المستخدمين </th>
+                </tr>
+                <tr>
+                    <th> استعراض قائمة المستخدمين </th>
+                    <td> <?php if ($data['priv_show_users_own'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
                     </td>
+                    <td> <?php if ($data['priv_show_users_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_users_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_users_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_users_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_users_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_users_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_show_users_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_show_users_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_show_users_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
                     <th> انشاء وتعديل حسابات المستخدمين </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <td> <?php if ($data['priv_edit_users_own'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_edit_users'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_edit_users">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_edit_users">
-                            <?php
-                            }  ?>
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['priv_edit_users_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_users_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_users_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_users_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_users_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_users_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['priv_edit_users_client'] == 1) { ?>
+                            <input type="checkbox" checked name="priv_edit_users_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="priv_edit_users_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
-                    <th> الوصول إلى كل الفروع </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> الوصول الي كل الفروع </th>
+                    <td> <?php if ($data['user_all_branch_own'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_arrive_branch'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_arrive_branch">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_arrive_branch">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['user_all_branch_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['user_all_branch_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['user_all_branch_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['user_all_branch_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['user_all_branch_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['user_all_branch_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['user_all_branch_client'] == 1) { ?>
+                            <input type="checkbox" checked name="user_all_branch_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="user_all_branch_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
-                    <th>انشاء النماذج</th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th  class="main_th"> ادارة المهام 1 </th>
+                </tr>
 
-                            <?php
-                            if ($type['priv_create_report'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_create_report">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_create_report">
-                            <?php
-                            }  ?>
+                <tr>
+                    <th> انشاء النماذج (طلب مراجعه , تقارير مالية , زكاة وضرائب ) </th>
+                    <td> <?php if ($data['create_report_own'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['create_report_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['create_report_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['create_report_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['create_report_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['create_report_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['create_report_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['create_report_client'] == 1) { ?>
+                            <input type="checkbox" checked name="create_report_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="create_report_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
                     <th> استعراض النماذج والمرفقات </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <td> <?php if ($data['show_attach_own'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_show_attach'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_show_attach">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_show_attach">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['show_attach_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['show_attach_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['show_attach_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['show_attach_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['show_attach_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['show_attach_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['show_attach_client'] == 1) { ?>
+                            <input type="checkbox" checked name="show_attach_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="show_attach_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
                 <tr>
-                    <th> الموافقة والرفض لنماذج طلب الخدمة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_agree_refuse_serv'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_agree_refuse_serv">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_agree_refuse_serv">
-                            <?php
-                            }  ?>
+                    <th> الموافقه والرفض لنماذج طلب الخدمة </th>
+                    <td> <?php if ($data['agree_refuse_own'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
-                <tr>
-                    <th> التعديل على نماذج الخدمات </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_edit_report'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_edit_report">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_edit_report">
-                            <?php
-                            }  ?>
+                    <td> <?php if ($data['agree_refuse_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
+                    <td> <?php if ($data['agree_refuse_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                <tr>
-                    <th> تأكيد إرسال العقد </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-
-                            <?php
-                            if ($type['priv_confirm_report'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_confirm_report">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_confirm_report">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
+                    <td> <?php if ($data['agree_refuse_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                <tr>
-                    <th> تأكيد التحقق من استلام الاتعاب وتوقيع العقد </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_confirm_receive_money'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_confirm_receive_money">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_confirm_receive_money">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
+                    <td> <?php if ($data['agree_refuse_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                <tr>
-                    <th> تأكيد الانتهاء من أعمال المراجعة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-
-                            <?php
-                            if ($type['priv_finish_ref'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_finish_ref">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_finish_ref">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
-                <tr>
-                    <th> تأكيد إصدار الخدمة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_serv_start'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_serv_start">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_serv_start">
-                            <?php
-                            }  ?>
+                    <td> <?php if ($data['agree_refuse_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['agree_refuse_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['agree_refuse_client'] == 1) { ?>
+                            <input type="checkbox" checked name="agree_refuse_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="agree_refuse_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
 
                 <tr>
-                    <th> تأكيد رفع على منصة قوائم </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> التغديل علي نماذج الخدمات </th>
+                    <td> <?php if ($data['edit_report_own'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_upload_mon'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_upload_mon">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_upload_mon">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['edit_report_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_report_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_report_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_report_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_report_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_report_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_report_client'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_report_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_report_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th> تاكيد ارسال العقد </th>
+                    <td> <?php if ($data['confirm_send_re_own'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_send_re_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_send_re_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_send_re_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
 
                 <tr>
-                    <th> استعراض التقارير الشاملة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> تاكيد التحقق من توقيع العقد واستلام الاتعاب </th>
+                    <td> <?php if ($data['confirm_recieve_money_own'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_show_all_report'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_show_all_report">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_show_all_report">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
+                    <td> <?php if ($data['confirm_recieve_money_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
+                    </td>
+                    <td> <?php if ($data['confirm_recieve_money_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_recieve_money_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_recieve_money_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_recieve_money_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_recieve_money_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_recieve_money_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_recieve_money_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_recieve_money_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
                 <tr>
-                    <th> عرض وانشاء وتعديل وحذف نماذج ملفات المراجعة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> استعراض وتعبئة مذكرة التخطيط </th>
+                    <td> <?php if ($data['finish_ref_own'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_show_edit_prev'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_show_edit_prev">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_show_edit_prev">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
-                </tr>
+                    <td> <?php if ($data['finish_ref_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
+                    </td>
+                    <td> <?php if ($data['finish_ref_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['finish_ref_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['finish_ref_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['finish_ref_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['finish_ref_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['finish_ref_client'] == 1) { ?>
+                            <input type="checkbox" checked name="finish_ref_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="finish_ref_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th> تاكيد بدء تقديم الخدمة </th>
+                    <td> <?php if ($data['confirm_start_serv_own'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_start_serv_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_start_serv_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_start_serv_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th> تاكيد اتنهاء تقديم الخدمة </th>
+                    <td> <?php if ($data['confirm_end_serv_own'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_end_serv_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_end_serv_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_end_serv_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th> تاكيد الرفع علي منصة قوائم </th>
+                    <td> <?php if ($data['confirm_upload_own'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['confirm_upload_client'] == 1) { ?>
+                            <input type="checkbox" checked name="confirm_upload_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="confirm_upload_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th  class="main_th"> ملف المراجعه </th>
+                </tr>
+                <tr>
+                    <th> عرض وانشاء وتعديل وحذف نماذج ملفات المراجعه </th>
+                    <td> <?php if ($data['view_create_rev_files_own'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['view_create_rev_files_client'] == 1) { ?>
+                            <input type="checkbox" checked name="view_create_rev_files_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="view_create_rev_files_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
                 <tr>
                     <th> تعديل بيانات العميل </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_edit_clients'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_edit_clients">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_edit_clients">
-                            <?php
-                            }  ?>
+                    <td> <?php if ($data['edit_client_info_own'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
+                    </td>
+                    <td> <?php if ($data['edit_client_info_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['edit_client_info_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_client_info_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_client_info_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_client_info_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_client_info_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_client_info_client'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_client_info_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_client_info_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
                     </td>
                 </tr>
-
                 <tr>
-                    <th>تعديل دليل الحسابات</th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> تعديل دليل الحسابات</th>
+                    <td> <?php if ($data['edit_accounts_own'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_edit_accounts'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_edit_accounts">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_edit_accounts">
-                            <?php
-                            }  ?>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['edit_accounts_client'] == 1) { ?>
+                            <input type="checkbox" checked name="edit_accounts_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="edit_accounts_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
                     </td>
                 </tr>
                 <tr>
-                    <th> تغيير وتعديل فريق المراجعة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> تغير وتعديل فريق المراجعه </th>
+                    <td> <?php if ($data['change_refus_team_own'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_change_refuson_team'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_change_refuson_team">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_change_refuson_team">
-                            <?php
-                            }  ?>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+                    </td>
+                    <td> <?php if ($data['change_refus_team_client'] == 1) { ?>
+                            <input type="checkbox" checked name="change_refus_team_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="change_refus_team_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
                     </td>
                 </tr>
-
                 <tr>
                     <th> تعبئة ورقة العمل </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <td> <?php if ($data['paper_work_own'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_paper_work'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_paper_work">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_paper_work">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['paper_work_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_work_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_work_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_work_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_work_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_work_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_work_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_work_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_work_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
-
                 <tr>
-                    <th> مراجعة ورقة العمل </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> مراجعه ورقة العمل</th>
+                    <td> <?php if ($data['paper_revision_own'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_paper_revision'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_paper_revision">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_paper_revision">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['paper_revision_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_revision_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_revision_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_revision_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_revision_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_revision_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_revision_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_revision_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_revision_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
 
                 <tr>
                     <th> اعتماد ورقة العمل </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
-                            <?php
-                            if ($type['priv_paper_start_work'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_paper_start_work">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_paper_start_work">
-                            <?php
-                            }  ?>
+                    <td> <?php if ($data['paper_start_own'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['paper_start_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_start_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_start_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_start_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_start_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_start_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_start_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_start_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_start_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
 
                 <tr>
-                    <th> الاكتمال والأرشفة </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> الاكتمال والارشفة </th>
+                    <td> <?php if ($data['end_archieve_own'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_paper_end_archieve'] == "نعم") {
-                            ?>
-                                <input type="checkbox" checked name="priv_paper_end_archieve">
-                            <?php
-                            } else {
-                            ?>
-                                <input type="checkbox" name="priv_paper_end_archieve">
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
                     </td>
+                    <td> <?php if ($data['end_archieve_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['end_archieve_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['end_archieve_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['end_archieve_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['end_archieve_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['end_archieve_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['end_archieve_client'] == 1) { ?>
+                            <input type="checkbox" checked name="end_archieve_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="end_archieve_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
                 </tr>
 
                 <tr>
-                    <th> إضافة وتعديل وحذف إجراء مراجعة في ورقة عمل </th>
-                    <?php
-                    foreach ($alltype as $type) { ?>
-                        <td>
+                    <th> اضافة وتعديل وحذف اجراء مراجعة في ورقة العمل </th>
+                    <td> <?php if ($data['paper_add_edit_own'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_own" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_own" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                            <?php
-                            if ($type['priv_paper_edit_delete_add'] == "نعم") {
-                            ?>
-                                <input id="loginSubmit" type="checkbox" checked name="priv_paper_edit_delete_add">
-                                ali
-                            <?php
-                            } else {
-                            ?>
-                                <input id="loginSubmit" class="testinddx" type="checkbox" name="priv_paper_edit_delete_add">
-                                <p> Ali </p>
-                            <?php
-                            }  ?>
-
-                        </td>
-                    <?php
-                    }
-                    ?>
-                    <td>
-                        <!--
-                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#viewrecord<?php echo $type['priv_id']; ?>">
-                            <i class="fa fa-eye"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editrecord<?php echo $type['priv_id']; ?>">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                        <a class="confirm btn btn-danger btn-sm" href="main.php?dir=privilage&page=delete&priv_id=<?php echo $type['priv_id']; ?> ">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                -->
                     </td>
-                </tr>
-                </form>
-                <?php
-                foreach ($alltype as $type) { ?>
-                    <!-- START MODEL TO Edit RECORD  -->
-                    <!-- Modal -->
-                    <div class="modal fade" id="editrecord<?php echo $type['priv_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">تعديل الصلاحيات</h5>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="data">
-                                        <div class="myform">
-                                            <form class="form-group insert ajax_form" action="main_ajax.php?dir=privilage&page=edit" method="POST" autocomplete="on" enctype="multipart/form-data">
-                                                <input type="hidden" name="priv_id" value="<?php echo $type['priv_id'] ?>">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="box">
-                                                            <label id="name"> اختر المسمي الوظيفي
-                                                                <span> * </span> </label>
-                                                            <select class="form-control" name="priv_users">
-                                                                <option value=""> -- اختر المسمي الوظيفي -- </option>
-                                                                <option <?php if ($type['priv_users'] == "المالك") echo "selected"; ?> value="المالك"> المالك </option>
-                                                                <option <?php if ($type['priv_users'] == "مشرف إداري") echo "selected"; ?> value="مشرف إداري"> مشرف إداري </option>
-                                                                <option <?php if ($type['priv_users'] == "مساعد إداري") echo "selected"; ?> value="مساعد إداري"> مساعد إداري </option>
-                                                                <option <?php if ($type['priv_users'] == "مدير مراجعة") echo "selected"; ?> value="مدير مراجعة"> مدير مراجعة </option>
-                                                                <option <?php if ($type['priv_users'] == "مراجع") echo "selected"; ?> value="مراجع"> مراجع </option>
-                                                                <option <?php if ($type['priv_users'] == "مشرف جودة") echo "selected"; ?> value="مشرف جودة">مشرف جودة</option>
-                                                                <option <?php if ($type['priv_users'] == "عميل مباشر") echo "selected"; ?> value="عميل مباشر"> عميل مباشر </option>
-                                                                <option <?php if ($type['priv_users'] == "ضيف") echo "selected"; ?> value="ضيف">ضيف</option>
-                                                            </select>
-                                                        </div>
-                                                        <p class="alert alert-default-secondary"> الصلاحيات </p>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_show" type="checkbox" id="flexSwitchCheckDefault" value="<?php echo $type['priv_show']; ?>" <?php if ($type['priv_show'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault">عرض لوحة الصلاحيات</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_edit" type="checkbox" id="flexSwitchCheckDefault2" value="<?php echo $type['priv_edit']; ?>" <?php if ($type['priv_edit'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault2"> تحرير لوحة الصلاحيات </label>
-                                                            </div>
-                                                        </div>
-                                                        <p class="alert alert-default-secondary"> المستخدمين </p>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_show_users" type="checkbox" id="flexSwitchCheckDefault3" value="<?php echo $type['priv_show_users']; ?>" <?php if ($type['priv_show_users'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault3"> استعراض قائمة المستخدمين </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_edit_users" type="checkbox" id="flexSwitchCheckDefault4" value="<?php echo $type['priv_edit_users']; ?>" <?php if ($type['priv_edit_users'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault4"> انشاء وتعديل حسابات المستخدمين </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_arrive_branch" type="checkbox" id="flexSwitchCheckDefault5" value="<?php echo $type['priv_arrive_branch']; ?>" <?php if ($type['priv_arrive_branch'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault5"> الوصول إلى كل الفروع </label>
-                                                            </div>
-                                                        </div>
-                                                        <p class="alert alert-default-secondary"> إدارة المهام1 </p>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_create_report" type="checkbox" id="flexSwitchCheckDefault6" value="<?php echo $type['priv_create_report']; ?>" <?php if ($type['priv_create_report'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault6"> انشاء النماذج (طلب مراجعة،تقارير مالية،زكاة وضرائب) </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_show_attach" type="checkbox" id="flexSwitchCheckDefault7" value="<?php echo $type['priv_show_attach']; ?>" <?php if ($type['priv_show_attach'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault7">استعراض النماذج والمرفقات</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_agree_refuse_serv" type="checkbox" id="flexSwitchCheckDefault8" value="<?php echo $type['priv_agree_refuse_serv']; ?>" <?php if ($type['priv_agree_refuse_serv'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault8">لموافقة والرفض لنماذج طلب الخدمة</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_edit_report" type="checkbox" id="flexSwitchCheckDefault9" value="<?php echo $type['priv_edit_report']; ?>" <?php if ($type['priv_edit_report'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault9"> التعديل على نماذج الخدمات </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_confirm_report" type="checkbox" id="flexSwitchCheckDefault10" value="<?php echo $type['priv_confirm_report']; ?>" <?php if ($type['priv_confirm_report'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault10"> تأكيد إرسال العقد </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_confirm_receive_money" type="checkbox" id="flexSwitchCheckDefault11" value="<?php echo $type['priv_confirm_receive_money']; ?>" <?php if ($type['priv_confirm_receive_money'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault11"> تأكيد التحقق من استلام الاتعاب وتوقيع العقد </label>
-                                                            </div>
-                                                        </div>
-                                                        <p class="alert alert-default-secondary"> استعراض وتعبئة مذكرة التخطيط </p>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_finish_ref" type="checkbox" id="flexSwitchCheckDefault12" value="<?php echo $type['priv_finish_ref']; ?>" <?php if ($type['priv_finish_ref'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault12"> تأكيد الانتهاء من أعمال المراجعة </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_serv_start" type="checkbox" id="flexSwitchCheckDefault13" value="<?php echo $type['priv_serv_start']; ?>" <?php if ($type['priv_serv_start'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault13"> تأكيد إصدار الخدمة </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_upload_mon" type="checkbox" id="flexSwitchCheckDefault14" value="<?php echo $type['priv_upload_mon']; ?>" <?php if ($type['priv_upload_mon'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault14"> تأكيد رفع على منصة قوائم </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_show_all_report" type="checkbox" id="flexSwitchCheckDefault15" value="<?php echo $type['priv_show_all_report']; ?>" <?php if ($type['priv_show_all_report'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault15"> استعراض التقارير الشاملة </label>
-                                                            </div>
-                                                        </div>
-                                                        <p class="alert alert-default-secondary"> ملف المراجعة </p>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_show_edit_prev" type="checkbox" id="flexSwitchCheckDefault16" value="<?php echo $type['priv_show_edit_prev']; ?>" <?php if ($type['priv_show_edit_prev'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault16"> عرض وانشاء وتعديل وحذف نماذج ملفات المراجعة </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_edit_clients" type="checkbox" id="flexSwitchCheckDefault17" value="<?php echo $type['priv_edit_clients']; ?>" <?php if ($type['priv_edit_clients'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault17"> تعديل بيانات العميل </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_edit_accounts" type="checkbox" id="flexSwitchCheckDefault18" value="<?php echo $type['priv_edit_accounts']; ?>" <?php if ($type['priv_edit_accounts'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault18"> تعديل دليل الحسابات </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_change_refuson_team" type="checkbox" id="flexSwitchCheckDefault19" value="<?php echo $type['priv_change_refuson_team']; ?>" <?php if ($type['priv_change_refuson_team'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault19">تغيير وتعديل فريق المراجعة</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_paper_work" type="checkbox" id="flexSwitchCheckDefault20" value="<?php echo $type['priv_paper_work']; ?>" <?php if ($type['priv_paper_work'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault20"> تعبئة ورقة العمل </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_paper_revision" type="checkbox" id="flexSwitchCheckDefault21" value="<?php echo $type['priv_paper_revision']; ?>" <?php if ($type['priv_paper_revision'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault21"> مراجعة ورقة العمل </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_paper_start_work" type="checkbox" id="flexSwitchCheckDefault22" value="<?php echo $type['priv_paper_start_work']; ?>" <?php if ($type['priv_paper_start_work'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault22"> اعتماد ورقة العمل </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_paper_end_archieve" type="checkbox" id="flexSwitchCheckDefault23" value="<?php echo $type['priv_paper_end_archieve']; ?>" <?php if ($type['priv_paper_end_archieve'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault23"> الاكتمال والأرشفة </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box2">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input" name="priv_paper_edit_delete_add" type="checkbox" id="flexSwitchCheckDefault24" value="<?php echo $type['priv_paper_edit_delete_add']; ?>" <?php if ($type['priv_paper_edit_delete_add'] == "نعم") echo "checked"; ?>>
-                                                                <label class="form-check-label" for="flexSwitchCheckDefault24"> إضافة وتعديل وحذف إجراء مراجعة في ورقة عمل </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box submit_box">
-                                                        <input class="btn btn-outline-primary btn-sm" name="add_car" type="submit" value=" تعديل الصلاحيات ">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- START RESPONSE SPACE  -->
-                                            <!-- area to display a message after completion of upload -->
-                                            <br>
-                                            <div class='status'></div>
-                                            <!-- END RESPONSE SPACE  -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"> <i class="fa fa-close"></i> اغلاق</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END RECORD TO EDIT NEW RECORD  -->
+                    <td> <?php if ($data['paper_add_edit_ad_sup'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_ad_sup" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_ad_sup" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
 
-                <?php
-                }
-                ?>
+                    </td>
+                    <td> <?php if ($data['paper_add_edit_ma_assis'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_ma_assis" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_ma_assis" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_add_edit_mang_revie'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_mang_revie" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_mang_revie" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_add_edit_reviwer'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_reviwer" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_reviwer" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_add_edit_qua_super'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_qua_super" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_qua_super" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_add_edit_live_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_live_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_live_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+                    <td> <?php if ($data['paper_add_edit_client'] == 1) { ?>
+                            <input type="checkbox" checked name="paper_add_edit_client" value="0" onclick="this.form.submit()">
+                        <?php
+                            } else { ?>
+                            <input type="checkbox" name="paper_add_edit_client" value="1" onclick="this.form.submit()">
+                        <?php
+                            } ?>
+
+                    </td>
+
+                </tr>
             </tbody>
         </table>
+    </form>
     </div>
 </div>
 </div>
 </div>
-

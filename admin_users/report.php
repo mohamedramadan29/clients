@@ -28,14 +28,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="myform">
-                            <form class="form-group insert ajax_form" action="main_ajax.php?dir=admin_users&page=add" method="POST" autocomplete="on" enctype="multipart/form-data">
+                            <form id="add_form_user" class="form-group insert ajax_form" action="main_ajax.php?dir=admin_users&page=add" method="POST" autocomplete="on" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-12">
 
                                         <div class="new_box">
                                             <div class="input-group input-group-sm">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm"> نوع المستخدم :</span>
-                                                <select id="user_type" class="form-control" name="user_type">
+                                                <select required id="user_type" class="form-control" name="user_type">
                                                     <option value=""> -- اختر نوع المستخدم --</option>
                                                     <option value="ضيف"> ضيف </option>
                                                     <option value="موظف">موظف</option>
@@ -46,7 +46,7 @@
                                         <div class="new_box">
                                             <div class="input-group input-group-sm">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm"> المسمى الوظيفي :</span>
-                                                <select class="form-control" name="user_jop_title">
+                                                <select required class="form-control" name="user_jop_title">
                                                     <option value=""> -- اختر المسمي الوظيفي -- </option>
                                                     <option value="المالك"> المالك </option>
                                                     <option value="مشرف إداري"> مشرف إداري </option>
@@ -54,6 +54,7 @@
                                                     <option value="مدير مراجعة"> مدير مراجعة </option>
                                                     <option value="مراجع"> مراجع </option>
                                                     <option value="مشرف جودة">مشرف جودة</option>
+                                                    <option value="عميل مباشر"> عميل مباشر </option>
                                                     <option value="ضيف">ضيف</option>
                                                 </select>
 
@@ -108,12 +109,10 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <div class="new_box">
                                             <div class="input-group input-group-sm">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm"> حالة المستخدم :</span>
-                                                <select class="form-control" name="user_stat">
+                                                <select required class="form-control" name="user_stat">
                                                     <option value=""> - اختر حالة المستخدم -</option>
                                                     <option value="1"> نشط </option>
                                                     <option value="0">معلق</option>
@@ -175,7 +174,18 @@
                         <td> <?php echo $type['user_email']; ?> </td>
                         <td> <?php echo $type['user_phone']; ?> </td>
                         <td> <?php echo $type['user_city']; ?> </td>
-                        <td> <a href="main.php?dir=record_screen&page=view&user_id=<?php echo $type['user_id']; ?>" class="btn btn-outline-primary btn-sm"> حركة الحساب </a> </td>
+                        <?php
+                        if ($type['user_type'] == 'ضيف') { ?>
+                            <td> <a href="main.php?dir=record_screen&page=view&user_id=<?php echo $type['user_id']; ?>" class="btn btn-outline-primary btn-sm"> حركة الحساب </a> </td>
+                        <?php
+
+                        } else {
+                        ?>
+                            <td></td>
+                        <?php
+                        }
+
+                        ?>
                         <td>
                             <?php if ($type['user_stat'] == 1) { ?>
                                 <button class="btn btn-success btn-sm"> نشط </button>
@@ -198,7 +208,7 @@
                     </tr> <?php  ?>
                     <!-- START MODEL TO Edit RECORD  -->
                     <!-- Modal -->
-                    <div class="modal fade edit_form" id="editrecord<?php echo $type['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade edit_form ajax_form" id="editrecord<?php echo $type['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -219,9 +229,7 @@
                                                                 <span class="input-group-text" id="inputGroup-sizing-sm"> نوع المستخدم :</span>
                                                                 <select class="form-control" name="user_type">
                                                                     <option value=""> -- اختر نوع المستخدم --</option>
-                                                                    <option <?php if (
-                                                                                $type['user_type'] == 'ضيف'
-                                                                            ) {
+                                                                    <option <?php if ($type['user_type'] == 'ضيف') {
                                                                                 echo 'selected';
                                                                             } ?> value="ضيف"> ضيف </option>
                                                                     <option <?php if (
@@ -238,49 +246,48 @@
                                                                 <span class="input-group-text" id="inputGroup-sizing-sm"> المسمى الوظيفي :</span>
                                                                 <select class="form-control" name="user_jop_title">
                                                                     <option value=""> -- اختر المسمي الوظيفي -- </option>
+                                                                    <option <?php if ($type['user_jop_title'] == 'المالك') echo 'selected'; ?> value="المالك"> المالك </option>
                                                                     <option <?php if (
-                                                                                $type['user_type'] == 'المالك'
-                                                                            ) {
-                                                                                echo 'selected';
-                                                                            } ?> value="المالك"> المالك </option>
-                                                                    <option <?php if (
-                                                                                $type['user_type'] ==
+                                                                                $type['user_jop_title'] ==
                                                                                 'مشرف إداري'
                                                                             ) {
                                                                                 echo 'selected';
                                                                             } ?> value="مشرف إداري"> مشرف إداري </option>
                                                                     <option <?php if (
-                                                                                $type['user_type'] ==
+                                                                                $type['user_jop_title'] ==
                                                                                 'مساعد إداري'
                                                                             ) {
                                                                                 echo 'selected';
                                                                             } ?> value="مساعد إداري"> مساعد إداري </option>
                                                                     <option <?php if (
-                                                                                $type['user_type'] ==
+                                                                                $type['user_jop_title'] ==
                                                                                 'مدير مراجعة'
                                                                             ) {
                                                                                 echo 'selected';
                                                                             } ?> value="مدير مراجعة"> مدير مراجعة </option>
                                                                     <option <?php if (
-                                                                                $type['user_type'] == 'مراجع'
+                                                                                $type['user_jop_title'] == 'مراجع'
                                                                             ) {
                                                                                 echo 'selected';
                                                                             } ?> value="مراجع"> مراجع </option>
                                                                     <option <?php if (
-                                                                                $type['user_type'] == 'مشرف جودة'
+                                                                                $type['user_jop_title'] == 'مشرف جودة'
                                                                             ) {
                                                                                 echo 'selected';
                                                                             } ?> value="مشرف جودة">مشرف جودة</option>
                                                                     <option <?php if (
-                                                                                $type['user_type'] == 'ضيف'
+                                                                                $type['user_jop_title'] == 'عميل مباشر'
+                                                                            ) {
+                                                                                echo 'selected';
+                                                                            } ?> value="عميل مباشر">عميل مباشر</option>
+                                                                    <option <?php if (
+                                                                                $type['user_jop_title'] == 'ضيف'
                                                                             ) {
                                                                                 echo 'selected';
                                                                             } ?> value="ضيف">ضيف</option>
                                                                 </select>
-
                                                             </div>
                                                         </div>
-
                                                         <div class="box-flex">
                                                             <div class="new_box">
                                                                 <div class="input-group input-group-sm">
@@ -521,7 +528,7 @@
                                                                             } ?> value="0">معلق</option>
                                                                 </select>
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>

@@ -35,8 +35,6 @@ if ( $dir == 'record_screen' && $page == 'edit_account' ) {
     include 'record_screen/edit_tax.php';
 }
 
-
-
 // END ADMIN RECORD SCREEN
 // START Accounting Report ( عقد إعداد تقرير محاسبي )
 if ( $dir == 'clients/accounting_report' && $page == 'ajax_add' ) {

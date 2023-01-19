@@ -59,12 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ]);
     if ($stmt) { ?>
         <script>
-            document.getElementById("edit_form").reset();
             setTimeout(() => {
                 let url = "main.php?dir=admin_users&page=report";
                 window.location.href = url;
-            },100);
+            }, 2000);
         </script>
-     
+        <div class="alert-success text-center" style="margin: auto; display:block">
+            تم التعديل بنجاح
+        </div>
 <?php }
 }

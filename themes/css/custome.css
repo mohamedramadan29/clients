@@ -1891,7 +1891,7 @@
  input[type="checkbox"] {
    box-sizing: border-box;
    padding: 0;
-   width: 20px;
+   width: 19px;
    height: 20px;
    margin-right: -25px;
    /* margin-left: -24px; */
@@ -2073,12 +2073,12 @@
 
  .password_class .fa-eye,
  .password_class .fa-eye-slash {
-  position: absolute;
-  top: 11px;
-  left: 10px;
-  color: #303030;
-  cursor: pointer;
-  font-size: 14px;
+   position: absolute;
+   top: 11px;
+   left: 10px;
+   color: #303030;
+   cursor: pointer;
+   font-size: 14px;
  }
 
  /* START CLIENT SERVE */
@@ -2477,14 +2477,27 @@
    border-radius: 100%;
  }
 
- .dropzone .dz-preview .dz-remove{
-  font-size: 14px;
-  text-align: center;
-  display: block;
-  cursor: pointer;
-  border: none;
-  background-color: #e74c3c;
-  padding: 5px;
-  margin-top: 5px;
-  border-radius: 23px;
+ .dropzone .dz-preview .dz-remove {
+   font-size: 14px;
+   text-align: center;
+   display: block;
+   cursor: pointer;
+   border: none;
+   background-color: #e74c3c;
+   padding: 5px;
+   margin-top: 5px;
+   border-radius: 23px;
+ }
+
+
+ .customer_report .privilage_table tr .main_th {
+   padding: 10px !important;
+   color: #fff !important;
+   background: #f1c40f;
+   width: 300px;
+ }
+
+ input[type="checkbox"]:checked {
+   background: red;
+   color: white;
  }
