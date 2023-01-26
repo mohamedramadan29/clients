@@ -335,7 +335,14 @@ $(document).ready(function () {
     ],
 
   });
-
+  /*
+  $('.input-daterange').datepicker({
+    todayBtn:'linked',
+    format: "yyyy-mm-dd",
+    autoclose: true
+   });
+*/
+   
 
   // START NEW WEB SITE EDUCTION
 
@@ -414,22 +421,7 @@ $(document).ready(function () {
 $(function () {
   $(".datepick").datepicker();
   });
-  $(function () {
-    $(".rateyo")
-      .rateYo()
-      .on("rateyo.change", function (e, data) {
-        var rating = data.rating;
-        $(this)
-          .parent()
-          .find(".score")
-          .text("score :" + $(this).attr("data-rateyo-score"));
-        $(this)
-          .parent()
-          .find(".result")
-          .text("rating :" + rating);
-        $(this).parent().find("input[name=rating]").val(rating); //add rating value to input field
-      });
-  });
+
   $(".country").select2({
     dropdownParent: $("#staticBackdrop")
   });

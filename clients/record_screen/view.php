@@ -27,6 +27,7 @@
                 <a href="main.php?dir=clients/account&page=edit"> تعديل بيانات المستخدم </a> <i class="fa fa-edit"></i>
             </button>
         </div>
+
         <br>
         <br>
         <br>
@@ -81,12 +82,32 @@
 
     <div class="table-responsive">
         <div class="add_new_record">
-            <button type="button" class="btn btn-primary btn-sm">
+            <button type="" class="last_clint_running">
                 حركة اخر العملاء الخاصين بك التي تم العمل عليهم
             </button>
         </div>
-
-        <table id="tableone" class="table table-light table-striped table-hover table-bordered">
+        <br>
+        <br>
+        <!--
+        <div class="row">
+            <div class="input-daterange">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-3">
+                    <input placeholder='start_date' type="text" name="start_date" id="start_date" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <input placeholder='end_date' type="text" name="end_date" id="end_date" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="button" name="search" id="search" value="بحث" class="btn btn-info" />
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+                -->
+        <table id="tableone" class="table search_table table-light table-striped table-hover table-bordered">
             <thead>
                 <tr>
                     <th> رمز العميل </th>
@@ -99,7 +120,7 @@
                     <th> تاريخ انتهاء الخدمة </th>
                     <th> ارفاق عقد موقع </th>
                     <th> ارفاق ايصالات سداد الاتعاب </th>
-                     
+
                     <th> الحالة </th>
                 </tr>
             </thead>
@@ -111,7 +132,7 @@
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_tax&tax_id=<?php echo $type['tax_id']; ?>"> <?php echo $type['tax_id']; ?> </a> </td>
+                        <td class="client_number"> <a class="btn btn-default btn-sm" href="main.php?dir=clients/record_screen&page=view_tax&tax_id=<?php echo $type['tax_id']; ?>"> <?php echo $type['tax_id']; ?> </a> </td>
                         <td> <?php echo $type['tax_client_name']; ?> </td>
                         <td> <?php echo $type['tax_years_required']; ?> </td>
                         <td> زكاة وضرائب </td>
@@ -180,8 +201,8 @@
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
-                   
+                        <td class="client_number"> <a class="btn btn-default btn-sm" href="main.php?dir=clients/record_screen&page=view_account&ar_id=<?php echo $type['ar_id']; ?>"> <?php echo $type['ar_id']; ?> </a> </td>
+
                         <td> <?php echo $type['ar_client_name']; ?> </td>
                         <td> -- <?php // echo $type['ar_years_required']; 
                                 ?> </td>
@@ -251,8 +272,8 @@
                 $stmt->execute(array($_SESSION['client_id']));
                 $alltype = $stmt->fetchAll();
                 foreach ($alltype as $type) { ?> <tr>
-                        <td> <a class="btn btn-default" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
-                    
+                        <td class="client_number"> <a class="btn btn-default btn-sm" href="main.php?dir=clients/record_screen&page=view_contract&con_id=<?php echo $type['con_id']; ?>"> <?php echo $type['con_id']; ?> </a> </td>
+
                         <td> <?php echo $type['con_client_name']; ?> </td>
                         <td> <?php echo $type['con_years_required']; ?> </td>
                         <td> عقد ارتباط </td>
