@@ -44,6 +44,21 @@ if (isset($_SESSION['admin_id']) || isset($_SESSION['client_id']) || isset($_SES
                 include 'admin_users/report.php';
             }
             // END admin_users
+            // START All TAX 
+            if ($dir == 'record_screen' && $page == 'all_tax') {
+                include 'record_screen/all_tax.php';
+            }
+            // END  All TAX
+            // START All Account 
+            if ($dir == 'record_screen' && $page == 'all_account') {
+                include 'record_screen/all_account.php';
+            }
+            // END  All Account
+             // START All contract 
+             if ($dir == 'record_screen' && $page == 'all_contract') {
+                include 'record_screen/all_contract.php';
+            }
+            // END  All contract
             // START ADMIN RECORD SCREEN
             if ($dir == 'record_screen' && $page == 'view') {
                 include 'record_screen/view.php';
