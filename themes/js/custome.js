@@ -9,8 +9,12 @@ $(document).ready(function () {
     $("this").hide();
   });
   /*  HIDE BUTTON WHEN CLICK  */
-
-
+/**** START TOLTIP ***/
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+/****  END TOOL TIP   */
   // START CONFIRM MESSAGE
   $(".confirm").click(function () {
     return confirm(" هل تريد حذف هذا العنصر ");

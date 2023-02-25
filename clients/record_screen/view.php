@@ -111,7 +111,7 @@
             <thead>
                 <tr>
                     <th> رمز العميل </th>
-                    <th> اسم العميل </th>
+                    <th style="width: 250px;"> اسم العميل </th>
                     <th> السنة المالية </th>
                     <th> نوع الخدمة </th>
                     <th> تاريخ طلب الخدمة </th>
@@ -182,13 +182,14 @@
                             ?> </td>
                         <td> <?php
                                 if ($type['status'] == 0) { ?>
-                                قائمة
+                                <span class="bg bg-warning">قائمة</span>
                             <?php
                                 } else { ?>
-                                انتهت
+                                <span class="bg bg-success"> انتهت </span>
                             <?php
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
                     </tr> <?php
                             ?>
                 <?php
@@ -253,13 +254,14 @@
                             ?> </td>
                         <td> <?php
                                 if ($type['status'] == 0) { ?>
-                                قائمة
+                                <span class="bg bg-warning"> قائمة </span>
                             <?php
                                 } else { ?>
-                                انتهت
+                                <span class="bg bg-success"> انتهت </span>
                             <?php
                                 }
-                            ?> </td>
+                            ?>
+                        </td>
                     </tr> <?php
                             ?>
                 <?php
@@ -330,10 +332,10 @@
 
                         <td> <?php
                                 if ($type['status'] == 0) { ?>
-                                قائمة
+                                <span class="bg bg-warning"> قائمة </span>
                             <?php
                                 } else { ?>
-                                انتهت
+                                <span class="bg bg-success"> انتهت </span>
                             <?php
                                 }
                             ?>
