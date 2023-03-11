@@ -129,65 +129,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   };
   loader();
 
-  var dev = $("#logo").dropify({});
-  dev = dev.data("dropify");
-  var dev2 = $("#logo2").dropify({});
-  dev2 = dev2.data("dropify");
-  var dev3 = $("#logo3").dropify({});
-  dev3 = dev3.data("dropify");
-  var dev4 = $("#logo4").dropify({});
-  dev4 = dev4.data("dropify");
-  var dev5 = $(".logo2").dropify({});
-  dev5 = dev5.data("dropify");
-  var dev = $("#logo").dropify({});
-  dev.on("dropify.beforeClear", function (event, element) {
-    //alert($(element).attr("data-table"));
-    var data_table = $("#logo").attr("data_table");
-    var col_pk = $("#logo").attr("col_pk");
-    var col_val = $("#logo").attr("col_val");
-
-    var img_column = $("#logo").attr("name");
-    var data_value = $("#logo").attr("data_value");
-
-    delete_image(data_table, col_pk, col_val, img_column, data_value);
-  });
-
-  var dev2 = $("#logo2").dropify({});
-  dev2.on("dropify.beforeClear", function (event, element) {
-    //alert($(element).attr("data-table"));
-    var data_table = $("#logo2").attr("data_table");
-    var col_pk = $("#logo2").attr("col_pk");
-    var col_val = $("#logo2").attr("col_val");
-
-    var img_column = $("#logo2").attr("name");
-    var data_value = $("#logo2").attr("data_value");
-
-    delete_image(data_table, col_pk, col_val, img_column, data_value);
-  });
-  var dev3 = $("#logo3").dropify({});
-  dev3.on("dropify.beforeClear", function (event, element) {
-    //alert($(element).attr("data-table"));
-    var data_table = $("#logo3").attr("data_table");
-    var col_pk = $("#logo3").attr("col_pk");
-    var col_val = $("#logo3").attr("col_val");
-
-    var img_column = $("#logo3").attr("name");
-    var data_value = $("#logo3").attr("data_value");
-
-    delete_image(data_table, col_pk, col_val, img_column, data_value);
-  });
-  var dev4 = $("#logo4").dropify({});
-  dev4.on("dropify.beforeClear", function (event, element) {
-    //alert($(element).attr("data-table"));
-    var data_table = $("#logo4").attr("data_table");
-    var col_pk = $("#logo4").attr("col_pk");
-    var col_val = $("#logo4").attr("col_val");
-
-    var img_column = $("#logo4").attr("name");
-    var data_value = $("#logo4").attr("data_value");
-
-    delete_image(data_table, col_pk, col_val, img_column, data_value);
-  });
 
   $('#tableone').DataTable({
     responsive: true,

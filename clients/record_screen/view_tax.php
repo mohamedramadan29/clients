@@ -253,7 +253,6 @@ $tax_data = $stmt->fetch();
                                                 <span class=""> تمت <img style="width:30px; margin-right:43px;" src="uploads/done.gif" alt=""></span>
                                             <?php
                                                 }
-
                                             ?>
                                         </td>
                                         <td></td>

@@ -358,7 +358,7 @@ $tax_data = $stmt->fetch();
                                 </div>
                             </div>
                             <div class="box text-center">
-                                <button type="submit" class="btn btn-danger btn-sm"> تعديل العقد والموافقة علية<i class="fa fa-edit"></i> </button>
+                                <button type="submit" class="btn btn-primary btn-sm">   الموافقة علي العقد      <i class="fa fa-edit"></i> </button>
                             </div>
                             <!--*********************** START CODE ******************** -->
                             <!-- Area to display the percent of progress -->
